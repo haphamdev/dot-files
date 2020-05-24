@@ -68,6 +68,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
 Plug 'voldikss/vim-floaterm'
+Plug 'christoomey/vim-system-copy'
 
 call plug#end()
 
