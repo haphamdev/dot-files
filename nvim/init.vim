@@ -67,6 +67,7 @@ Plug 'itchyny/lightline.vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'jiangmiao/auto-pairs'
+Plug 'voldikss/vim-floaterm'
 
 call plug#end()
 
@@ -218,3 +219,12 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>t
 "======================== end of coc-nvim config =============================
+
+"========================= Vim Floaterm ======================================
+nnoremap <silent> <leader>t :FloatermNew<CR>
+
+"Decide whether to close floaterm window once job gets finished.
+"   0: Always do NOT close floaterm window. (Default)
+"   1: Close window if the job exits normally, otherwise show messages like [Process exited 101]
+"   2: Always close floaterm window
+let g:floaterm_autoclose=1

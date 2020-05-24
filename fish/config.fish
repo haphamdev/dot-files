@@ -35,3 +35,5 @@ abbr -a kdc 'kubectl describe'
 
 # Arch
 abbr -a pci sudo pacman -S
+
+set PATH $PATH (ruby -e 'puts Gem.user_dir')/bin
