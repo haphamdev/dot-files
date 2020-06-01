@@ -6,7 +6,7 @@ set nowrap
 set scrolloff=6
 
 " Reload vim configuration
-nnoremap <leader>rl :so $MYVIMRC
+nnoremap <leader>rl :so $MYVIMRC<cr>
 
 " Ctrl+c and Ctrl+j as Esc
 " Ctrl-j is a little awkward unfortunately:
@@ -33,10 +33,6 @@ cnoremap <C-c> <Esc>
 onoremap <C-c> <Esc>
 lnoremap <C-c> <Esc>
 tnoremap <C-c> <Esc>
-
-" Clear highlighted search results
-vnoremap <leader>hl :nohlsearch<cr>
-nnoremap <leader>hl :nohlsearch<cr>
 
 " Jump to start and end of line using the home row keys
 map H ^
@@ -103,6 +99,7 @@ Plug 'voldikss/vim-floaterm'
 Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
+Plug 'udalov/kotlin-vim'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
