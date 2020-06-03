@@ -1,4 +1,6 @@
 #!/usr/local/bin/fish
+
+set -x PATH $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
