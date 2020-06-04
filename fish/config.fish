@@ -40,6 +40,9 @@ abbr -a proj 'cd ~/projects'
 abbr -a aps 'cd ~/projects/admin-panel-service'
 abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/.tmux.conf'
+abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
+abbr -a pre 'pr e'
+abbr -a prc 'pr c'
 
 function fish_right_prompt
 	set st $status
@@ -55,41 +58,18 @@ function fish_right_prompt
 end
 
 # set fish_color_autosuggestion d2d2d2
+    
+function pr -d "Go to project in $HOME/projects"
+    cd "$HOME/projects"
+    ls -d */ | string trim | fzf | read -l result
 
-# GIT: fetch code merge master.
-function gpmaster
-	set stashed check_git_status_and_stash	
-	ec green Checking out master...
-	git checkout master
-	ec green Fetching from origin...
-	git fetch -p
-	ec green Merging master...
-	git merge
-	ec green Switching back to previous branch...
-	git checkout -
-	if $stashed
-		ec green Poping stash...
-		t stash pop
-	else
-		ec green Nothing to pop from stash.
-	end
-	ec green Done!
+    switch "$argv"
+        case code c
+            code $result
+        case e o v vim nvim
+            nvim $result
+        case '*'
+            cd $result
+        end
 end
 
-function ec
-    set_color $argv[1]
-    echo $argv[2..-1]
-    set_color normal
-end
-
-function check_git_status_and_stash
-	switch '(git status | grep "nothing to commit")'
-	case "*nothing to commit*"
-		ec green Nothing to stash.
-		return 1
-	case "*"
-		ec green Stashing current status
-		git stash
-		return 0
-	end
-end
