@@ -41,12 +41,6 @@ abbr -a aps 'cd ~/projects/admin-panel-service'
 abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/.tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
-abbr -a pre 'pr e'
-abbr -a prc 'pr c'
-abbr -a pr 'pr cd'
-abbr -a fpe 'prfzf e'
-abbr -a fpc 'prfzf c'
-abbr -a fp 'prfzf cd'
 
 function fish_right_prompt
 	set st $status
@@ -63,7 +57,7 @@ end
 
 # set fish_color_autosuggestion d2d2d2
     
-# A funtion to jump to a directory in $HOME/projects with auto completion.
+# A funtion to jump to or open a directory in $HOME/projects using vs code or nvim with auto completion.
 function pr -d "Go to project in ,HOME/projects"
     switch $argv[1]
         case o e v vim nvim
@@ -78,7 +72,7 @@ end
 cd $HOME/projects; set -l project_paths (ls -d */ | string trim); cd -
 complete -f -c pr -a "$project_paths"
 
-
+# A function to jump to or open directory in $HOME/projects with vs code or nvim with fuzzy search
 function prfzf -d "Go to project in $HOME/projects using fzf search"
     cd "$HOME/projects"
     ls -d */ | string trim | fzf | read -l result
@@ -92,3 +86,10 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
             cd $result
         end
 end
+
+abbr -a pre 'pr e'
+abbr -a prc 'pr c'
+abbr -a pr 'pr cd'
+abbr -a fpe 'prfzf e'
+abbr -a fpc 'prfzf c'
+abbr -a fp 'prfzf cd'
