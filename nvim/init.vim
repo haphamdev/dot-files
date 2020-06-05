@@ -240,6 +240,7 @@ set number
 let no_buffers_menu=1
 silent! colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE
+hi MatchParen guifg=red ctermfg=red guibg=white ctermbg=white
 
 set mousemodel=popup
 set t_Co=256
