@@ -1,6 +1,7 @@
 #!/usr/local/bin/fish
 
-set -x PATH $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
+set -x JAVA_HOME '/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home'
+set -x PATH $JAVA_HOME $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 
@@ -93,3 +94,4 @@ abbr -a pr 'pr cd'
 abbr -a fpe 'prfzf e'
 abbr -a fpc 'prfzf c'
 abbr -a fp 'prfzf cd'
+
