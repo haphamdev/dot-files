@@ -10,7 +10,7 @@ function pr -d "Go to project in ,HOME/projects"
         end
 end
 
-cd $HOME/projects; set -l project_paths (ls -d */ | string trim); cd -
+set -l project_paths (ls -1d $HOME/projects/*/ | sed -E 's|\/$||' | sed -E 's|.*\/||')
 complete -f -c pr -a "$project_paths"
 
 # A function to jump to or open directory in $HOME/projects with vs code or nvim with fuzzy search
