@@ -4,7 +4,7 @@ brew install fish
 brew install nvim
 brew cask install alacritty
 brew install tmux
-brew install the_silver_searcher
+brew install ripgrep
 brew install pgcli
 brew install urlview
 brew install htop
