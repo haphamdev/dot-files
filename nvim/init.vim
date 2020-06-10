@@ -10,9 +10,6 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
 " Set minimum number of screen lines before/after the cursor
 set scrolloff=6
 
-" Reload vim configuration
-nnoremap <leader>rl :so $MYVIMRC<cr>
-
 " Ctrl+c and Ctrl+j as Esc
 " Ctrl-j is a little awkward unfortunately:
 " https://github.com/neovim/neovim/issues/5916
@@ -105,6 +102,8 @@ Plug 'airblade/vim-rooter'
 Plug 'christoomey/vim-tmux-navigator'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'udalov/kotlin-vim'
+Plug 'dag/vim-fish'
+Plug 'tpope/vim-surround'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -443,6 +442,18 @@ endif
 cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :FZF -m<CR>
+
+function! RipgrepFzf(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = printf(command_fmt, '{q}')
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
+command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+nnoremap <leader>fa :RG<CR>
+
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
 
@@ -686,15 +697,13 @@ endif
  
 "*******************************************************************************
 "floaterm key mappings
+"*******************************************************************************
 nnoremap <leader>t :FloatermNew<cr>
 let g:floaterm_autoclose=1
 
 
-" Switch betwwen panes with Ctrl jkhl
-nnoremap <C-h> <C-w>h
-nnoremap <C-j> <C-w>j
-nnoremap <C-k> <C-w>k
-nnoremap <C-l> <C-w>l
+" Reload vim configuration
+nnoremap <leader>rl :so $MYVIMRC<cr>
 
 
 "******************************************************************************
@@ -842,3 +851,9 @@ nnoremap <silent> <space>j  :<C-u>CocNext<CR>
 nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>l
+
+
+"******************************************************************************
+" Loading auto-paris script
+"******************************************************************************
+source $HOME/projects/dot-files/nvim/auto-pairs.vim

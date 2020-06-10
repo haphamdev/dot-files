@@ -18,12 +18,6 @@ function fish_prompt
 
   set_color -o red
   printf ' |'
-  set_color yellow
-  printf '%s' (__fish_git_prompt)
-  if [ (_is_git_dirty) ]
-    set_color blue
-    printf '* '
-  end
   echo
   set_color yellow
   printf '»» '

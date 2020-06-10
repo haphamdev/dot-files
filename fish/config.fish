@@ -42,6 +42,7 @@ abbr -a aps 'cd ~/projects/admin-panel-service'
 abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/.tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
+abbr -a tm 'tmux attach || tmux'
 
 function fish_right_prompt
 	set st $status
