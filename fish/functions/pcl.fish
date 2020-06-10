@@ -8,10 +8,6 @@ function pcl -d "Clone git project to $HOME/projects"
         \t- c code vscode: Open the cloned project dir by VS Code\n
         \t- b back: Stay in current directory and not open the project"
 
-    if $action -eq 'help'
-        return
-    end
-
     switch $action
         case e v vim nvim
             cd $HOME/projects
