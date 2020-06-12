@@ -698,8 +698,14 @@ endif
 "*******************************************************************************
 "floaterm key mappings
 "*******************************************************************************
-nnoremap <leader>t :FloatermNew<cr>
+nnoremap <leader>tn :FloatermNew<cr>
+nnoremap <leader>tt :FloatermToggle!<cr>
+tnoremap <leader>tn <C-\><C-n>:FloatermNew<cr>
+tnoremap <leader>tl <C-\><C-n>:FloatermNext<cr>
+tnoremap <leader>th <C-\><C-n>:FloatermPrev<cr>
+tnoremap <leader>tt <C-\><C-n>:FloatermToggle!<cr>
 let g:floaterm_autoclose=1
+let g:floaterm_winblend=0
 
 
 " Reload vim configuration
