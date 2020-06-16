@@ -3,10 +3,7 @@ set relativenumber
 set nowrap
 
 " Set cursor shape
-set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50
-		  \,a:blinkwait700-blinkoff400-blinkon250-Cursor/lCursor
-		  \,sm:block-blinkwait175-blinkoff150-blinkon175
-
+set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block
 " Set minimum number of screen lines before/after the cursor
 set scrolloff=6
 
@@ -25,16 +22,6 @@ cnoremap <C-k> <Esc>
 onoremap <C-k> <Esc>
 lnoremap <C-k> <Esc>
 tnoremap <C-k> <Esc>
-
-nnoremap <C-c> <Esc>
-inoremap <C-c> <Esc>
-vnoremap <C-c> <Esc>
-snoremap <C-c> <Esc>
-xnoremap <C-c> <Esc>
-cnoremap <C-c> <Esc>
-onoremap <C-c> <Esc>
-lnoremap <C-c> <Esc>
-tnoremap <C-c> <Esc>
 
 " Jump to start and end of line using the home row keys
 map H ^
@@ -104,6 +91,7 @@ Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'udalov/kotlin-vim'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-surround'
+Plug 'ryanoasis/vim-devicons'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -203,7 +191,7 @@ set softtabstop=0
 set shiftwidth=4
 set expandtab
 
-"" Map leader to ,
+"" Map leader to ','
 let mapleader=','
 
 "" Enable hidden buffers
