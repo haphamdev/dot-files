@@ -26,7 +26,7 @@ abbr -a gs 'git status'
 abbr -a gbk 'git checkout -'
 abbr -a gbp 'git checkout -; git pop'
 abbr -a gl 'git log --oneline'
-abbr -a gdif 'git diff'
+abbr -a gdf 'git diff'
 
 abbr -a e 'nvim'
 abbr -a pc '~/projects/personio/perctl'
@@ -44,6 +44,13 @@ abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/.tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
 abbr -a tm 'tmux attach || tmux'
+
+abbr -a pre 'pr e'
+abbr -a prc 'pr c'
+abbr -a pr 'pr cd'
+abbr -a fpe 'prfzf e'
+abbr -a fpc 'prfzf c'
+abbr -a fp 'prfzf cd'
 
 function fish_right_prompt
 	set st $status
