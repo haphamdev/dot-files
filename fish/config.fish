@@ -26,6 +26,7 @@ abbr -a gs 'git status'
 abbr -a gbk 'git checkout -'
 abbr -a gbp 'git checkout -; git pop'
 abbr -a gl 'git log --oneline --no-merges'
+abbr -a glm 'git log --oneline'
 abbr -a gdf 'git diff'
 
 abbr -a e 'nvim'
