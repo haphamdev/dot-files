@@ -7,22 +7,6 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block
 " Set minimum number of screen lines before/after the cursor
 set scrolloff=6
 
-" Ctrl+c and Ctrl+j as Esc
-" Ctrl-j is a little awkward unfortunately:
-" https://github.com/neovim/neovim/issues/5916
-" So we also map Ctrl+k
-inoremap <C-j> <Esc>
-
-nnoremap <C-k> <Esc>
-inoremap <C-k> <Esc>
-vnoremap <C-k> <Esc>
-snoremap <C-k> <Esc>
-xnoremap <C-k> <Esc>
-cnoremap <C-k> <Esc>
-onoremap <C-k> <Esc>
-lnoremap <C-k> <Esc>
-tnoremap <C-k> <Esc>
-
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
