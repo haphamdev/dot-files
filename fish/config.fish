@@ -27,6 +27,8 @@ abbr -a gbp 'git checkout -; git pop'
 abbr -a gl 'git log --oneline --no-merges'
 abbr -a glm 'git log --oneline'
 abbr -a gdf 'git diff'
+abbr -a gdfs 'git diff --staged'
+abbr -a lg 'lazygit'
 
 abbr -a e 'nvim'
 abbr -a pc '~/projects/personio/perctl'
