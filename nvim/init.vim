@@ -36,6 +36,16 @@ inoremap <right> <nop>
 nnoremap <left> :bp<CR>
 nnoremap <right> :bn<CR>
 
+"******************************************************************************
+" Common key mappings
+"******************************************************************************
+" Ctrl U in insert mode switch text case of the current word.
+inoremap <C-u> <Esc>mqg~iw`qa
+
+" Press jj instead of ESC to exit insert mode
+inoremap jj <Esc>
+inoremap <Esc> <nop>
+
 " vim-bootstrap 
 
 "*****************************************************************************
@@ -179,6 +189,8 @@ set encoding=utf-8
 set fileencoding=utf-8
 set fileencodings=utf-8
 
+" Font
+set guifont=DejaVuSansMono_Nerd_Font:h11
 
 "" Fix backspace indent
 set backspace=indent,eol,start
@@ -376,6 +388,7 @@ set autoread
 "" Split
 noremap <Leader>h :<C-u>split<CR>
 noremap <Leader>v :<C-u>vsplit<CR>
+set diffopt+=vertical
 
 "" Git
 noremap <Leader>ga :Gwrite<CR>
@@ -386,6 +399,7 @@ noremap <Leader>gs :Gstatus<CR>
 noremap <Leader>gb :Gblame<CR>
 noremap <Leader>gd :Gvdiff<CR>
 noremap <Leader>gr :Gremove<CR>
+noremap <Leader>gdm :Gvdiff master:%<CR>
 
 " session management
 nnoremap <leader>so :OpenSession<Space>
@@ -444,6 +458,9 @@ nnoremap <leader>ff :BLines<CR>
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
+
+" Show recent files
+nnoremap <leader>rf :History<CR>
 
 " snippets
 let g:UltiSnipsExpandTrigger="<tab>"
@@ -855,3 +872,9 @@ nnoremap <silent> <space>p  :<C-u>CocListResume<CR>l
 " Loading auto-paris script
 "******************************************************************************
 source $HOME/projects/dot-files/nvim/auto-pairs.vim
+
+
+"******************************************************************************
+" Greeting
+"******************************************************************************
+echom "Vim config is loaded."
