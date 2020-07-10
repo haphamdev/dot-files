@@ -7,6 +7,10 @@ set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block
 " Set minimum number of screen lines before/after the cursor
 set scrolloff=6
 
+" Use jj to exit insert mode, disable <esc>
+inoremap jj <esc>
+inoremap <esc> <nop>
+
 " Jump to start and end of line using the home row keys
 map H ^
 map L $
