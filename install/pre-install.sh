@@ -16,6 +16,7 @@ brew install gradle
 brew install jq
 brew install ncdu
 brew install angle-grinder
+brew install fd
 
 
 
