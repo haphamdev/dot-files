@@ -429,6 +429,7 @@ endfunction
 
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 nnoremap <leader>fa :RG<CR>
+nnoremap <leader>ff :BLines<CR>
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
@@ -680,8 +681,10 @@ tnoremap <leader>tn <C-\><C-n>:FloatermNew<cr>
 tnoremap <leader>tl <C-\><C-n>:FloatermNext<cr>
 tnoremap <leader>th <C-\><C-n>:FloatermPrev<cr>
 tnoremap <leader>tt <C-\><C-n>:FloatermToggle!<cr>
+tnoremap <leader>tb <C-\><C-n>
 let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
+let g:floaterm_width=0.8
 
 
 " Reload vim configuration
