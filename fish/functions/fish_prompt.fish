@@ -6,7 +6,7 @@ end
 
 function fish_prompt
   set_color -o red; printf '\uf302 '
-  set_color -o blue; printf ' %s' (whoami)
+  set_color -o blue; printf '%s' (whoami)
   set_color $fish_color_autosuggestion[1]; printf '@'
   set_color cyan; printf '%s ' (hostname|cut -d . -f 1)
   set_color $fish_color_autosuggestion[1]; printf 'in '

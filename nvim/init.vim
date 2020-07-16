@@ -2,6 +2,15 @@ set number
 set relativenumber
 set nowrap
 
+"*****************************************************************************
+" Set cursorline to highlight the current line, only current buffer.
+"*****************************************************************************
+augroup CursorLine
+  au!
+  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+  au WinLeave * setlocal nocursorline
+augroup END
+
 " Set cursor shape
 set guicursor=n-v-c:block,i-ci-ve:ver25,r-cr:hor20,o:hor50,sm:block
 " Set minimum number of screen lines before/after the cursor
@@ -80,6 +89,7 @@ Plug 'udalov/kotlin-vim'
 Plug 'dag/vim-fish'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
+Plug 'christoomey/vim-system-copy'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -401,6 +411,7 @@ noremap <Leader>te :tabe <C-R>=expand("%:p:h") . "/" <CR>
 set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
+let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.5, 'highlight': 'Comment' } }
 
 " The Silver Searcher
 if executable('ag')
@@ -685,6 +696,7 @@ tnoremap <leader>tb <C-\><C-n>
 let g:floaterm_autoclose=1
 let g:floaterm_winblend=0
 let g:floaterm_width=0.8
+let g:floaterm_height=0.8
 
 
 " Reload vim configuration
