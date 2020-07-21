@@ -9,6 +9,7 @@ set -x LANG en_US.UTF-8
 # fish_vi_key_bindings
 
 abbr -a rl 'source ~/.config/fish/config.fish'
+abbr -a x 'exit'
 abbr -a ef 'nvim ~/projects/dot-files/fish/config.fish'
 abbr -a effn 'nvim ~/.config/fish/functions/'
 
