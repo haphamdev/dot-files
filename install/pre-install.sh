@@ -3,7 +3,7 @@ brew install bash
 brew install htop
 brew install urlview
 brew install fish
-brew install jesseduffield/lazygit/lazygit
+brew install gitui
 brew install nvim
 brew cask install alacritty
 brew install tmux

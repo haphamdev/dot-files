@@ -100,6 +100,7 @@ Plug 'dag/vim-fish'
 Plug 'tpope/vim-surround'
 Plug 'ryanoasis/vim-devicons'
 Plug 'christoomey/vim-system-copy'
+Plug 'mogelbrod/vim-jsonpath'
 
 if isdirectory('/usr/local/opt/fzf')
   Plug '/usr/local/opt/fzf' | Plug 'junegunn/fzf.vim'
@@ -310,6 +311,16 @@ cnoreabbrev WQ wq
 cnoreabbrev W w
 cnoreabbrev Q q
 cnoreabbrev Qall qall
+
+"*****************************************************************************
+"" Json path config
+"*****************************************************************************
+" Optionally copy path to a named register (* in this case) when calling :JsonPath
+let g:jsonpath_register = '*'
+
+" Define mappings for json buffers
+au FileType json noremap <buffer> <silent> <leader>jc :call jsonpath#echo()<CR>
+au FileType json noremap <buffer> <silent> <leader>jg :call jsonpath#goto()<CR>
 
 "" NERDTree configuration
 let g:NERDTreeChDirMode=2

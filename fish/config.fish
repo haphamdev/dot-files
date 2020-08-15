@@ -30,7 +30,7 @@ abbr -a gl 'git log --oneline --no-merges'
 abbr -a glm 'git log --oneline'
 abbr -a gdf 'git diff'
 abbr -a gdfs 'git diff --staged'
-abbr -a lg 'lazygit'
+abbr -a gu 'gitui'
 
 abbr -a e 'nvim'
 abbr -a pc '~/projects/personio/perctl'
