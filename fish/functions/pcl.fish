@@ -3,10 +3,10 @@ function pcl -d "Clone git project to $HOME/projects"
     set -l action $argv[1]
     set -l url $argv[2]
     set -l proj_name (basename $url .git)
-    set -l help_msg "Clone git project to $HOME/projects. Available actions:\n
-        \t- e v vim nvim: Open the cloned project dir by Neo Vim\n
-        \t- c code vscode: Open the cloned project dir by VS Code\n
-        \t- b back: Stay in current directory and not open the project"
+    set -l help_msg "Clone git project to $HOME/projects. Available actions:
+        - e v vim nvim: Open the cloned project dir by Neo Vim
+        - c code vscode: Open the cloned project dir by VS Code
+        - b back: Stay in current directory and not open the project"
 
     switch $action
         case e v vim nvim
