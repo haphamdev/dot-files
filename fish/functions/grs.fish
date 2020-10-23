@@ -3,7 +3,7 @@ function grs -d "Reset --hard current local branch to the remote branch"
     echo "Your current branch is '$current_branch'"
     read -P "Are you sure to reset it to 'origin/$current_branch' (Y/n)? " confirm
 
-    if test $confirm != 'Y'
+    if test $confirm != 'y'
         echo "Aborting..."
         return
     end
