@@ -1,4 +1,13 @@
 function gco
+    set -l has_change (git status --porcelain)
+    if test -n "$has_change"
+        read -P "Stash current change (y/n)? " stash_change
+
+        if test $stash_change = 'y'
+            git stash
+        end
+    end
+
     if test (count $argv) -gt 0
         git for-each-ref --format='%(refname:short)' | fzf --filter $argv[1] | sed -E 's|origin/||' | read branch_name
     else
