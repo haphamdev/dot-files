@@ -15,7 +15,7 @@ function gco
     end
 
     if test -z "$branch_name"
-        echo "Branch not found"
+        echo "Aborted"
         return
     end
 
