@@ -33,6 +33,7 @@ abbr -a gdf 'git diff'
 abbr -a gdfs 'git diff --staged'
 abbr -a gu 'gitui'
 abbr -a cbr 'git branch --show-current | pbcopy'
+abbr -a k 'kubectl'
 
 abbr -a e 'nvim'
 abbr -a pc '~/projects/personio/perctl'
