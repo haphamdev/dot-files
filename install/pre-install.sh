@@ -18,6 +18,8 @@ brew install ncdu
 brew install angle-grinder
 brew install fd
 
+# create a directory for lnav logs
+mkdir ~/lnav-logs
 
 
 # change default shell to fish

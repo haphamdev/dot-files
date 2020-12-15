@@ -14,6 +14,8 @@ function klg
     set -l containers (string split ' ' \
         (kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}')) # convert string to array
 
+    set dir_lnav_logs = "~/lnav-logs/"
+
     if test (count $containers) -gt 1 # Multiple containers in pod
         if test $arg_count -gt 1
             kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
@@ -26,9 +28,18 @@ function klg
         end
 
         set_color yellow --bold; printf "\uf0f6 Log of $pod/$container\n"; set_color normal
-        kubectl logs -f $pod -c $container
+        set log_file_path ~/lnav-logs/$pod--$container.log
+        echo log file path is $log_file_path
+        kubectl logs -f $pod -c $container > $log_file_path &
     else # Only one container in pod
         set_color yellow --bold; printf "\uf0f6 Log of $pod\n"; set_color normal
-        kubectl logs -f $pod
+        set log_file_path ~/lnav-logs/$pod.log
+        echo Log file path is $log_file_path
+        kubectl logs -f $pod > $log_file_path &
     end
+
+    set -l job_id (jobs -lp)
+    lnav $log_file_path
+    kill $job_id
+    rm $log_file_path
 end
