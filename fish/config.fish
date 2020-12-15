@@ -12,6 +12,7 @@ abbr -a rl 'source ~/.config/fish/config.fish'
 abbr -a x 'exit'
 abbr -a ef 'nvim ~/projects/dot-files/fish/config.fish'
 abbr -a effn 'nvim ~/.config/fish/functions/'
+abbr -a ea 'nvim ~/.aws'
 
 # Git abbreviations
 abbr -a gf 'git fetch -p'
@@ -46,7 +47,7 @@ abbr -a kdc 'kubectl describe'
 abbr -a proj 'cd ~/projects'
 abbr -a aps 'cd ~/projects/admin-panel-service'
 abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
-abbr -a etm 'nvim ~/projects/dot-files/tmux/.tmux.conf'
+abbr -a etm 'nvim ~/projects/dot-files/tmux/tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
 abbr -a tm 'tmux attach || tmux'
 
