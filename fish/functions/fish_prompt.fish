@@ -5,6 +5,7 @@ function _is_git_dirty
 end
 
 function fish_prompt
+  set_color -b 414540
   set_color -o red; printf '\uf302 '
   set_color -o blue; printf '%s' (whoami)
   set_color $fish_color_autosuggestion[1]; printf '@'
@@ -13,6 +14,7 @@ function fish_prompt
   set_color -o green; printf '%s' (prompt_pwd)
 
   echo
+  set_color normal
   set_color yellow; printf '\uf489 '
   set_color normal
 end
