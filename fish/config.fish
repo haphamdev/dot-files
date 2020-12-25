@@ -32,6 +32,7 @@ abbr -a glm 'git log --oneline'
 abbr -a gdf 'git diff'
 abbr -a gdfs 'git diff --staged'
 abbr -a gu 'gitui'
+abbr -a gfu 'git rebase -i HEAD~10'
 abbr -a cbr 'git branch --show-current | pbcopy'
 abbr -a k 'kubectl'
 
