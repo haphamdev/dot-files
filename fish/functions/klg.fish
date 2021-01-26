@@ -5,11 +5,18 @@ function klg
         echo Please select a pod:
         kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
         fzf --height=15 --border | read pod;
+
+        if test -z $pod 
+            echo aborted
+            return 1
+        end
+
         echo ✅ $pod is selected
     else
         kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
         fzf --filter $argv[1] | read pod;
     end
+
 
     set -l containers (string split ' ' \
         (kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}')) # convert string to array
@@ -24,6 +31,12 @@ function klg
             echo Please select container inside pod $pod:
             kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
             tr " " "\n" | fzf --height=15 --border | read container
+
+            if test -z $container
+                echo aborted
+                return 1
+            end
+
             echo ✅ $container is selected
         end
 

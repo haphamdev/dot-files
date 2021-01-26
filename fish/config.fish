@@ -1,6 +1,6 @@
 #!/usr/local/bin/fish
 
-set -x JAVA_HOME '/Library/Java/JavaVirtualMachines/jdk1.8.0_231.jdk/Contents/Home'
+set -x JAVA_HOME (/usr/libexec/java_home -v 11.0.9.1)
 set -x PATH $JAVA_HOME $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
 set -x PATH $PATH $HOME/.cargo/bin
 set -x LC_AL en_US.UTF-8

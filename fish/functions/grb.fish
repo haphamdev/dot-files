@@ -5,6 +5,11 @@ function grb -d "Rebase current git branch"
         git for-each-ref --format='%(refname:short)' | grep -v origin | fzf --height=40% --border | sed -E 's|origin/||' | read branch_name
     end
 
+    if test -z $branch_name
+        echo Aborted
+        return
+    end
+
     echo "Rebasing to branch '$branch_name'"
     git rebase -i $branch_name
 end
