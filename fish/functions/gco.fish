@@ -1,5 +1,5 @@
 function gco
-    git rev-parse --is-inside-work-tree 2> /dev/null
+    git rev-parse --is-inside-work-tree 2> /dev/null 1>&2
     set -l git_error $status
     if test $git_error -ne 0
         echo 'Not in git repository'
