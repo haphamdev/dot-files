@@ -1,4 +1,11 @@
 function gco
+    git rev-parse --is-inside-work-tree 2> /dev/null
+    set -l git_error $status
+    if test $git_error -ne 0
+        echo 'Not in git repository'
+        return
+    end
+
     set -l has_change (git status --porcelain)
     if test -n "$has_change"
         read -P "Stash current change (y/n)? " stash_change

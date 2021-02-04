@@ -1,4 +1,4 @@
-function grs -d "Reset --hard current local branch to the remote branch"
+function gup -d "Set upstream for a git branch"
     git rev-parse --is-inside-work-tree 2> /dev/null
     set -l git_error $status
     if test $git_error -ne 0
@@ -8,12 +8,6 @@ function grs -d "Reset --hard current local branch to the remote branch"
 
     git branch --show-current | read current_branch
     echo "Your current branch is '$current_branch'"
-    read -P "Are you sure to reset it to 'origin/$current_branch' (Y/n)? " confirm
 
-    if test $confirm != 'y'
-        echo "Aborting..."
-        return
-    end
-
-    git reset --hard origin/$current_branch
+    git branch -u origin/$current_branch
 end
