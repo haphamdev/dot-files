@@ -6,6 +6,8 @@ function gdb --description "Delete a git branch with fzf"
         return
     end
 
+    echo "Select branch to be deleted:"
+
     if test (count $argv) -gt 0
         git for-each-ref --format='%(refname:short)' | grep -v origin | fzf --filter $argv[1] | sed -E 's|origin/||' | read branch_name
     else
