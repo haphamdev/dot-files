@@ -21,3 +21,5 @@ tmux:
     stashed: '#[fg=cyan,bold]'
     clean: '#[fg=green,bold]'
   layout: [branch,' ', flags]
+  options:
+    branch_max_len: 50
