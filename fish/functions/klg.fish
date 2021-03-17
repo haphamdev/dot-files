@@ -3,7 +3,7 @@ function klg
 
     if test $arg_count -eq 0
         kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
-        fzf --height=15 --border | read pod;
+        fzf --height=15 --border --header="== Select pod:" --reverse | read pod;
 
         if test -z $pod 
             echo \ufc38 Aborted
@@ -28,7 +28,7 @@ function klg
             tr " " "\n" | fzf --filter $argv[2] | read container
         else
             kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
-            tr " " "\n" | fzf --height=15 --border | read container
+            tr " " "\n" | fzf --height=15 --border --header="== Select container:" --reverse | read container
 
             if test -z $container
                 echo \ufc38 Aborted
