@@ -59,6 +59,8 @@ abbr -a fpe 'prfzf e'
 abbr -a fpc 'prfzf c'
 abbr -a fp 'prfzf cd'
 
+abbr -a glc './gradlew.local'
+
 function fish_right_prompt
 	set st $status
 	if test $st -eq 0
