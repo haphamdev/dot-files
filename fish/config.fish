@@ -60,6 +60,7 @@ abbr -a fpc 'prfzf c'
 abbr -a fp 'prfzf cd'
 
 abbr -a glc './gradlew.local'
+abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
 
 function fish_right_prompt
 	set st $status
