@@ -35,6 +35,7 @@ abbr -a gu 'gitui'
 abbr -a gfu 'git rebase -i HEAD~10'
 abbr -a cbr 'git branch --show-current | pbcopy'
 abbr -a k 'kubectl'
+abbr -a gback 'git checkout -'
 
 abbr -a e 'nvim'
 abbr -a pc '~/projects/personio/perctl'
