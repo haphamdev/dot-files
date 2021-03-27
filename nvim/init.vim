@@ -2,6 +2,11 @@ set number
 set relativenumber
 set nowrap
 
+" Syntax highlight
+" Default highlight is better than polyglot
+let g:polyglot_disabled = ['python']
+let python_highlight_all = 1
+
 "*****************************************************************************
 " Set cursorline to highlight the current line, only current buffer.
 "*****************************************************************************
@@ -651,11 +656,6 @@ let g:jedi#smart_auto_mappings = 0
 
 " vim-airline
 let g:airline#extensions#virtualenv#enabled = 1
-
-" Syntax highlight
-" Default highlight is better than polyglot
-let g:polyglot_disabled = ['python']
-let python_highlight_all = 1
 
 
 " typescript

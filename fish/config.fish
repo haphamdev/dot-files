@@ -40,6 +40,7 @@ abbr -a gcm 'git commit -m'
 abbr -g gcma 'git commit -am'
 
 abbr -a e 'nvim'
+abbr -a lg 'lazygit'
 abbr -a pc '~/projects/personio/perctl'
 abbr -a plg 'lnav ~/projects/personio/app/storage-local/logs/laravel.log'
 abbr -a dplg 'rm ~/projects/personio/app/storage-local/logs/laravel.log'
