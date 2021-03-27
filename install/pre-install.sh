@@ -1,5 +1,6 @@
 #!/usr/local/bin/bash
 brew install bash
+brew install tmux
 brew install htop
 brew install urlview
 brew install fish
