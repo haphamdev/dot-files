@@ -109,3 +109,7 @@ function link_neo_vim
         ln -s $sfile_nvim_config $dfile_nvim_config
     end
 end
+
+link_tmux_config_file
+link_alacritty
+link_neo_vim
