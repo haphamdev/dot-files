@@ -90,9 +90,9 @@ function link_alacritty
     set ddir_alacritty_config $dir_config/alacritty
     set dfile_alacritty_config $ddir_alacritty_config/alacritty.yml
 
-    if symlink_not_exist dfile_alacrityy_config
-        mkdir -p ddir_alacritty_config
-        ln -s sfile_alacritty_config dfile_alacritty_config
+    if symlink_not_exist $dfile_alacritty_config
+        mkdir -p $ddir_alacritty_config
+        ln -s $sfile_alacritty_config $dfile_alacritty_config
     end
 end
 
