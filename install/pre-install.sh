@@ -6,7 +6,7 @@ brew install urlview
 brew install fish
 brew install gitui
 brew install nvim
-brew cask install alacritty
+brew install --cask alacritty
 brew install tmux
 brew install ripgrep
 brew install pgcli
