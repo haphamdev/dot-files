@@ -97,6 +97,8 @@ function link_tmux_config_file
         echo "Linking Tmux config..."
         ln -s $sfile_tmux_config $dfile_tmux_config
         echo "Tmux config is linked successfully"
+        echo "Cloning Tmux plugin manager..."
+        git clone https://github.com/tmux-plugins/tpm $HOME/.tmux/plugins/tpm
     else
         echo "Tmux config is linked already. Skip"
     end
