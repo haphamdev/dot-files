@@ -52,6 +52,9 @@ install_if_not_exist lazygit
 
 # create a directory for lnav logs
 echo
+echo "Don't forget to install lnav. Please download it from https://github.com/tstack/lnav/releases/"
+echo "Press ENTER when you finish it."
+read
 echo "Creating directory ~/lnav-logs..."
 mkdir -p ~/lnav-logs
 
