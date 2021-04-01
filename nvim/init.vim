@@ -878,6 +878,7 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>l
 
+hi CursorLine   cterm=NONE ctermbg=darkgray guibg=darkgray
 
 "******************************************************************************
 " Loading auto-paris script
