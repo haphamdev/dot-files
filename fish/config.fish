@@ -1,4 +1,5 @@
 #!/usr/local/bin/fish
+set -a fish_function_path $HOME/projects/dot-files/fish/functions/hplib
 
 set -x JAVA_HOME (/usr/libexec/java_home -v 11)
 set -x PATH $JAVA_HOME $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
