@@ -3,6 +3,7 @@
 set -x JAVA_HOME (/usr/libexec/java_home -v 11)
 set -x PATH $JAVA_HOME $PATH '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' 
 set -x PATH $PATH $HOME/.cargo/bin
+set -x PATH $PATH /usr/local/go/bin
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
