@@ -502,6 +502,8 @@ if has('unnamedplus')
   set clipboard=unnamed,unnamedplus
 endif
 
+nnoremap <leader>fp :let @* = expand('%')<CR>
+
 noremap YY "+y<CR>
 noremap <leader>p "+gP<CR>
 noremap XX "+x<CR>
