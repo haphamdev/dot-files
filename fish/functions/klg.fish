@@ -1,53 +1,48 @@
-function klg
-    set -l arg_count (count $argv)
+function klg -d "Get log of a pod (container if needed)"
+    argparse 'n/namespace=' 'c/container=' -- $argv
 
-    if test $arg_count -eq 0
-        kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
-        fzf --height=15 --border --header="== Select pod:" --reverse | read pod;
-
-        if test -z $pod 
-            echo \ufc38 Aborted
-            return 1
-        end
-
-        echo \uf046 Pod: $pod
-    else
-        kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
-        fzf --filter $argv[1] | read pod;
+    if test $status -ne 0
+        return 255
     end
 
-
-    set -l containers (string split ' ' \
-        (kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}')) # convert string to array
-
-    set dir_lnav_logs = "~/lnav-logs/"
-
-    if test (count $containers) -gt 1 # Multiple containers in pod
-        if test $arg_count -gt 1
-            kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
-            tr " " "\n" | fzf --filter $argv[2] | read container
-        else
-            kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
-            tr " " "\n" | fzf --height=15 --border --header="== Select container:" --reverse | read container
-
-            if test -z $container
-                echo \ufc38 Aborted
-                return 1
-            end
-
-            echo \uf046 Container: $container
-        end
-
-        set log_file_path ~/lnav-logs/$pod--$container.log
-        echo \uf0f6 Opening the log file $log_file_path
-        kubectl logs -f $pod -c $container > $log_file_path &
-    else # Only one container in pod
-        set log_file_path ~/lnav-logs/$pod.log
-        echo \uf0f6 Opening the log file $log_file_path
-        kubectl logs -f $pod > $log_file_path &
+    if test (count $argv) -eq 0
+        err "Pod is missing"
+        return (k8s_errors POD_MISSING)
     end
 
-    set -l job_id (jobs -lp)
+    if set -q _flag_namespace
+        set -l namespace (get_k8s_namespace $_flag_namespace)
+        set arg_namespace '-n' $namespace
+    end
+
+    if test $status -ne 0
+        err "Namespace not found." 
+        return (k8s_errors NAMESPACE_NOT_FOUND)
+    end
+
+    set pod (get_k8s_pod $arg_namespace $argv[1])
+    set arg_pod '-p' $pod
+
+    if test $status -ne 0
+        err "Pod not found"
+        return (k8s_errors POD_NOT_FOUND)
+    end
+
+    set -l container (get_k8s_container $arg_namespace $arg_pod $_flag_container)
+    set arg_container '-c' $container
+
+    if test $status -ne 0
+        err "Container not found."
+        return (k8s_errors CONTAINER_NOT_FOUND)
+    end
+
+    breakpoint
+    set result (get_k8s_container_logs $arg_namespace $arg_pod $arg_container | string split ' ')
+
+    set -l log_file_path $result[1]
+    set -l job_id $result[2]
+
+    echo \uf0f6 Opening the log file $log_file_path
     lnav $log_file_path
     kill $job_id
     echo \uf014 Removing log file $log_file_path
