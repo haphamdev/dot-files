@@ -1,22 +1,35 @@
 function ksh -d "Start sh for a container in k8s pod"
-    echo Please select K8s pod:
-    kubectl get pods --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}' |\
-    fzf --height=15| read -l pod;
-    echo ✅ $pod is selected
+    argparse 'n/namespace=' 'c/container=' -- $argv
 
-    set -l container_names_str (kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}')
-    set -l containers (string split ' ' $container_names_str) # convert string to array
-
-    if test (count $containers) -gt 1
-        echo Please select container inside pod $pod:
-        kubectl get pods $pod -o jsonpath='{.spec.containers[*].name}' |\
-        tr " " "\n" | fzf --height=15 | read container
-        echo ✅ $container is selected
+    if test $status -ne 0
+        return 255
     end
 
-    if set -q container
-        kubectl exec -it pods/$pod --container $container -- sh
-    else
-        kubectl exec -it pods/$pod -- sh
+    if set -q _flag_namespace
+        set -l namespace (get_k8s_namespace $_flag_namespace)
+        set arg_namespace '-n' $namespace
     end
+
+    if test $status -ne 0
+        err "Namespace not found." 
+        return (k8s_errors NAMESPACE_NOT_FOUND)
+    end
+
+    set pod (get_k8s_pod $arg_namespace $argv[1])
+    set arg_pod '-p' $pod
+
+    if test $status -ne 0
+        err "Pod not found"
+        return (k8s_errors POD_NOT_FOUND)
+    end
+
+    set -l container (get_k8s_container $arg_namespace $arg_pod $_flag_container)
+    set arg_container '-c' $container
+
+    if test $status -ne 0
+        err "Container not found."
+        return (k8s_errors CONTAINER_NOT_FOUND)
+    end
+
+    kubectl exec $arg_namespace $arg_container -it $pod -- sh
 end

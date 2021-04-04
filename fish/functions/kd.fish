@@ -23,5 +23,5 @@ function kd -d "Describe k8s pod"
         return (k8s_errors POD_NOT_FOUND)
     end
 
-    kubectl describe pods/$pod $arg_namespace
+    kubectl describe pods/$pod $arg_namespace | less +G
 end

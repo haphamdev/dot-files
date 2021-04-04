@@ -14,8 +14,8 @@ function ke -d "Execute a command for a container in a K8s pod"
         echo ✅ $container is selected
     end
 
-    echo Enter command to execute:
-    read -l command
+    read -P "Enter command to execute: " -l command_string
+    set -l command (echo $command_string | tr ' ' "\n")
 
     if set -q container
         kubectl exec -it pods/$pod --container $container -- $command

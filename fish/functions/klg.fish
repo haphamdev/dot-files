@@ -36,9 +36,9 @@ function klg -d "Get log of a pod (container if needed)"
     set -l log_file_path $result[1]
     set -l job_id $result[2]
 
-    echo \uf0f6 Opening the log file $log_file_path
+    echo 🤓 Opening the log file $log_file_path
     lnav $log_file_path
     kill $job_id
-    echo \uf014 Removing log file $log_file_path
+    echo ✅ Removing log file $log_file_path
     rm $log_file_path
 end
