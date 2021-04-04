@@ -2,7 +2,6 @@ function get_k8s_namespace -d "Pick a K8s namespace using fuzzy search"
     set namespaces (kubectl get namespaces --template '{{range .items}}{{.metadata.name}}{{"\n"}}{{end}}')
 
     if test $status -ne 0
-        err "Namespace not found"
         k8s_errors NAMESPACE_NOT_FOUND
     end
 
@@ -13,7 +12,6 @@ function get_k8s_namespace -d "Pick a K8s namespace using fuzzy search"
     end
 
     if test -z $namespace
-        err "Namespace not found"
         return (k8s_errors NAMESPACE_NOT_FOUND)
     else
         echo $namespace

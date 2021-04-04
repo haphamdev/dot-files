@@ -3,7 +3,6 @@ function get_k8s_container -d "Get container of a K8s pod using fuzzy search"
     argparse 'n/namespace=' 'p/pod=' -- $argv
 
     if not set -q _flag_pod
-        err 'Pod is missing'
         return (k8s_errors POD_MISSING)
     end
 
@@ -14,7 +13,6 @@ function get_k8s_container -d "Get container of a K8s pod using fuzzy search"
     set containers (kubectl get pods $_flag_pod $arg_namespace -o jsonpath='{.spec.containers[*].name}' | string split ' ' --no-empty)
 
     if test $status -ne 0
-        err 'Container not found.'
         return (k8s_errors CONTAINER_NOT_FOUND) 
     end
 
@@ -22,7 +20,6 @@ function get_k8s_container -d "Get container of a K8s pod using fuzzy search"
         echo $containers
         return
     elif 
-        err "No container found. Aborted"
         return (k8s_errors CONTAINER_NOT_FOUND)
     end
 
@@ -33,7 +30,6 @@ function get_k8s_container -d "Get container of a K8s pod using fuzzy search"
     end
     
     if test -z $container
-        err "Container not found"
         return (k8s_errors CONTAINER_NOT_FOUND)
     else
         echo $container

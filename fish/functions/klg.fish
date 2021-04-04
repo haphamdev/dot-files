@@ -36,7 +36,6 @@ function klg -d "Get log of a pod (container if needed)"
         return (k8s_errors CONTAINER_NOT_FOUND)
     end
 
-    breakpoint
     set result (get_k8s_container_logs $arg_namespace $arg_pod $arg_container | string split ' ')
 
     set -l log_file_path $result[1]

@@ -10,8 +10,7 @@ function get_k8s_container_logs -d "Get log of a container inside a K8s pod"
     end
 
     if not set -q _flag_pod
-        err "Missing pod. Aborted"
-        return 1
+        return (k8s_errors POD_MISSING)
     end
 
     if set -q _flag_container

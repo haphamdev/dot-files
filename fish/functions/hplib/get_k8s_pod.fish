@@ -7,14 +7,12 @@ function get_k8s_pod -d "Pick a K8s pod using fuzzy search"
     end
 
     if test $status -ne 0
-        err "Namespace not found"
         return (k8s_errors NAMESPACE_NOT_FOUND)
     end
 
     set pods (get_pod_list $arg_namespace)
 
     if test $status -ne 0 -o (count $pods) -eq 0  
-        err "Pod not found"
         return (k8s_errors POD_NOT_FOUND)
     end
 
@@ -25,7 +23,6 @@ function get_k8s_pod -d "Pick a K8s pod using fuzzy search"
     end
 
     if test -z $pod
-        err "Pod not found"
         return (k8s_errors POD_NOT_FOUND)
     else
         echo $pod
