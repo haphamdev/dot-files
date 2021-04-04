@@ -5,11 +5,6 @@ function klg -d "Get log of a pod (container if needed)"
         return 255
     end
 
-    if test (count $argv) -eq 0
-        err "Pod is missing"
-        return (k8s_errors POD_MISSING)
-    end
-
     if set -q _flag_namespace
         set -l namespace (get_k8s_namespace $_flag_namespace)
         set arg_namespace '-n' $namespace

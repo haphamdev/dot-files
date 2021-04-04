@@ -11,6 +11,6 @@ function get_k8s_containers -d "Get all containers of a pod"
         return (k8s_errors POD_MISSING)
     end
 
-    kubectl get pods $_flag_pod $arg_namespace -o jsonpath='{.spec.containers[*].name}' | string split ' ' --no-empty
+    kubectl get pods $_flag_pod $arg_namespace -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}'
 end
 

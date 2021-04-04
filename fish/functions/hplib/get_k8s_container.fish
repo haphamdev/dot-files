@@ -10,7 +10,7 @@ function get_k8s_container -d "Get container of a K8s pod using fuzzy search"
         set arg_namespace '--namespace' $_flag_namespace
     end
 
-    set containers (kubectl get pods $_flag_pod $arg_namespace -o jsonpath='{.spec.containers[*].name}' | string split ' ' --no-empty)
+    set containers (kubectl get pods $_flag_pod $arg_namespace -o jsonpath='{range .spec.containers[*]}{.name}{"\n"}')
 
     if test $status -ne 0
         return (k8s_errors CONTAINER_NOT_FOUND) 
