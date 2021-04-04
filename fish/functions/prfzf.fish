@@ -1,9 +1,9 @@
 # A function to jump to or open directory in $HOME/projects with vs code or nvim with fuzzy search
 function prfzf -d "Go to project in $HOME/projects using fzf search"
     if test (count $argv) -gt 1
-        ls -d $HOME/projects/*/ | sed -E 's|\/$||' | sed -E 's|.*\/||' | fzf --filter $argv[2] | read result   
+        ls $HOME/projects | tr " " "\n" | fzf --filter $argv[2] | read result   
     else
-        ls -d $HOME/projects/*/ | sed -E 's|\/$||' | sed -E 's|.*\/||' | fzf --border --height=50% | read result
+        ls $HOME/projects | tr " " "\n" | fzf --border --height=50% | read result
     end
 
     set result "$HOME/projects/$result"
