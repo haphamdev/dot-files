@@ -1,0 +1,10 @@
+" Use jj to exit insert mode, disable <esc>
+inoremap jj <esc>
+inoremap <esc> <nop>
+
+" Jump to start and end of line using the home row keys
+map H ^
+map L $
+
+set number relativenumber
+set ignorecase

@@ -140,9 +140,26 @@ function link_neo_vim
     end
 end
 
+# ============================================================================
+# Linking config for IdeaVim plugin (Intellij IDEA)
+# ============================================================================
+function link_idea_vimrc
+    set sfile_ideavim_config $dir_dot_files/jetbrains/ideavimrc
+    set dfile_ideavim_config $HOME/.ideavimrc
+
+    if symlink_not_exist $dfile_ideavim_config
+        echo "Linking IdeaVim config..."
+        ln -s $sfile_ideavim_config $dfile_ideavim_config
+        echo "Intellij IdeaVim config is linked successfully"
+    else
+        echo "Intellij IdeaVim config is linked already. Skip"
+    end
+end
+
 link_fish_config
 link_fish_functions
 install_oh_my_fish
 link_tmux_config_file
 link_alacritty
 link_neo_vim
+link_idea_vimrc
