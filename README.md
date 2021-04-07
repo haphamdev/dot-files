@@ -1,5 +1,5 @@
 # dot-files
-Dot files for Ha Pham for linux system. Dedicated for Mac OS. Fish is used as primary shell.
+My dot-files dedicated for Mac OS. Fish is used as primary shell.
 
 # Installation
 ```
