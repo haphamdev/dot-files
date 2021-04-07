@@ -1,4 +1,9 @@
 #!/bin/sh
+if [ -d $HOME/projects/dot-files ]
+then
+    echo "A dot file directory alreay exists at $HOME/projects/dot-files. Aborted."
+    exit 1
+fi
 
 echo "Installing git"
 brew install git
