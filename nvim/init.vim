@@ -486,11 +486,6 @@ if has('autocmd')
   autocmd GUIEnter * set visualbell t_vb=
 endif
 
-"" Copy/Paste/Cut
-if has('unnamedplus')
-  set clipboard=unnamed,unnamedplus
-endif
-
 nnoremap <leader>fp :let @* = expand('%')<CR>
 
 noremap YY "+y<CR>
@@ -869,8 +864,29 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 " Resume latest coc list.
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>l
 
-hi CursorLine   cterm=NONE ctermbg=236 guibg=236
+let g:coc_global_extensions = [
+            \    'coc-css',
+            \    'coc-explorer',
+            \    'coc-fish',
+            \    'coc-floaterm',
+            \    'coc-git',
+            \    'coc-go',
+            \    'coc-highlight',
+            \    'coc-html',
+            \    'coc-json',
+            \    'coc-lua',
+            \    'coc-markdownlint',
+            \    'coc-phpls',
+            \    'coc-prettier',
+            \    'coc-python',
+            \    'coc-react-refactor',
+            \    'coc-swagger',
+            \    'coc-tsserver',
+            \    'coc-xml',
+            \    'coc-yaml'
+            \]
 
+hi CursorLine   cterm=NONE ctermbg=236 guibg=236
 
 "******************************************************************************
 " vim-closetag config
