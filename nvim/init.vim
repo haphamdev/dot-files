@@ -988,6 +988,11 @@ nnoremap <space>ef :CocCommand explorer --preset floating<CR>
 nnoremap <space>ec :CocCommand explorer --preset cocConfig<CR>
 nnoremap <space>eb :CocCommand explorer --preset buffer<CR>
 
+augroup coc-explorer-hp
+    au!
+    au User CocExplorerOpenPost setlocal cursorline
+augroup END
+
 "******************************************************************************
 " Greeting
 "******************************************************************************
