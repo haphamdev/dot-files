@@ -69,3 +69,9 @@ else
     chsh -s /usr/local/bin/fish
     echo "Fish is not the default shell"
 fi
+
+# Change key mappings for home/end keys
+echo "Mapping home/end keys to behave same as on Windows"
+cat ~/projects/dot-files/mac-keybindings/DefaultKeyBinding.dict > ~/Library/KeyBindings/DefaultKeyBinding.dict
+echo "Please restart your PC to apply the key mappings"
+
