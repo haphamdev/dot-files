@@ -865,25 +865,26 @@ nnoremap <silent> <space>k  :<C-u>CocPrev<CR>
 nnoremap <silent> <space>p  :<C-u>CocListResume<CR>l
 
 let g:coc_global_extensions = [
-            \    'coc-css',
-            \    'coc-explorer',
-            \    'coc-fish',
-            \    'coc-floaterm',
-            \    'coc-git',
-            \    'coc-go',
-            \    'coc-highlight',
-            \    'coc-html',
-            \    'coc-json',
-            \    'coc-lua',
-            \    'coc-markdownlint',
-            \    'coc-phpls',
-            \    'coc-prettier',
-            \    'coc-python',
-            \    'coc-react-refactor',
-            \    'coc-swagger',
-            \    'coc-tsserver',
-            \    'coc-xml',
-            \    'coc-yaml'
+            \   'coc-css',
+            \   'coc-explorer',
+            \   'coc-fish',
+            \   'coc-floaterm',
+            \   'coc-git',
+            \   'coc-go',
+            \   'coc-highlight',
+            \   'coc-html',
+            \   'coc-json',
+            \   'coc-lua',
+            \   'coc-markdownlint',
+            \   'coc-phpls',
+            \   'coc-prettier',
+            \   'coc-python',
+            \   'coc-react-refactor',
+            \   'coc-swagger',
+            \   'coc-tsserver',
+            \   'coc-xml',
+            \   'coc-yaml',
+            \   'coc-vimlsp'
             \]
 
 hi CursorLine   cterm=NONE ctermbg=236 guibg=236
