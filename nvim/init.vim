@@ -457,9 +457,20 @@ function! RipgrepFzf(query, fullscreen)
     call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
 endfunction
 
+function! RipgrepFzfWithGlob(query, fullscreen)
+    let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
+    let initial_command = printf(command_fmt, shellescape(a:query))
+    let reload_command = "vim_rg {q}" "execute fish function vim_rg in fzf reload
+    let spec = {'options': ['--phony', '--query', a:query, '--bind', 'change:reload:'.reload_command]}
+    call fzf#vim#grep(initial_command, 1, fzf#vim#with_preview(spec), a:fullscreen)
+endfunction
+
 command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
+command! -nargs=* -bang RGGlob call RipgrepFzfWithGlob(<q-args>, <bang>0)
 nnoremap <leader>fa :RG<CR>
 nnoremap <leader>ff :BLines<CR>
+nnoremap <leader>fn :RGGlob !*Test*<space><CR>
+nnoremap <leader>ft :RGGlob @*Test*<space><CR>
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
