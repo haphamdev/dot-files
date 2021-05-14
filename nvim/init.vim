@@ -1005,7 +1005,10 @@ augroup coc-explorer-hp
     au User CocExplorerOpenPost setlocal cursorline
 augroup END
 
+" Do not load netrw on nvim startup
+let loaded_netrwPlugin = 1
+
 "******************************************************************************
-" Greeting
+" Greeting!
 "******************************************************************************
 echom "Vim config is loaded."
