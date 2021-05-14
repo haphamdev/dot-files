@@ -8,6 +8,7 @@ set -x PATH $PATH /usr/local/go/bin
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
+set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # fish_vi_key_bindings
 
@@ -40,7 +41,8 @@ abbr -a cbr 'git branch --show-current | pbcopy'
 abbr -a k 'kubectl'
 abbr -a gback 'git checkout -'
 abbr -a gcm 'git commit -m'
-abbr -g gcma 'git commit -am'
+abbr -a gcma 'git commit -am'
+abbr -a batdiff 'git diff --name-only --diff-filter=d | xargs bat --diff'
 
 abbr -a e 'nvim'
 abbr -a lg 'lazygit'
@@ -68,6 +70,8 @@ abbr -a fp 'prfzf cd'
 
 abbr -a glc './gradlew.local'
 abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
+
+abbr -a tmp tmux popup -EE -h 70% -w 70%
 
 function fish_right_prompt
 	set st $status
