@@ -433,12 +433,15 @@ let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
 " let g:fzf_preview_window = ['down:40%', 'ctrl-p']
 
-
-" The Silver Searcher
-if executable('ag')
-  let $FZF_DEFAULT_COMMAND = 'ag --hidden --ignore .git -g ""'
-  set grepprg=ag\ --nogroup\ --nocolor
-endif
+" Auto change status line when fzf window opens
+function! s:fzf_statusline()
+  " Override statusline as you like
+  highlight fzf1 ctermfg=161 ctermbg=251
+  highlight fzf2 ctermfg=23 ctermbg=251
+  highlight fzf3 ctermfg=237 ctermbg=251
+  setlocal statusline=%#fzf1#\ >\ %#fzf2#fz%#fzf3#f
+endfunction
+autocmd! User FzfStatusLine call <SID>fzf_statusline()
 
 " ripgrep
 if executable('rg')
@@ -471,8 +474,11 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 command! -nargs=* -bang RGGlob call RipgrepFzfWithGlob(<q-args>, <bang>0)
 nnoremap <leader>fa :RG<CR>
 nnoremap <leader>ff :BLines<CR>
-nnoremap <leader>fn :RGGlob !*Test*<space><CR>
-nnoremap <leader>ft :RGGlob @*Test*<space><CR>
+nnoremap <silent> <leader>fn :RGGlob !*Test*<space><CR>
+nnoremap <silent> <leader>ft :RGGlob @*Test*<space><CR>
+
+" Press Ctrl-C > Ctrl-P to show fzf complete for path
+inoremap <expr> <c-c><c-p> fzf#vim#complete#path('fd')
 
 "Recovery commands from history through FZF
 nmap <leader>y :History:<CR>
