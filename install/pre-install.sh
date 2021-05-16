@@ -49,6 +49,8 @@ install_if_not_exist fd
 install_if_not_exist tree
 install_if_not_exist fzf
 install_if_not_exist lazygit
+install_if_not_exist delta git-delta
+install_if_not_exist bat
 
 # create a directory for lnav logs
 echo
