@@ -9,6 +9,8 @@ set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x DELTA_PAGER "/usr/bin/less -Ri"
+set -x DELTA_NAVIGATE 1 # use n/N to navigate file by file in delta
 
 # fish_vi_key_bindings
 
