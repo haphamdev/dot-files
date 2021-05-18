@@ -1,14 +1,21 @@
 function vim_rg -d 'A helper function to use RipGrep in vim with glob supported'
-    set -l query $argv[1]
+    set -l queries (string split -m 1 '>' "$argv")
 
-    set -l queries (string match -r '@(\S+)\s+(.+)' $query)
-    set -l ex_queries (string match -r '!(\S+)\s+(.+)' $query)
-
-    if test -n "$queries"
-        rg --column --line-number --no-heading --color=always --smart-case --iglob $queries[2] -- $queries[3] || true
-    else if test -n "$ex_queries"
-        rg --column --line-number --no-heading --color=always --smart-case --iglob !$ex_queries[2] -- $ex_queries[3] || true
+    if test (count $queries) -eq 1
+        rg --column --line-number --no-heading --color=always --smart-case -- $queries[1] || true
+    else if test -z "$queries[1]"
+        rg --column --line-number --no-heading --color=always --smart-case -- $queries[2] || true
     else
-        rg --column --line-number --no-heading --color=always --smart-case -- $query || true
+        set globs (string replace -a -r '\s+' ' ' $queries[1]\
+            | string trim \
+            | string split ' ')
+
+        for g in $globs
+            set -a glob_arguments "--iglob '$g'"
+        end
+
+
+        set command (printf 'rg --column --line-number --no-heading --color=always --smart-case %s -- %s || true' "$glob_arguments" $queries[2])
+        eval $command
     end
 end

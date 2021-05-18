@@ -431,7 +431,7 @@ set wildmode=list:longest,list:full
 set wildignore+=*.o,*.obj,.git,*.rbc,*.pyc,__pycache__
 let $FZF_DEFAULT_COMMAND =  "find * -path '*/\.*' -prune -o -path 'node_modules/**' -prune -o -path 'target/**' -prune -o -path 'dist/**' -prune -o  -type f -print -o -type l -print 2> /dev/null"
 let g:fzf_layout = { 'window': { 'width': 0.8, 'height': 0.8, 'highlight': 'Comment' } }
-let g:fzf_preview_window = ['up:50%', 'ctrl-p']
+let g:fzf_preview_window = ['up:50%']
 
 " Auto change status line when fzf window opens
 function! s:fzf_statusline()
@@ -454,6 +454,11 @@ cnoremap <C-P> <C-R>=expand("%:p:h") . "/" <CR>
 nnoremap <silent> <leader>b :Buffers<CR>
 nnoremap <silent> <leader>e :Files<CR>
 
+" Show git log with fzf search
+nnoremap <silent> <leader>gl :Commits<CR>
+" Show git log of current buffer with fzf search
+nnoremap <silent> <leader>gL :BCommits<CR>
+
 function! RipgrepFzf(query, fullscreen)
     let command_fmt = 'rg --column --line-number --no-heading --color=always --smart-case -- %s || true'
     let initial_command = printf(command_fmt, shellescape(a:query))
@@ -474,8 +479,8 @@ command! -nargs=* -bang RG call RipgrepFzf(<q-args>, <bang>0)
 command! -nargs=* -bang RGGlob call RipgrepFzfWithGlob(<q-args>, <bang>0)
 nnoremap <leader>fa :RG<CR>
 nnoremap <leader>ff :BLines<CR>
-nnoremap <silent> <leader>fn :RGGlob !*Test*<space><CR>
-nnoremap <silent> <leader>ft :RGGlob @*Test*<space><CR>
+nnoremap <silent> <leader>fn :RGGlob !*Test* ><space><CR>
+nnoremap <silent> <leader>ft :RGGlob *Test* > <space><CR>
 
 " Press Ctrl-C > Ctrl-P to show fzf complete for path
 inoremap <expr> <c-c><c-p> fzf#vim#complete#path('fd')
@@ -903,7 +908,8 @@ let g:coc_global_extensions = [
             \   'coc-tsserver',
             \   'coc-xml',
             \   'coc-yaml',
-            \   'coc-vimlsp'
+            \   'coc-vimlsp',
+            \   'coc-protobuf'
             \]
 
 hi CursorLine   cterm=NONE ctermbg=236 guibg=236
