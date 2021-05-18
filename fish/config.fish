@@ -9,7 +9,11 @@ set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x DELTA_PAGER "/usr/bin/less -Ri"
+
+# Configure less to clear screen after exit and case-insensitive search
+set -x DELTA_PAGER "/usr/local/bin/less -R -i"
+set -x LESS Ri 
+
 set -x DELTA_NAVIGATE 1 # use n/N to navigate file by file in delta
 
 # fish_vi_key_bindings
