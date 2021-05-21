@@ -13,6 +13,12 @@ function k8s_errors -d "Return the error code for the error name"
             echo 4
         case CONTAINER_MISSING
             echo 5
+        case PORT_MISSING
+            echo 6
+
+        case NOT_ENOUGH_ARGUMENT
+            echo 200
+
         case '*'
             echo 255
     end
