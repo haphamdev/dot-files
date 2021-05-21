@@ -15,16 +15,18 @@ function kpf -d "Port-forward for a k8s pod with fzf search"
         return (k8s_errors NAMESPACE_NOT_FOUND)
     end
 
-    if test (count $argv) -lt 2
-        err "Pod and port are required"
-        return (k8s_errors NOT_ENOUGH_ARGUMENT)
+    if test (count $argv) -eq 0
+        err "Port is missing"
+        return (k8s_errors PORT_MISSING)
+    else if test (count $argv) -eq 1
+        set pod (get_k8s_pod $arg_namespace)
+        set arg_pod '-p' $pod
+        set arg_port '-P' $argv[1]
+    else
+        set pod (get_k8s_pod $arg_namespace $argv[1])
+        set arg_pod '-p' $pod
+        set arg_port '-P' $argv[2]
     end
-
-    set pod (get_k8s_pod $arg_namespace $argv[1])
-    set arg_pod '-p' $pod
-
-    set arg_port '-P' $argv[2]
-
 
     if test $status -ne 0
         err "Pod not found"

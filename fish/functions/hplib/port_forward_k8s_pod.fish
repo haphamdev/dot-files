@@ -13,5 +13,6 @@ function port_forward_k8s_pod -d "Port-forward a k8s pod"
         return (k8s_errors PORT_MISSING)
     end
 
+    echo "🚀 Forwarding port $_flag_port for pod '$_flag_pod'"
     kubectl port-forward $arg_namespace $_flag_pod $_flag_port
 end
