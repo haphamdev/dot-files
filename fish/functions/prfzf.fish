@@ -6,6 +6,11 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         ls $HOME/projects | tr " " "\n" | fzf --border --height=50% | read result
     end
 
+    if test -z $result
+        echo "Aborted or project not found!"
+        return 1
+    end
+
     set result "$HOME/projects/$result"
 
     switch "$argv[1]"

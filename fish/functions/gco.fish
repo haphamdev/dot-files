@@ -22,8 +22,8 @@ function gco
     end
 
     if test -z "$branch_name"
-        echo "Aborted"
-        return
+        echo "Aborted or branch not found!"
+        return 1
     end
 
     echo "Checking out branch '$branch_name'"
