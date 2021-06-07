@@ -16,6 +16,11 @@ set -x LESS Ri
 
 set -x DELTA_NAVIGATE 1 # use n/N to navigate file by file in delta
 
+# Personio
+set -x AWS_VAULT_KEYCHAIN_NAME "login"
+set -x AWS_VAULT_KEYCHAIN_NAME "12h"
+
+
 # fish_vi_key_bindings
 
 abbr -a rl 'source ~/.config/fish/config.fish'
@@ -45,6 +50,7 @@ abbr -a gu 'gitui'
 abbr -a gfu 'git rebase -i HEAD~10'
 abbr -a cbr 'git branch --show-current | pbcopy'
 abbr -a k 'kubectl'
+abbr -a kct 'set -x KUBECONFIG "$HOME/.kube/"(ls ~/.kube/ | grep "yml\|config" | fzf)'
 abbr -a gback 'git checkout -'
 abbr -a gcm 'git commit -m'
 abbr -a gcma 'git commit -am'
@@ -52,6 +58,7 @@ abbr -a batdiff 'git diff --name-only --diff-filter=d | xargs bat --diff'
 abbr -a r 'ranger'
 
 abbr -a e 'nvim'
+abbr -a nv '~/nvim-0.5/bin/nvim'
 abbr -a lg 'lazygit'
 abbr -a pc '~/projects/personio/perctl'
 abbr -a plg 'lnav ~/projects/personio/app/storage-local/logs/laravel.log'
@@ -76,6 +83,7 @@ abbr -a fpc 'prfzf c'
 abbr -a fp 'prfzf cd'
 
 abbr -a glc './gradlew.local'
+abbr -a grd './gradlew'
 abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
 
 abbr -a tmp tmux popup -EE -h 70% -w 70%
