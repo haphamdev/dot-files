@@ -3,13 +3,13 @@
 "*****************************************************************************"
 set splitright
 set splitbelow
-hi MatchParen guifg=Yellow ctermfg=Yellow guibg=Black ctermbg=Black
 
 lua require('options')
 lua require('plugins')
 lua require('lsp')
 lua require('keymappings')
 lua require('autocmds')
+
 
 let g:make = 'gmake'
 if exists('make')
