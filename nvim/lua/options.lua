@@ -121,7 +121,6 @@ cmd([[
 -- syntax highlight
 cmd([[
     hi Normal guibg=NONE ctermbg=NONE
-    hi MatchParen guifg=#FFFF66 guibg=#404040
     hi CursorLine cterm=NONE ctermbg=236 guibg=#404040
 ]])
 
