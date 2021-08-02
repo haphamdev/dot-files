@@ -1,6 +1,8 @@
 set number
 set relativenumber
 set nowrap
+set splitright
+set splitbelow
 
 " Syntax highlight
 " Default highlight is better than polyglot
@@ -251,7 +253,7 @@ set number
 let no_buffers_menu=1
 silent! colorscheme molokai
 hi Normal guibg=NONE ctermbg=NONE
-hi MatchParen guifg=red ctermfg=red guibg=white ctermbg=white
+hi MatchParen guifg=Yellow ctermfg=Yellow guibg=Black ctermbg=Black
 
 set mousemodel=popup
 set t_Co=256
