@@ -103,3 +103,4 @@ end
 
 # set fish_color_autosuggestion d2d2d2
     
+fish_add_path /usr/local/opt/ruby/bin
