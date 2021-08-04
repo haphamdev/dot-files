@@ -104,3 +104,6 @@ end
 # set fish_color_autosuggestion d2d2d2
     
 fish_add_path /usr/local/opt/ruby/bin
+fish_add_path /usr/local/go/bin
+set -x GOPATH $HOME/go
+fish_add_path $GOPATH/bin
