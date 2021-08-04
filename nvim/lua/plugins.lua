@@ -32,6 +32,7 @@ require('packer').startup(function(use)
     use 'tpope/vim-rhubarb'
     use 'vim-scripts/CSApprox'
     use 'Shougo/vimproc.vim'
+    use 'hrsh7th/nvim-compe'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -159,3 +160,11 @@ local chadtree_settings = {
 
 api.nvim_set_var("chadtree_settings", chadtree_settings)
 
+require'compe'.setup({
+    enabled = true,
+    source = {
+        path = true,
+        buffer = true,
+        nvim_lsp = true,
+    },
+})
