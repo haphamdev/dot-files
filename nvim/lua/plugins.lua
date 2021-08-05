@@ -24,7 +24,6 @@ require('packer').startup(function(use)
     use 'voldikss/vim-floaterm'
     use 'alvan/vim-closetag'
     use 'jiangmiao/auto-pairs'
-    use 'tomasr/molokai'
     use 'gko/vim-coloresque'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
@@ -33,6 +32,7 @@ require('packer').startup(function(use)
     use 'vim-scripts/CSApprox'
     use 'Shougo/vimproc.vim'
     use 'hrsh7th/nvim-compe'
+    use 'tomasiser/vim-code-dark'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -147,8 +147,8 @@ g.closetag_shortcut = '>'
 -- Add > at current position without closing the current tag, default is ''
 g.closetag_close_shortcut = '<leader>>'
 
--- Change colorscheme to molokai
-cmd('silent! colorscheme molokai')
+-- Change colorscheme to codedark
+cmd('silent! colorscheme codedark')
 
 -- CHADtree
 local chadtree_settings = {
