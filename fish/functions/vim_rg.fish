@@ -1,5 +1,4 @@
 function vim_rg -d 'A helper function to use RipGrep in vim with glob supported'
-    set argv $argv[2..-1] # Remove -- in argv[1]
     set -l queries (string split -m 1 '>' "$argv") # split the glob and keyword, separator is >
 
     if test (count $queries) -eq 1 # no glob
