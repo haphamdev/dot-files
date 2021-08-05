@@ -35,6 +35,7 @@ require('packer').startup(function(use)
     use 'hrsh7th/nvim-compe'
     use 'tomasiser/vim-code-dark'
     use 'famiu/bufdelete.nvim'
+    use 'xiyaowong/nvim-cursorword'
 end)
 
 require'nvim-treesitter.configs'.setup {
