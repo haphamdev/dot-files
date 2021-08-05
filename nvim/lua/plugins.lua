@@ -3,7 +3,6 @@ local cmd, fn, g, opt, api = vim.cmd, vim.fn, vim.g, vim.opt, vim.api
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
-    use { 'ms-jpq/chadtree', branch = 'chad', run = [[python3 -m chadtree deps]] }
     use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
     use { 'ibhagwan/fzf-lua',
         requires = {
@@ -36,6 +35,10 @@ require('packer').startup(function(use)
     use 'tomasiser/vim-code-dark'
     use 'famiu/bufdelete.nvim'
     use 'xiyaowong/nvim-cursorword'
+    use {
+        'kyazdani42/nvim-tree.lua',
+        requires = 'kyazdani42/nvim-web-devicons'
+    }
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -153,16 +156,7 @@ g.closetag_close_shortcut = '<leader>>'
 -- Change colorscheme to codedark
 cmd('silent! colorscheme codedark')
 
--- CHADtree
-local chadtree_settings = {
-    keymap = {
-        primary = { "<enter>", "l" },
-        collapse = { "h" }
-    }
-}
-
-api.nvim_set_var("chadtree_settings", chadtree_settings)
-
+-- compe
 require'compe'.setup({
     enabled = true,
     source = {
@@ -171,3 +165,6 @@ require'compe'.setup({
         nvim_lsp = true,
     },
 })
+
+-- nvim-tree.lua
+g.nvim_tree_quit_on_open = 1
