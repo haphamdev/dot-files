@@ -73,7 +73,7 @@ end
 map('n', '<leader>e', getFzfFunction('files'))
 map('n', '<leader>fa', getFzfFunction('live_grep'))
 map('n', '<leader>ff', getFzfFunction('grep_curbuf'))
-map('n', '<leader>fn', [[<cmd>lua require('fzf-lua').live_grep({ cmd = "vim_rg" })<CR>]])
+map('n', '<leader>fn', [[<cmd>lua require('fzf-lua').live_grep({ cmd = "vimrg" })<CR>]])
 map('n', '<leader>b', getFzfFunction('buffers'))
 map('n', '<leader>fh', getFzfFunction('help_tags'))
 map('n', '<leader>fw', getFzfFunction('grep_cword'))
