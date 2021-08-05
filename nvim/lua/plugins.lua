@@ -1,6 +1,7 @@
 local cmd, fn, g, opt, api = vim.cmd, vim.fn, vim.g, vim.opt, vim.api
 
 require('packer').startup(function(use)
+    use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use { 'ms-jpq/chadtree', branch = 'chad', run = [[python3 -m chadtree deps]] }
     use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
@@ -33,6 +34,7 @@ require('packer').startup(function(use)
     use 'Shougo/vimproc.vim'
     use 'hrsh7th/nvim-compe'
     use 'tomasiser/vim-code-dark'
+    use 'famiu/bufdelete.nvim'
 end)
 
 require'nvim-treesitter.configs'.setup {

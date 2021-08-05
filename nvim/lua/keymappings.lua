@@ -41,9 +41,7 @@ map('', '<leader>v', ':<C-u>vsplit<CR>')
 map('n', '<leader>fp', [[:let @* = expand('%')<CR>]])
 
 -- Buffer navigation
-map('n', '<leader>q', ':bp<CR>')
-map('n', '<leader>w', ':bn<CR>')
-map('n', '<leader>c', ':bd<CR>') -- Close buffer
+map('n', '<leader>w', ':Bdelete<CR>') -- Close buffer
 
 -- Keep in visual mode after indentation
 map('v', '<', '<gv')
