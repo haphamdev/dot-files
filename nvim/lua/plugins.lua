@@ -48,6 +48,7 @@ require('packer').startup(function(use)
         run = function() vim.fn['fzf#install']() end
     }
     use 'kevinhwang91/nvim-bqf'
+    use 'nacro90/numb.nvim'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -185,3 +186,6 @@ require('kommentary.config').configure_language("default", {
 
 -- todo-comment
 require("todo-comments").setup()
+
+-- numb
+require('numb').setup()
