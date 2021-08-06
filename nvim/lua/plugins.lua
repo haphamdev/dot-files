@@ -43,6 +43,11 @@ require('packer').startup(function(use)
         "folke/todo-comments.nvim",
         requires = "nvim-lua/plenary.nvim",
     }
+    use {
+        'junegunn/fzf',
+        run = function() vim.fn['fzf#install']() end
+    }
+    use 'kevinhwang91/nvim-bqf'
 end)
 
 require'nvim-treesitter.configs'.setup {
