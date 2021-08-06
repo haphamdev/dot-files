@@ -10,7 +10,6 @@ require('packer').startup(function(use)
             'kyazdani42/nvim-web-devicons' -- optional for icons
         }
     }
-    use 'tpope/vim-commentary'
     use 'vim-airline/vim-airline'
     use 'vim-airline/vim-airline-themes'
     use 'airblade/vim-gitgutter'
@@ -39,6 +38,7 @@ require('packer').startup(function(use)
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons'
     }
+    use 'b3nj5m1n/kommentary'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -168,3 +168,8 @@ require'compe'.setup({
 
 -- nvim-tree.lua
 g.nvim_tree_quit_on_open = 1
+
+-- kommentary
+require('kommentary.config').configure_language("default", {
+    prefer_single_line_comments = true,
+})
