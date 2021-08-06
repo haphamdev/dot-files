@@ -39,6 +39,10 @@ require('packer').startup(function(use)
         requires = 'kyazdani42/nvim-web-devicons'
     }
     use 'b3nj5m1n/kommentary'
+    use {
+        "folke/todo-comments.nvim",
+        requires = "nvim-lua/plenary.nvim",
+    }
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -173,3 +177,6 @@ g.nvim_tree_quit_on_open = 1
 require('kommentary.config').configure_language("default", {
     prefer_single_line_comments = true,
 })
+
+-- todo-comment
+require("todo-comments").setup()

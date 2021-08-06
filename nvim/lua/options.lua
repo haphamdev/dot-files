@@ -133,3 +133,6 @@ vim.o.completeopt = "menuone,noselect"
 
 -- filetype plugin
 cmd([[filetype plugin indent on]])
+
+-- Set sign column to 2
+opt.signcolumn = "auto:2"
