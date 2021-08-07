@@ -118,12 +118,6 @@ cmd([[
     set guioptions=egmrti
 ]])
 
--- syntax highlight
-cmd([[
-    hi Normal guibg=NONE ctermbg=NONE
-    hi CursorLine cterm=NONE ctermbg=236 guibg=#404040
-]])
-
 --modeline
 opt.modeline = true
 opt.modelines = 10
@@ -136,3 +130,6 @@ cmd([[filetype plugin indent on]])
 
 -- Set sign column to 2
 opt.signcolumn = "auto:2"
+
+-- Don't show mode at bottom (insert/visual/...)
+opt.showmode = false
