@@ -69,12 +69,6 @@ opt.wildmode = {'list:longest', 'list:full'}
 -- Round indent to multiple of shiftwidth
 opt.shiftround = true
 
--- Indentation
-g.indentLine_enabled = 1
-g.indentLine_concealcursor = 0
-g.indentLine_char = '┆'
-g.indentLine_faster = 1
-
 -- Status line
 opt.laststatus = 2 -- always show the status line
 opt.statusline = [[%F%m%r%h%w%=(%{&ff}/%Y)\ (line\ %l\/%L,\ col\ %c)\]]
