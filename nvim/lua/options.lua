@@ -99,6 +99,7 @@ opt.updatetime = 300
 -- Treesitter folding config
 opt.foldmethod = 'expr'
 opt.foldexpr = 'nvim_treesitter#foldexpr()'
+opt.foldlevel = 6
 
 -- Do not load netrw on nvim startup
 g.loaded_netrwPlugin = 1
@@ -127,3 +128,6 @@ opt.signcolumn = "auto:2"
 
 -- Don't show mode at bottom (insert/visual/...)
 opt.showmode = false
+
+-- Set color column to mark the line limit
+opt.colorcolumn = "120"
