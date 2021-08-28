@@ -52,6 +52,7 @@ install_if_not_exist lazygit
 install_if_not_exist delta git-delta
 install_if_not_exist bat
 install_if_not_exist ranger
+install_if_not_exist exa
 
 # create a directory for lnav logs
 echo
