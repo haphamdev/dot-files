@@ -50,6 +50,7 @@ require('packer').startup(function(use)
     use 'kevinhwang91/nvim-bqf'
     use 'nacro90/numb.nvim'
     use 'djoshea/vim-autoread'
+    use 'jwalton512/vim-blade'
 end)
 
 require'nvim-treesitter.configs'.setup {
