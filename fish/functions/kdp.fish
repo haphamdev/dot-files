@@ -6,7 +6,7 @@ function kdp -d "Describe a pod"
         fzf --height=15 --border --header="== Select pod:" --reverse | read pod;
 
         if test -z $pod 
-            echo \ufc38 Aborted
+            echo \ufc38 Aborted or not found
             return 1
         end
     else
