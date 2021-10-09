@@ -191,3 +191,11 @@ require("todo-comments").setup()
 
 -- numb
 require('numb').setup()
+
+require('fzf-lua').setup {
+    grep = {
+        glob_flag           = "--iglob",  -- for case sensitive globs use '--glob'
+        glob_separator      = "%s%-%-"    -- query separator pattern (lua): ' --'
+    }
+}
+
