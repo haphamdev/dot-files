@@ -93,8 +93,3 @@ map('i', '<C-e>', [[compe#close('<C-e>')]], { expr = true; silent = true })
 --nvim-tree.lua
 map('n', '<leader>xx', [[:NvimTreeToggle<CR>]], { silent = true })
 map('n', '<leader>x', [[:NvimTreeFindFile<CR>]], { silent = true })
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-vim.g.nvim_tree_bindings = {
-    { key = {"<CR>", "l" },       cb = tree_cb("edit") },
-    { key = { "<BS>", "h" },      cb = tree_cb("close_node") },
-}

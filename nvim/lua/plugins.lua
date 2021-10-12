@@ -179,6 +179,17 @@ require'compe'.setup({
 })
 
 -- nvim-tree.lua
+local tree_cb = require'nvim-tree.config'.nvim_tree_callback
+require'nvim-tree'.setup {
+    view = {
+        mappings = {
+            list = {
+                { key = {"<CR>", "l" },       cb = tree_cb("edit") },
+                { key = { "<BS>", "h" },      cb = tree_cb("close_node") },
+            }
+        }
+    }
+}
 g.nvim_tree_quit_on_open = 1
 
 -- kommentary
