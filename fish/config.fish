@@ -29,6 +29,9 @@ abbr -a x 'exit'
 abbr -a ef 'nvim ~/projects/dot-files/fish/config.fish'
 abbr -a effn 'nvim ~/.config/fish/functions/'
 abbr -a ea 'nvim ~/.aws'
+abbr -a ls exa
+abbr -a ll exa -l
+abbr -a lt exa --tree -l --git-ignore --level=2
 
 # Git abbreviations
 abbr -a gf 'git fetch -p'
