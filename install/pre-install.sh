@@ -54,6 +54,9 @@ install_if_not_exist bat
 install_if_not_exist ranger
 install_if_not_exist exa
 install_if_not_exist http httpie
+install_if_not_exist procs
+install_if_not_exist sd
+install_if_not_exist zoxide
 
 # create a directory for lnav logs
 echo

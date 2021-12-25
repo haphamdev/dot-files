@@ -110,3 +110,5 @@ fish_add_path /usr/local/opt/ruby/bin
 fish_add_path /usr/local/go/bin
 set -x GOPATH $HOME/go
 fish_add_path $GOPATH/bin
+
+zoxide init fish --cmd j | source
