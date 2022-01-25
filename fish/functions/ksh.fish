@@ -31,5 +31,6 @@ function ksh -d "Start sh for a container in k8s pod"
         return (k8s_errors CONTAINER_NOT_FOUND)
     end
 
+    echo "Found pod: $pod"
     kubectl exec $arg_namespace $arg_container -it $pod -- sh
 end
