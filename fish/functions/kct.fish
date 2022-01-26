@@ -15,10 +15,10 @@ function kct -d "Switch k8s context"
 
     if test "$selection" = 'local'
         set -eg KUBECONFIG
-        echo 'Using LOCAL k8s context'
+        echo 'K8s context: local'
         return
     end
 
     set -xg KUBECONFIG "/Users/hapham/.kube/$selection"
-    echo "Using k8s context: $KUBECONFIG"
+    echo "K8s context: $KUBECONFIG"
 end
