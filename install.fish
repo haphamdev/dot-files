@@ -156,6 +156,23 @@ function link_idea_vimrc
     end
 end
 
+# ============================================================================
+# Linking config for gitui
+# More info: https://github.com/extrawurst/gitui/blob/master/KEY_CONFIG.md
+# ============================================================================
+function link_gitui
+    set sfile_gitui_config $dir_dot_files/gitui/key_bindings.ron
+    set dfile_gitui_config $HOME/.config/gitui/key_bindings.ron
+
+    if symlink_not_exist $dfile_gitui_config
+        echo "Linking gitui key binding config..."
+        ln -s $sfile_gitui_config $dfile_gitui_config
+        echo "Gitui key binding config is linked successfully"
+    else
+        echo "Gitui key binding config is linked already. Skip"
+    end
+end
+
 link_fish_config
 link_fish_functions
 install_oh_my_fish
@@ -163,3 +180,4 @@ link_tmux_config_file
 link_alacritty
 link_neo_vim
 link_idea_vimrc
+link_gitui
