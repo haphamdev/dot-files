@@ -162,10 +162,12 @@ end
 # ============================================================================
 function link_gitui
     set sfile_gitui_config $dir_dot_files/gitui/key_bindings.ron
+    set ddir_gitui_config $HOME/.config/gitui
     set dfile_gitui_config $HOME/.config/gitui/key_bindings.ron
 
     if symlink_not_exist $dfile_gitui_config
         echo "Linking gitui key binding config..."
+        mkdir -p $ddir_gitui_config
         ln -s $sfile_gitui_config $dfile_gitui_config
         echo "Gitui key binding config is linked successfully"
     else
