@@ -161,9 +161,9 @@ end
 # More info: https://github.com/extrawurst/gitui/blob/master/KEY_CONFIG.md
 # ============================================================================
 function link_gitui
-    set sfile_gitui_config $dir_dot_files/gitui/key_bindings.ron
+    set sfile_gitui_config $dir_dot_files/git/gitui/key_bindings.ron
     set ddir_gitui_config $HOME/.config/gitui
-    set dfile_gitui_config $HOME/.config/gitui/key_bindings.ron
+    set dfile_gitui_config $ddir_gitui_config/key_bindings.ron
 
     if symlink_not_exist $dfile_gitui_config
         echo "Linking gitui key binding config..."
@@ -175,6 +175,24 @@ function link_gitui
     end
 end
 
+# ============================================================================
+# Linking config for gitui
+# More info: https://github.com/extrawurst/gitui/blob/master/KEY_CONFIG.md
+# ============================================================================
+function link_gitconfig
+    set sfile_git_config $dir_dot_files/git/gitconfig
+    set dfile_git_config $HOME/.gitconfig
+
+    if symlink_not_exist $dfile_git_config
+        echo "Linking git config..."
+        ln -s $sfile_git_config $dfile_git_config
+        echo "Git config is linked successfully"
+    else
+        echo "Git config is linked already. Skip"
+    end
+end
+
+
 link_fish_config
 link_fish_functions
 install_oh_my_fish
@@ -183,3 +201,4 @@ link_alacritty
 link_neo_vim
 link_idea_vimrc
 link_gitui
+link_gitconfig

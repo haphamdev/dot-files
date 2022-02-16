@@ -1,0 +1,26 @@
+[user]
+	email = ha.pham.ext@personio.de
+	name = Ha Pham
+	signingkey = 806F34D9
+[gpg]
+	program = /usr/local/bin/gpg
+[commit]
+	gpgsign = true
+[push]
+	default = current
+
+[core]
+    pager = delta
+	autocrlf = input
+
+[interactive]
+    diffFilter = delta --color-only
+
+[delta]
+    features = side-by-side line-numbers decorations
+    whitespace-error-style = 22 reverse
+
+[delta "decorations"]
+    commit-decoration-style = bold yellow box ul
+    file-style = bold yellow ul
+    file-decoration-style = none
