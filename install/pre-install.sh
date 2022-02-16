@@ -39,14 +39,11 @@ install_if_not_exist tmux
 install_if_not_exist rg ripgrep
 install_if_not_exist pgcli
 install_if_not_exist mycli
-install_if_not_exist urlview
-install_if_not_exist htop
 install_if_not_exist gradle
 install_if_not_exist jq
 install_if_not_exist ncdu
 install_if_not_exist agrind angle-grinder
 install_if_not_exist fd
-install_if_not_exist tree
 install_if_not_exist fzf
 install_if_not_exist lazygit
 install_if_not_exist delta git-delta
@@ -57,12 +54,9 @@ install_if_not_exist http httpie
 install_if_not_exist procs
 install_if_not_exist sd
 install_if_not_exist zoxide
+install_if_not_exist lnav
 
 # create a directory for lnav logs
-echo
-echo "Don't forget to install lnav. Please download it from https://github.com/tstack/lnav/releases/"
-echo "Press ENTER when you finish it."
-read
 echo "Creating directory ~/lnav-logs..."
 mkdir -p ~/lnav-logs
 
