@@ -23,5 +23,5 @@ else
     git clone git@github.com:fanliver/dot-files.git
 fi
 
-./install/pre-install.sh
-./install/install.fish
+./install/setup_configs.sh
+./install/install_tools.fish
