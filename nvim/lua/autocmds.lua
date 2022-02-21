@@ -57,6 +57,13 @@ local augroups = {
             filter = 'json',
             cmd = [[noremap <buffer> <silent> <leader>jg :call jsonpath#goto()<CR>]]
         }
+    },
+    EdgeQL = {
+        {
+            events = 'BufRead,BufNewFile',
+            filter = '*.esdl,*.edgeql',
+            cmd  = [[set filetype=edgeql]]
+        }
     }
 }
 

@@ -6,6 +6,7 @@ set -x PATH $JAVA_HOME $PATH '/Users/hapham/.config/kotlin-language-server/serve
 set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH $PATH /usr/local/go/bin
 set -x PATH $PATH (go env GOPATH)/bin
+set -x PATH $PATH '/Users/hapham/Library/Application Support/edgedb/bin'
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
