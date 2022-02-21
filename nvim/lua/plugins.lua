@@ -51,6 +51,7 @@ require('packer').startup(function(use)
     use 'nacro90/numb.nvim'
     use 'djoshea/vim-autoread'
     use 'jwalton512/vim-blade'
+    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -188,9 +189,13 @@ require'nvim-tree'.setup {
                 { key = { "<BS>", "h" },      cb = tree_cb("close_node") },
             }
         }
+    },
+    actions = {
+        open_file = {
+            quit_on_open = true,
+        }
     }
 }
-g.nvim_tree_quit_on_open = 1
 
 -- kommentary
 require('kommentary.config').configure_language("default", {
@@ -210,3 +215,4 @@ require('fzf-lua').setup {
     }
 }
 
+require("bufferline").setup{}

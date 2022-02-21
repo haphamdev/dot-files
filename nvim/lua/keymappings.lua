@@ -92,4 +92,10 @@ map('i', '<C-e>', [[compe#close('<C-e>')]], { expr = true; silent = true })
 
 --nvim-tree.lua
 map('n', '<leader>xx', [[:NvimTreeToggle<CR>]], { silent = true })
-map('n', '<leader>x', [[:NvimTreeFindFile<CR>]], { silent = true })
+map('n', '<leader>xf', [[:NvimTreeFindFile<CR>]], { silent = true })
+
+--bufferline.nvim
+map('n', '<C-w>l', [[:BufferLineCloseRight<CR>]], { silent = false })
+map('n', '<C-w>h', [[:BufferLineCloseLeft<CR>]], { silent = false })
+map('n', '<C-w>o', [[:BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>]], { silent = false })
+map('n', 'jb', [[:BufferLinePick<CR>]], { silent = true })
