@@ -52,6 +52,7 @@ require('packer').startup(function(use)
     use 'djoshea/vim-autoread'
     use 'jwalton512/vim-blade'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
+    use {'fanliver/edgedb-vim', branch = 'support-nvim'}
 end)
 
 require'nvim-treesitter.configs'.setup {
