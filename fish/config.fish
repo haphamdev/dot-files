@@ -88,8 +88,7 @@ abbr -a fp 'prfzf cd'
 abbr -a glc './gradlew.local'
 abbr -a grd './gradlew'
 abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
-
-abbr -a tmp tmux popup -EE -h 70% -w 70%
+abbr -a edb edgedb
 
 function fish_right_prompt
 	set st $status
