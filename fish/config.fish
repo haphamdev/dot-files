@@ -90,20 +90,8 @@ abbr -a grd './gradlew'
 abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
 abbr -a edb edgedb
 
-function fish_right_prompt
-	set st $status
-	if test $st -eq 0
-		set_color green
-	else
-		set_color red
-	end
-	echo -n $st
-	set_color normal
-	echo -n '|'
-	date "+%H:%M:%S"
-end
-
-# set fish_color_autosuggestion d2d2d2
+# In vi mode, press Ctrl+f to accept autocompletion
+bind -M insert \cf forward-char
     
 fish_add_path /usr/local/opt/ruby/bin
 fish_add_path /usr/local/go/bin
