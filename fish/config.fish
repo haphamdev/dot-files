@@ -92,6 +92,8 @@ abbr -a edb edgedb
 
 # In vi mode, press Ctrl+f to accept autocompletion
 bind -M insert \cf forward-char
+bind -M insert \cp history-search-backward
+bind -M insert \cn history-search-forward
     
 fish_add_path /usr/local/opt/ruby/bin
 fish_add_path /usr/local/go/bin
