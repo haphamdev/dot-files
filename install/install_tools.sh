@@ -1,10 +1,16 @@
 #!/usr/local/bin/bash
 
 install_if_not_exist () {
-    echo 
-    app_name=$1
+    app_command=$1
+
+    if [ -z "$2" ]
+    then
+        app_name=$app_command
+    else
+        app_name=$2
+    fi
     
-    if command -v $app_name > /dev/null
+    if command -v $app_command > /dev/null
     then
         echo "'$app_name' was installed already. Skip"
     else
@@ -15,7 +21,7 @@ install_if_not_exist () {
             return
         elif [ $# -eq 2 ]
         then
-            brew install $2
+            brew install $app_name
             return
         else
             echo 'Wrong usage. Please pass 1 or 2 argument(s).'
