@@ -12,8 +12,7 @@ function fish_prompt
   set_color $fish_color_autosuggestion[1]; printf 'in '
   set_color -o green; printf '%s' (prompt_pwd)
 
-  echo
   set_color normal
-  set_color yellow; printf '\uf489 '
+  set_color yellow; printf ' '
   set_color normal
 end
