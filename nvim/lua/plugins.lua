@@ -33,7 +33,6 @@ require('packer').startup(function(use)
     use 'hrsh7th/nvim-compe'
     use 'tomasiser/vim-code-dark'
     use 'famiu/bufdelete.nvim'
-    use 'xiyaowong/nvim-cursorword'
     use {
         'kyazdani42/nvim-tree.lua',
         requires = 'kyazdani42/nvim-web-devicons'
