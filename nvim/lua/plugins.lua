@@ -212,6 +212,11 @@ require('fzf-lua').setup {
     grep = {
         glob_flag           = "--iglob",  -- for case sensitive globs use '--glob'
         glob_separator      = "%s%-%-"    -- query separator pattern (lua): ' --'
+    },
+    winopts = {
+        preview = {
+            default = 'bat'
+        }
     }
 }
 
