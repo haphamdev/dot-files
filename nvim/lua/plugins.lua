@@ -50,6 +50,15 @@ require('packer').startup(function(use)
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use {'fanliver/edgedb-vim', branch = 'support-nvim'}
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
+    use({
+        "NTBBloodbath/galaxyline.nvim",
+        -- your statusline
+        config = function()
+            require("galaxyline.themes.nord")
+        end,
+        -- some optional icons
+        requires = { "kyazdani42/nvim-web-devicons", opt = true }
+    })
 end)
 
 require'nvim-treesitter.configs'.setup {
