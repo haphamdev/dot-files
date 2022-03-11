@@ -99,3 +99,9 @@ map('n', '<C-w>l', [[:BufferLineCloseRight<CR>]], { silent = false })
 map('n', '<C-w>h', [[:BufferLineCloseLeft<CR>]], { silent = false })
 map('n', '<C-w>o', [[:BufferLineCloseLeft<CR>:BufferLineCloseRight<CR>]], { silent = false })
 map('n', 'gb', [[:BufferLinePick<CR>]], { silent = true })
+
+--diffview.nvim
+map('n', '<C-g>d', [[:DiffviewOpen<CR>]])
+map('n', '<C-g>c', [[:DiffviewClose<CR>]])
+map('n', '<C-g>h', [[:DiffviewFileHistory .<CR>]])
+map('n', '<C-g>l', [[:DiffviewFileHistory<CR>]])

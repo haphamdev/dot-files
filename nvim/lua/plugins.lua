@@ -26,7 +26,6 @@ require('packer').startup(function(use)
     use 'gko/vim-coloresque'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
-    use 'tpope/vim-fugitive'
     use 'tpope/vim-rhubarb'
     use 'vim-scripts/CSApprox'
     use 'Shougo/vimproc.vim'
@@ -52,6 +51,7 @@ require('packer').startup(function(use)
     use 'jwalton512/vim-blade'
     use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
     use {'fanliver/edgedb-vim', branch = 'support-nvim'}
+    use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -220,4 +220,6 @@ require('fzf-lua').setup {
     }
 }
 
+-- bufferline
 require("bufferline").setup{}
+require('diffview-plugin')
