@@ -28,8 +28,12 @@ endif
 set diffopt+=vertical
 
 " Set transparent background for nvim
+set termguicolors
 hi Normal guibg=NONE ctermbg=NONE
 hi EndOfBuffer guibg=NONE ctermbg=NONE
+hi ActiveWindow guibg=NONE
+hi InactiveWindow guibg=#282C34
+set winhighlight=Normal:ActiveWindow,NormalNC:InactiveWindow
 
 " Reload vim configuration
 nnoremap <leader>rl :so $MYVIMRC<cr>
