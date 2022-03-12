@@ -54,7 +54,7 @@ require('packer').startup(function(use)
         "NTBBloodbath/galaxyline.nvim",
         -- your statusline
         config = function()
-            require("galaxyline.themes.nord")
+            require("galaxyline.themes.eviline")
         end,
         -- some optional icons
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
@@ -82,7 +82,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-
 
 -- indentLine
 g.indentLine_enabled = 1
@@ -185,4 +184,5 @@ require('fzf-lua').setup {
 
 -- bufferline
 require("bufferline").setup{}
+
 require('diffview-plugin')
