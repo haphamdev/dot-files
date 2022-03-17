@@ -192,13 +192,6 @@ function link_gitconfig
     end
 end
 
-# ============================================================================
-# Linking fish history
-# ============================================================================
-function link_fish_history
-    ln -fs $dir_dot_files/fish/fish_history ~/.local/share/fish/fish_history
-end
-
 
 link_fish_config
 link_fish_functions
@@ -209,4 +202,3 @@ link_neo_vim
 link_idea_vimrc
 link_gitui
 link_gitconfig
-link_fish_history
