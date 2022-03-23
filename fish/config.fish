@@ -14,7 +14,7 @@ set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 # Configure less to clear screen after exit and case-insensitive search
-set -x DELTA_PAGER "/usr/local/bin/less -R -i"
+set -x DELTA_PAGER "/opt/homebrew/bin/less -R -i"
 set -x LESS Ri 
 
 set -x DELTA_NAVIGATE 1 # use n/N to navigate file by file in delta
