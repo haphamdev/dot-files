@@ -1,9 +1,9 @@
 [user]
 	email = ha.pham.ext@personio.de
 	name = Ha Pham
-	signingkey = 806F34D9
+	signingkey = 088F4120
 [gpg]
-	program = /usr/local/bin/gpg
+	program = /opt/homebrew/bin/gpg
 [commit]
 	gpgsign = true
 [push]
