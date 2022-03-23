@@ -433,8 +433,8 @@ draw_bold_text_with_bright_colors: true
 #   - (macOS) /bin/bash --login
 #   - (Linux/BSD) user login shell
 #   - (Windows) powershell
-#shell:
-#  program: /bin/bash
+shell:
+  program: /opt/homebrew/bin/fish
 #  args:
 #    - --login
 
