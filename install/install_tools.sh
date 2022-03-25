@@ -69,13 +69,13 @@ mkdir -p ~/lnav-logs
 
 # change default shell to fish
 echo
-if [[ "$SHELL" == '/usr/local/bin/fish' ]];
+if [[ "$SHELL" == $(which fish)]];
 then
     echo "Fish is default shell already. Skip"
 else
     echo "Changing default shell to fish..."
-    chsh -s /usr/local/bin/fish
-    echo "Fish is not the default shell"
+    chsh -s $(which fish)
+    echo "Fish is now the default shell"
 fi
 
 # Change key mappings for home/end keys

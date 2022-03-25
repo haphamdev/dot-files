@@ -62,6 +62,7 @@ function link_fish_functions
     if symlink_not_exist $ddir_fish_functions
         echo "Linking fish functions..."
         mkdir $ddir_fish_config
+        rm -rf $ddir_fish_functions
         ln -s $sdir_fish_functions $ddir_fish_functions
         echo "Fish functions are linked successfully"
     else
@@ -129,11 +130,14 @@ function link_neo_vim
     set sfile_nvim_config $dir_dot_files/nvim/init.vim
     set ddir_nvim_config $dir_config/nvim
     set dfile_nvim_config $ddir_nvim_config/init.vim
+    set sdir_nvim_lua $dir_dot_files/nvim/lua
+    set ddir_nvim_lua $dir_nvim_config/lua
 
     if symlink_not_exist $dfile_nvim_config
         echo "Linking Neovim config..."
         mkdir -p $ddir_nvim_config
         ln -s $sfile_nvim_config $dfile_nvim_config
+        ln -s $sdir_nvim_lua $ddir_nvim_lua
         echo "Neovim config is linked successfully"
     else
         echo "Neo vim config is linked already. Skip"
@@ -202,3 +206,6 @@ link_neo_vim
 link_idea_vimrc
 link_gitui
 link_gitconfig
+
+# Use VIM key binding for fish
+fish_vi_key_bindings
