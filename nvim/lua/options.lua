@@ -131,3 +131,6 @@ opt.showmode = false
 
 -- Set color column to mark the line limit
 opt.colorcolumn = "120"
+
+-- Enable mouse for normal and insert mode
+opt.mouse = "ni"
