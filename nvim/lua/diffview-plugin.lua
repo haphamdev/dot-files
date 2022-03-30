@@ -90,7 +90,7 @@ require'diffview'.setup {
       ["k"]             = cb("prev_entry"),
       ["<up>"]          = cb("prev_entry"),
       ["<cr>"]          = cb("select_entry"),
-      ["o"]             = cb("select_entry"),
+      ["l"]             = cb("select_entry"),
       ["<2-LeftMouse>"] = cb("select_entry"),
       ["<tab>"]         = cb("select_next_entry"),
       ["<s-tab>"]       = cb("select_prev_entry"),
