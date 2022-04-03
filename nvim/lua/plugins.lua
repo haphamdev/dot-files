@@ -20,7 +20,7 @@ require('packer').startup(function(use)
     use 'mogelbrod/vim-jsonpath'
     use 'voldikss/vim-floaterm'
     use 'alvan/vim-closetag'
-    use 'jiangmiao/auto-pairs'
+    use 'windwp/nvim-autopairs'
     use 'gko/vim-coloresque'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
