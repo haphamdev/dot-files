@@ -185,4 +185,8 @@ require('fzf-lua').setup {
 -- bufferline
 require("bufferline").setup{}
 
+-- load the config for diffview.nvim. Please check ./diffview-plugin.lua for more details
 require('diffview-plugin')
+
+-- setup nvim-autopairs
+require('nvim-autopairs').setup{}
