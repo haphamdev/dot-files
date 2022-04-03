@@ -11,7 +11,7 @@ require('packer').startup(function(use)
         }
     }
     use 'lewis6991/gitsigns.nvim'
-    use 'Yggdroot/indentLine'
+    use 'lukas-reineke/indent-blankline.nvim'
     use 'airblade/vim-rooter'
     use 'christoomey/vim-tmux-navigator'
     use 'dag/vim-fish'
@@ -82,12 +82,6 @@ require'nvim-treesitter.configs'.setup {
     enable = true
   }
 }
-
--- indentLine
-g.indentLine_enabled = 1
-g.indentLine_concealcursor = 0
-g.indentLine_char = '┆'
-g.indentLine_faster = 1
 
 g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', 'package.json', 'build.gradle', 'build.gradle.kts' }
 
@@ -197,4 +191,10 @@ require('gitsigns').setup {
     linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
     word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
     current_line_blame = true,
+}
+
+--setup for lukas-reineke/indent-blankline.nvim
+require('indent_blankline').setup{
+    show_current_context = true,
+    show_current_context_start = true,
 }
