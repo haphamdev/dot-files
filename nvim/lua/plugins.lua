@@ -24,7 +24,6 @@ require('packer').startup(function(use)
     use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
-    use 'tpope/vim-rhubarb'
     use 'vim-scripts/CSApprox'
     use 'Shougo/vimproc.vim'
     use 'hrsh7th/nvim-compe'
