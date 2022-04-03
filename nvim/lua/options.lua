@@ -136,5 +136,5 @@ opt.colorcolumn = "120"
 opt.mouse = "ni"
 
 -- Show whitespace characters
-vim.opt.list = true
-vim.opt.listchars:append("space:⋅")
+opt.list = true
+opt.listchars:append("space:⋅")
