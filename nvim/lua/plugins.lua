@@ -21,7 +21,7 @@ require('packer').startup(function(use)
     use 'voldikss/vim-floaterm'
     use 'alvan/vim-closetag'
     use 'windwp/nvim-autopairs'
-    use 'gko/vim-coloresque'
+    use 'norcalli/nvim-colorizer.lua'
     use 'nvim-lua/plenary.nvim'
     use 'nvim-lua/popup.nvim'
     use 'tpope/vim-rhubarb'
@@ -198,3 +198,6 @@ require('indent_blankline').setup{
     show_current_context = true,
     show_current_context_start = true,
 }
+
+-- setup for norcalli/nvim-colorizer.lua
+require 'colorizer'.setup()
