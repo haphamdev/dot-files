@@ -134,3 +134,7 @@ opt.colorcolumn = "120"
 
 -- Enable mouse for normal and insert mode
 opt.mouse = "ni"
+
+-- Show whitespace characters
+vim.opt.list = true
+vim.opt.listchars:append("space:⋅")
