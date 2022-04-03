@@ -10,7 +10,7 @@ require('packer').startup(function(use)
             'kyazdani42/nvim-web-devicons' -- optional for icons
         }
     }
-    use 'airblade/vim-gitgutter'
+    use 'lewis6991/gitsigns.nvim'
     use 'Yggdroot/indentLine'
     use 'airblade/vim-rooter'
     use 'christoomey/vim-tmux-navigator'
@@ -190,3 +190,11 @@ require('diffview-plugin')
 
 -- setup nvim-autopairs
 require('nvim-autopairs').setup{}
+
+-- setup for gitsigns.nvim
+require('gitsigns').setup {
+    numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    current_line_blame = true,
+}
