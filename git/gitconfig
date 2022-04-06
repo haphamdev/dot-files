@@ -12,6 +12,7 @@
 [core]
     pager = delta
 	autocrlf = input
+	editor = /opt/homebrew/bin/nvim
 
 [interactive]
     diffFilter = delta --color-only
