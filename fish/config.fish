@@ -13,6 +13,8 @@ set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
+set -x NVM_DIR "$HOME/.nvm"
+
 # Configure less to clear screen after exit and case-insensitive search
 set -x DELTA_PAGER "/opt/homebrew/bin/less -R -i"
 set -x LESS Ri 
@@ -65,7 +67,8 @@ abbr -a r 'ranger'
 abbr -a e 'nvim'
 abbr -a nv '~/nvim-0.5/bin/nvim'
 abbr -a lg 'lazygit'
-abbr -a pc '~/projects/personio/perctl'
+abbr -a pc '/opt/homebrew/bin/perctl'
+abbr -a mc '~/projects/personio/monolith-cli'
 abbr -a plg 'lnav ~/projects/personio/app/storage-local/logs/laravel.log'
 abbr -a psn 'cd ~/projects/personio'
 abbr -a is 'cd ~/projects/invoice-service'
