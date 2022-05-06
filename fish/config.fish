@@ -65,18 +65,15 @@ abbr -a batdiff 'git diff --name-only --diff-filter=d | xargs bat --diff'
 abbr -a r 'ranger'
 
 abbr -a e 'nvim'
-abbr -a nv '~/nvim-0.5/bin/nvim'
 abbr -a lg 'lazygit'
 abbr -a pc '/opt/homebrew/bin/perctl'
 abbr -a mc '~/projects/personio/monolith-cli'
 abbr -a plg 'lnav ~/projects/personio/app/storage-local/logs/laravel.log'
 abbr -a psn 'cd ~/projects/personio'
-abbr -a is 'cd ~/projects/invoice-service'
 abbr -a kgp 'kubectl get pods'
 abbr -a wkgp 'watch kubectl get pods'
 abbr -a kdc 'kubectl describe'
 abbr -a proj 'cd ~/projects'
-abbr -a aps 'cd ~/projects/admin-panel-service'
 abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
@@ -91,7 +88,6 @@ abbr -a fp 'prfzf cd'
 
 abbr -a glc './gradlew.local'
 abbr -a grd './gradlew'
-abbr -a vpn 'sudo /usr/local/opt/openvpn/sbin/openvpn --config ~/openvpn/client.ovpn'
 abbr -a edb edgedb
 
 # In vi mode, press Ctrl+f to accept autocompletion
