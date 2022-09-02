@@ -61,6 +61,12 @@ require('packer').startup(function(use)
     })
     use 'shiftwinting/floating.nvim'
     use 'axieax/urlview.nvim'
+    use {
+        "sitiom/nvim-numbertoggle",
+        config = function()
+            require("numbertoggle").setup()
+        end
+    }
 end)
 
 require'nvim-treesitter.configs'.setup {
