@@ -4,6 +4,7 @@ require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
     use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
+    use 'nvim-treesitter/playground'
     use { 'ibhagwan/fzf-lua',
         requires = {
             'vijaymarupudi/nvim-fzf',
@@ -58,6 +59,7 @@ require('packer').startup(function(use)
         -- some optional icons
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     })
+    use 'shiftwinting/floating.nvim'
 end)
 
 require'nvim-treesitter.configs'.setup {
@@ -80,6 +82,24 @@ require'nvim-treesitter.configs'.setup {
     indent = {
         enable = true
     },
+    playground = {
+        enable = true,
+        disable = {},
+        updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
+        persist_queries = false, -- Whether the query persists across vim sessions
+        keybindings = {
+        toggle_query_editor = 'o',
+        toggle_hl_groups = 'i',
+        toggle_injected_languages = 't',
+        toggle_anonymous_nodes = 'a',
+        toggle_language_display = 'I',
+        focus_language = 'f',
+        unfocus_language = 'F',
+        update = 'R',
+        goto_node = '<cr>',
+        show_help = '?',
+        },
+    }
 }
 
 g.rooter_patterns = { '.git', 'Makefile', '*.sln', 'build/env.sh', 'package.json', 'build.gradle', 'build.gradle.kts' }
