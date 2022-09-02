@@ -60,6 +60,7 @@ require('packer').startup(function(use)
         requires = { "kyazdani42/nvim-web-devicons", opt = true }
     })
     use 'shiftwinting/floating.nvim'
+    use 'axieax/urlview.nvim'
 end)
 
 require'nvim-treesitter.configs'.setup {
