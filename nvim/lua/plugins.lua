@@ -47,8 +47,8 @@ require('packer').startup(function(use)
     use 'nacro90/numb.nvim'
     use 'djoshea/vim-autoread'
     use 'jwalton512/vim-blade'
-    use {'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons'}
-    use {'fanliver/edgedb-vim', branch = 'support-nvim'}
+    use { 'akinsho/bufferline.nvim', requires = 'kyazdani42/nvim-web-devicons' }
+    use { 'fanliver/edgedb-vim', branch = 'support-nvim' }
     use { 'sindrets/diffview.nvim', requires = 'nvim-lua/plenary.nvim' }
     use({
         "NTBBloodbath/galaxyline.nvim",
@@ -67,23 +67,44 @@ require('packer').startup(function(use)
             require("numbertoggle").setup()
         end
     }
+    use({
+        "glepnir/lspsaga.nvim",
+        branch = "main",
+        config = function()
+            local saga = require("lspsaga")
+
+            saga.init_lsp_saga({
+                -- your configuration
+                saga_winblend = 30,
+                finder_action_keys = {
+                    open = "<CR>",
+                    vsplit = "s",
+                    split = "i",
+                    tabe = "t",
+                    quit = "q",
+                    scroll_down = "<C-f>",
+                    scroll_up = "<C-b>", -- quit can be a table
+                },
+            })
+        end,
+    })
 end)
 
-require'nvim-treesitter.configs'.setup {
+require 'nvim-treesitter.configs'.setup {
     highlight = {
         enable = true,
         custom_captures = {
-        -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
-        -- ["foo.bar"] = "Identifier",
+            -- Highlight the @foo.bar capture group with the "Identifier" highlight group.
+            -- ["foo.bar"] = "Identifier",
         },
     },
     incremental_selection = {
         enable = true,
         keymaps = {
-        init_selection = "gnn",
-        node_incremental = "grn",
-        scope_incremental = "grc",
-        node_decremental = "grm",
+            init_selection = "gnn",
+            node_incremental = "grn",
+            scope_incremental = "grc",
+            node_decremental = "grm",
         },
     },
     indent = {
@@ -95,16 +116,16 @@ require'nvim-treesitter.configs'.setup {
         updatetime = 25, -- Debounced time for highlighting nodes in the playground from source code
         persist_queries = false, -- Whether the query persists across vim sessions
         keybindings = {
-        toggle_query_editor = 'o',
-        toggle_hl_groups = 'i',
-        toggle_injected_languages = 't',
-        toggle_anonymous_nodes = 'a',
-        toggle_language_display = 'I',
-        focus_language = 'f',
-        unfocus_language = 'F',
-        update = 'R',
-        goto_node = '<cr>',
-        show_help = '?',
+            toggle_query_editor = 'o',
+            toggle_hl_groups = 'i',
+            toggle_injected_languages = 't',
+            toggle_anonymous_nodes = 'a',
+            toggle_language_display = 'I',
+            focus_language = 'f',
+            unfocus_language = 'F',
+            update = 'R',
+            goto_node = '<cr>',
+            show_help = '?',
         },
     }
 }
@@ -152,7 +173,7 @@ g.closetag_close_shortcut = '<leader>>'
 cmd('silent! colorscheme codedark')
 
 -- compe
-require'compe'.setup({
+require 'compe'.setup({
     enabled = true,
     source = {
         path = true,
@@ -162,13 +183,13 @@ require'compe'.setup({
 })
 
 -- nvim-tree.lua
-local tree_cb = require'nvim-tree.config'.nvim_tree_callback
-require'nvim-tree'.setup {
+local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
+require 'nvim-tree'.setup {
     view = {
         mappings = {
             list = {
-                { key = {"<CR>", "l" },       cb = tree_cb("edit") },
-                { key = { "<BS>", "h" },      cb = tree_cb("close_node") },
+                { key = { "<CR>", "l" }, cb = tree_cb("edit") },
+                { key = { "<BS>", "h" }, cb = tree_cb("close_node") },
             }
         }
     },
@@ -192,8 +213,8 @@ require('numb').setup()
 
 require('fzf-lua').setup {
     grep = {
-        glob_flag           = "--iglob",  -- for case sensitive globs use '--glob'
-        glob_separator      = "%s%-%-"    -- query separator pattern (lua): ' --'
+        glob_flag      = "--iglob", -- for case sensitive globs use '--glob'
+        glob_separator = "%s%-%-" -- query separator pattern (lua): ' --'
     },
     winopts = {
         preview = {
@@ -203,24 +224,24 @@ require('fzf-lua').setup {
 }
 
 -- bufferline
-require("bufferline").setup{}
+require("bufferline").setup {}
 
 -- load the config for diffview.nvim. Please check ./diffview-plugin.lua for more details
 require('diffview-plugin')
 
 -- setup nvim-autopairs
-require('nvim-autopairs').setup{}
+require('nvim-autopairs').setup {}
 
 -- setup for gitsigns.nvim
 require('gitsigns').setup {
-    numhl      = true, -- Toggle with `:Gitsigns toggle_numhl`
-    linehl     = false, -- Toggle with `:Gitsigns toggle_linehl`
-    word_diff  = false, -- Toggle with `:Gitsigns toggle_word_diff`
+    numhl              = true, -- Toggle with `:Gitsigns toggle_numhl`
+    linehl             = false, -- Toggle with `:Gitsigns toggle_linehl`
+    word_diff          = false, -- Toggle with `:Gitsigns toggle_word_diff`
     current_line_blame = true,
 }
 
 --setup for lukas-reineke/indent-blankline.nvim
-require('indent_blankline').setup{
+require('indent_blankline').setup {
     show_current_context = true,
     show_current_context_start = true,
 }

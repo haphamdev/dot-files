@@ -1,9 +1,9 @@
 local cmd, fn, g, opt, api = vim.cmd, vim.fn, vim.g, vim.opt, vim.api
 
 local function map(mode, lhs, rhs, opts)
-  local options = {noremap = true}
-  if opts then options = vim.tbl_extend('force', options, opts) end
-  api.nvim_set_keymap(mode, lhs, rhs, options)
+    local options = { noremap = true }
+    if opts then options = vim.tbl_extend('force', options, opts) end
+    api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
 -- Map leader to comma
@@ -18,7 +18,7 @@ map('n', '<leader><space>', ':noh<CR>', { silent = true })
 
 -- H and L instead of ^ and $
 map('', 'H', '^')
-map('',  'L', '$')
+map('', 'L', '$')
 
 -- Disable arrow keys
 map('n', '<up>', '<NOP>')
@@ -63,7 +63,7 @@ map('t', '<leader>tt', [[<C-\><C-n>:FloatermToggle!<CR>]])
 map('t', '<leader>tb', [[<C-\><C-n>]])
 
 -- fzf-lua
-local getFzfFunction = function (functionName)
+local getFzfFunction = function(functionName)
     return [[<cmd>lua require('fzf-lua').]] .. functionName .. [[()<CR>]]
 end
 
@@ -105,3 +105,21 @@ map('n', '<C-g>d', [[:DiffviewOpen<CR>]])
 map('n', '<C-g>c', [[:DiffviewClose<CR>]])
 map('n', '<C-g>h', [[:DiffviewFileHistory .<CR>]])
 map('n', '<C-g>l', [[:DiffviewFileHistory<CR>]])
+
+--lspsaga.nvim
+map('n', 'K', [[:Lspsaga hover_doc<CR>]], { silent = true })
+map('n', 'gh', [[:Lspsaga lsp_finder<CR>]], { silent = true })
+map('n', '<leader>ca', [[:Lspsaga code_action<CR>]], { silent = true })
+map('v', '<leader>ca', [[:Lspsaga range_code_action<CR>]], { silent = true })
+map('n', '<space>rn', [[:Lspsaga rename<CR>]], { silent = true })
+map('n', '<space>d', [[:Lspsaga preview_definition<CR>]], { silent = true })
+map('n', '<leader>ld', [[:Lspsaga show_line_diagnostics<CR>]], { silent = true })
+map('n', '<leader>cd', [[:Lspsaga show_cursor_diagnostics<CR>]], { silent = true })
+map('n', '[e', [[:Lspsaga diagnostic_jump_prev<CR>]], { silent = true })
+map('n', ']e', [[:Lspsaga diagnostic_jump_next<CR>]], { silent = true })
+vim.keymap.set("n", "[E", function()
+  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
+vim.keymap.set("n", "]E", function()
+  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
+end, { silent = true })
