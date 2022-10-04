@@ -3,7 +3,7 @@ local cmd, fn, g, opt, api = vim.cmd, vim.fn, vim.g, vim.opt, vim.api
 require('packer').startup(function(use)
     use 'wbthomason/packer.nvim'
     use 'neovim/nvim-lspconfig'
-    use { 'nvim-treesitter/nvim-treesitter', branch = '0.5-compat', run = ':TSUpdate' }
+    use { 'nvim-treesitter/nvim-treesitter', run = ':TSUpdate' }
     use 'nvim-treesitter/playground'
     use { 'ibhagwan/fzf-lua',
         requires = {
@@ -88,6 +88,12 @@ require('packer').startup(function(use)
             })
         end,
     })
+    use({
+	"Pocco81/auto-save.nvim",
+	config = function()
+		 require("auto-save").setup {}
+	end,
+})
 end)
 
 require 'nvim-treesitter.configs'.setup {
