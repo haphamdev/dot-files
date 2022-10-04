@@ -31,6 +31,7 @@ local servers = {
     "bashls",
     'sumneko_lua',
     'kotlin_language_server',
+    'jsonls',
 }
 for _, lsp in ipairs(servers) do
   nvim_lsp[lsp].setup { on_attach = on_attach }
