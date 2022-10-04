@@ -35,7 +35,8 @@ abbr -a effn 'nvim ~/.config/fish/functions/'
 abbr -a ea 'nvim ~/.aws'
 abbr -a ls exa
 abbr -a ll exa -l
-abbr -a lt exa --tree -l --git-ignore --level=2
+abbr -a lt exa --tree -l --level=3
+abbr -a ltg exa --tree -l --git-ignore --level=3
 
 # Git abbreviations
 abbr -a gf 'git fetch -p'
