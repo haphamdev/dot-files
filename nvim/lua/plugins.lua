@@ -192,6 +192,18 @@ require 'compe'.setup({
 local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
 require 'nvim-tree'.setup {
     view = {
+        float = {
+            enable = true,
+            quit_on_focus_loss = true,
+            open_win_config = {
+                relative = "editor",
+                border = "rounded",
+                width = 70,
+                height = 50,
+                row = 2,
+                col = 2,
+            },
+        },
         mappings = {
             list = {
                 { key = { "<CR>", "l" }, cb = tree_cb("edit") },
