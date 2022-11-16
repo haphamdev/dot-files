@@ -94,6 +94,7 @@ require('packer').startup(function(use)
             require("auto-save").setup {}
         end,
     })
+    use 'nanotee/sqls.nvim'
 end)
 
 require 'nvim-treesitter.configs'.setup {
@@ -266,3 +267,4 @@ require('indent_blankline').setup {
 
 -- setup for norcalli/nvim-colorizer.lua
 require 'colorizer'.setup()
+
