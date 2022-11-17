@@ -85,11 +85,6 @@ map('n', '<space>s', getFzfFunction('lsp_document_symbols'))
 -- Browse current line in GitHub repo
 map('n', '<leader>o', [[:GBrowse<CR>]])
 
---nvim-compe
-map('i', '<C-Space>', [[compe#complete()]], { expr = true; silent = true })
-map('i', '<CR>', [[compe#confirm('<CR>')]], { expr = true; silent = true })
-map('i', '<C-e>', [[compe#close('<C-e>')]], { expr = true; silent = true })
-
 --nvim-tree.lua
 map('n', '<leader>xx', [[:NvimTreeToggle<CR>]], { silent = true })
 map('n', '<leader>xf', [[:NvimTreeFindFile<CR>]], { silent = true })

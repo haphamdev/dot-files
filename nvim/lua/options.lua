@@ -118,7 +118,7 @@ opt.modeline = true
 opt.modelines = 10
 
 --completion options
-vim.o.completeopt = "menuone,noselect"
+vim.o.completeopt = "menu,menuone,noselect"
 
 -- filetype plugin
 cmd([[filetype plugin indent on]])
