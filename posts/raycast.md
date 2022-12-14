@@ -132,6 +132,12 @@ With **Calendar** extension, you can quickly view your schedules in your calenda
 Especially, if your schedule contains Zoom or Google Meet link, 5 minutes before and after the meeting starts,
 just open Raycast and you can see the meeting will show up right away on top, just hit enter to join the call.
 
+# Quick switching audio device 🔈
+If you have multiple input and/or output audio devices connected with your Mac, `Set Audio Device` will be a good choice for you. It supports quickly choosing the input/output device. For example: choosing the hi-end stereo for listening music and quickly switching to your headset for a call. Awesome!!!
+
+# Quick switching bluetooth connection 📶
+Connection to your bluetooth devices can be easily managed with `Toothpick` extension. 
+
 # Enjoy it!
 So far, I have shown you a bunch of features that Raycast can boost your productivity. 
 I enjoyed it a lot, hopefully it can do the same for your life.
