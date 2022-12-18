@@ -37,7 +37,7 @@ function dbar -d "Send dbaccess request to EM"
     end
     echo "✅ Approver: $_flag_approver"
 
-    set cmd "dbaccess request-company-access --company-id=\"$_flag_company\" --reason=\"$_flag_message\" --jira-ticket=\"$_flag_ticket\" --pii-expected --number-of-queries=10 --manager \"$_flag_approver\" --second-reviewer=\"$_flag_approver\""
+    set cmd "dbaccess request-company-access --company-id=\"$_flag_company\" --reason=\"$_flag_message\" --jira-ticket=\"$_flag_ticket\" --manager \"$_flag_approver\""
     echo "Command: $cmd"
     read -P "Send request? (y/n): " confirm
 
