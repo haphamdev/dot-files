@@ -127,9 +127,9 @@ end
 # Neo vim
 # ============================================================================
 function link_neo_vim
-    set sfile_nvim_config $dir_dot_files/nvim/init.vim
+    set sfile_nvim_config $dir_dot_files/nvim/init.lua
     set ddir_nvim_config $dir_config/nvim
-    set dfile_nvim_config $ddir_nvim_config/init.vim
+    set dfile_nvim_config $ddir_nvim_config/init.lua
     set sdir_nvim_lua $dir_dot_files/nvim/lua
     set ddir_nvim_lua $dir_nvim_config/lua
 
