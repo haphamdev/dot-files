@@ -6,10 +6,9 @@ local function map(mode, lhs, rhs, opts)
     api.nvim_set_keymap(mode, lhs, rhs, options)
 end
 
--- Map leader to comma
-map('n', ',', '<NOP>', { silent = true })
-g.mapleader = ","
-
+-- Remap for dealing with word wrap
+vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
+vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
 -- jj to escape insert mode
 map('i', 'jj', '<esc>', { silent = true })
 
@@ -34,14 +33,14 @@ map('i', '<right>', '<NOP>')
 map('i', '<C-u>', '<esc>mqg~iw`qa')
 
 -- <leader> v/h for vertical/horizontal split
-map('', '<leader>h', ':<C-u>split<CR>')
-map('', '<leader>v', ':<C-u>vsplit<CR>')
+map('', '<leader>v', ':<C-u>split<CR>')
+map('', '<leader>s', ':<C-u>vsplit<CR>')
 
 -- <leader>fp to copy the path of current file to clipboard
 map('n', '<leader>fp', [[:let @* = expand('%')<CR>]])
 
 -- Buffer navigation
-map('n', '<leader>w', ':Bdelete<CR>') -- Close buffer
+map('n', '<leader>w', ':bdelete<CR>') -- Close buffer
 
 -- Keep in visual mode after indentation
 map('v', '<', '<gv')
@@ -52,35 +51,6 @@ map('v', 'J', [[:m '>+1<CR>gv=gv]])
 map('v', 'K', [[:m '<-2<CR>gv=gv]])
 
 map('n', '<leader>rl', [[:luafile $MYVIMRC<CR>]])
-
--- Floaterm (voldikss/vim-floaterm)
-map('n', '<leader>tn', ':FloatermNew<CR>')
-map('n', '<leader>tt', ':FloatermToggle!<CR>')
-map('t', '<leader>tn', [[<C-\><C-n>:FloatermNew<CR>]])
-map('t', '<leader>tl', [[<C-\><C-n>:FloatermNext<CR>]])
-map('t', '<leader>th', [[<C-\><C-n>:FloatermPrev<CR>]])
-map('t', '<leader>tt', [[<C-\><C-n>:FloatermToggle!<CR>]])
-map('t', '<leader>tb', [[<C-\><C-n>]])
-
--- fzf-lua
-local getFzfFunction = function(functionName)
-    return [[<cmd>lua require('fzf-lua').]] .. functionName .. [[()<CR>]]
-end
-
--- " Find files using Telescope command-line sugar.
-map('n', '<leader>e', getFzfFunction('files'))
-map('n', '<leader>ff', getFzfFunction('grep_curbuf'))
-map('n', '<leader>fa', [[<cmd>lua require('fzf-lua').live_grep_glob()<CR>]])
-map('n', '<leader>b', getFzfFunction('buffers'))
-map('n', '<leader>fh', getFzfFunction('help_tags'))
-map('n', '<leader>fw', getFzfFunction('grep_cword'))
-map('n', '<leader>rf', getFzfFunction('oldfiles'))
-map('n', '<leader>ff', getFzfFunction('grep_curbuf'))
-map('n', 'gd', [[<cmd>lua require('fzf-lua').lsp_definitions({ jump_to_single_result = true })<CR>]])
-map('n', 'gi', [[<cmd>lua require('fzf-lua').lsp_implementations({ jump_to_single_result = true })<CR>]])
-map('n', 'gr', [[<cmd>lua require('fzf-lua').lsp_references({ jump_to_single_result = true })<CR>]])
-map('n', '<space>ca', getFzfFunction('lsp_code_actions'))
-map('n', '<space>s', getFzfFunction('lsp_document_symbols'))
 
 -- Browse current line in GitHub repo
 map('n', '<leader>o', [[:GBrowse<CR>]])
@@ -101,20 +71,25 @@ map('n', '<C-g>c', [[:DiffviewClose<CR>]])
 map('n', '<C-g>h', [[:DiffviewFileHistory .<CR>]])
 map('n', '<C-g>l', [[:DiffviewFileHistory<CR>]])
 
---lspsaga.nvim
-map('n', 'K', [[:Lspsaga hover_doc<CR>]], { silent = true })
-map('n', 'gh', [[:Lspsaga lsp_finder<CR>]], { silent = true })
-map('n', '<leader>ca', [[:Lspsaga code_action<CR>]], { silent = true })
-map('v', '<leader>ca', [[:Lspsaga range_code_action<CR>]], { silent = true })
-map('n', '<space>rn', [[:Lspsaga rename<CR>]], { silent = true })
-map('n', '<space>d', [[:Lspsaga preview_definition<CR>]], { silent = true })
-map('n', '<leader>ld', [[:Lspsaga show_line_diagnostics<CR>]], { silent = true })
-map('n', '<leader>cd', [[:Lspsaga show_cursor_diagnostics<CR>]], { silent = true })
-map('n', '[e', [[:Lspsaga diagnostic_jump_prev<CR>]], { silent = true })
-map('n', ']e', [[:Lspsaga diagnostic_jump_next<CR>]], { silent = true })
-vim.keymap.set("n", "[E", function()
-  require("lspsaga.diagnostic").goto_prev({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
-vim.keymap.set("n", "]E", function()
-  require("lspsaga.diagnostic").goto_next({ severity = vim.diagnostic.severity.ERROR })
-end, { silent = true })
+-- See `:help telescope.builtin`
+vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles, { desc = '[?] Find recently opened files' })
+vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+vim.keymap.set('n', '<leader>/', function()
+  -- You can pass additional configuration to telescope to change theme, layout, etc.
+  require('telescope.builtin').current_buffer_fuzzy_find(require('telescope.themes').get_dropdown {
+    winblend = 10,
+    previewer = false,
+  })
+end, { desc = '[/] Fuzzily search in current buffer]' })
+
+vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+
+-- Diagnostic keymaps
+vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
+vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
+vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
+vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
