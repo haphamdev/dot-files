@@ -91,34 +91,33 @@ require('packer').startup(function(use)
     }
   }
 
-  use 'lukas-reineke/indent-blankline.nvim'
   use 'airblade/vim-rooter'
   use 'dag/vim-fish'
   use 'tpope/vim-surround'
-  use 'christoomey/vim-system-copy'
   use 'mogelbrod/vim-jsonpath'
   use 'alvan/vim-closetag'
   use 'windwp/nvim-autopairs'
   use 'norcalli/nvim-colorizer.lua'
   use {
-    'kyazdani42/nvim-tree.lua',
-    requires = 'kyazdani42/nvim-web-devicons'
+    "nvim-neo-tree/neo-tree.nvim",
+    branch = "v2.x",
+    requires = {
+      "nvim-lua/plenary.nvim",
+      "nvim-tree/nvim-web-devicons", -- not strictly required, but recommended
+      "MunifTanjim/nui.nvim",
+    }
   }
+
   use 'nacro90/numb.nvim'
   use 'djoshea/vim-autoread'
   use 'axieax/urlview.nvim'
+  use "sitiom/nvim-numbertoggle"
   use {
-    "sitiom/nvim-numbertoggle",
-    config = function()
-      require("numbertoggle").setup()
-    end
-  }
-  use({
     "Pocco81/auto-save.nvim",
     config = function()
       require("auto-save").setup {}
     end,
-  })
+  }
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -514,36 +513,6 @@ g.closetag_shortcut = '>'
 -- Add > at current position without closing the current tag, default is ''
 g.closetag_close_shortcut = '<leader>>'
 
--- nvim-tree.lua
-local tree_cb = require 'nvim-tree.config'.nvim_tree_callback
-require 'nvim-tree'.setup {
-  view = {
-    float = {
-      enable = true,
-      quit_on_focus_loss = false,
-      open_win_config = {
-        relative = "editor",
-        border = "rounded",
-        width = 70,
-        height = 50,
-        row = 2,
-        col = 2,
-      },
-    },
-    mappings = {
-      list = {
-        { key = { "<CR>", "l" }, cb = tree_cb("edit") },
-        { key = { "<BS>", "h" }, cb = tree_cb("close_node") },
-      }
-    }
-  },
-  actions = {
-    open_file = {
-      quit_on_open = true,
-    }
-  }
-}
-
 -- numb
 require('numb').setup()
 
@@ -567,9 +536,8 @@ require('autocmds')
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
 local sethl = vim.api.nvim_set_hl
-sethl(0, "Normal", {bg="NONE", ctermbg="NONE"})
-sethl(0, "EndOfBuffer", {bg="NONE", ctermbg="NONE"})
-sethl(0, "ActiveWindow", {bg="NONE", ctermbg="NONE"})
-sethl(0, "InactiveWindow", {bg="#282C34"})
-vim.opt.winhl = { Normal='ActiveWindow', NormalNC='InactiveWindow'}
-
+sethl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
+sethl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
+sethl(0, "ActiveWindow", { bg = "NONE", ctermbg = "NONE" })
+sethl(0, "InactiveWindow", { bg = "#282C34" })
+vim.opt.winhl = { Normal = 'ActiveWindow', NormalNC = 'InactiveWindow' }
