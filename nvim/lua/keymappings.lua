@@ -34,7 +34,7 @@ map('i', '<C-u>', '<esc>mqg~iw`qa')
 
 -- <leader> v/h for vertical/horizontal split
 map('', '<leader>v', ':<C-u>split<CR>')
-map('', '<leader>s', ':<C-u>vsplit<CR>')
+map('', '<leader>h', ':<C-u>vsplit<CR>')
 
 -- <leader>fp to copy the path of current file to clipboard
 map('n', '<leader>fp', [[:let @* = expand('%')<CR>]])
