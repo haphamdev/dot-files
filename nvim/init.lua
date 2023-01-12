@@ -756,4 +756,5 @@ sethl(0, "Normal", { bg = "NONE", ctermbg = "NONE" })
 sethl(0, "EndOfBuffer", { bg = "NONE", ctermbg = "NONE" })
 sethl(0, "ActiveWindow", { bg = "NONE", ctermbg = "NONE" })
 sethl(0, "InactiveWindow", { bg = "#282C34" })
+sethl(0, "TelescopeNormal", { bg = "#1d1f21", ctermbg = "NONE"})
 vim.opt.winhl = { Normal = 'ActiveWindow', NormalNC = 'InactiveWindow' }
