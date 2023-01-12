@@ -17,7 +17,7 @@ local augroups = {
         {
             events = 'FileType',
             filter = [[html,typescript,javascript,typescriptreact,javascriptreact]],
-            cmd=[[setlocal ts=2 sts=2 sw=2]]
+            cmd = [[setlocal ts=2 sts=2 sw=2]]
         }
     },
     RememberCursorPosition = { -- remember cursor position
@@ -46,7 +46,7 @@ local augroups = {
             cmd = [[setlocal filetype=cmake]]
         }
     },
-    MogelbrodVimJsonPath = {-- mogelbrod/vim-jsonpath 
+    MogelbrodVimJsonPath = { -- mogelbrod/vim-jsonpath
         {
             events = 'FileType',
             filter = 'json',
@@ -60,12 +60,12 @@ local augroups = {
     },
 }
 
-local createAutocommands = function (groups)
+local createAutocommands = function(groups)
     for augroup, aucmds in pairs(groups) do
         api.nvim_command('augroup ' .. augroup)
         api.nvim_command('autocmd!')
 
-        for _,aucmd in ipairs(aucmds) do
+        for _, aucmd in ipairs(aucmds) do
             local cmdString = 'autocmd ' .. aucmd.events .. ' ' .. aucmd.filter .. ' ' .. aucmd.cmd
             api.nvim_command(cmdString)
         end
@@ -75,4 +75,3 @@ local createAutocommands = function (groups)
 end
 
 createAutocommands(augroups)
-
