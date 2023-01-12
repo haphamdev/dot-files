@@ -62,6 +62,7 @@ abbr -a k 'kubectl'
 abbr -a gback 'git checkout -'
 abbr -a gcm 'git commit -m'
 abbr -a gcma 'git commit -am'
+abbr -a gd 'git diff'
 abbr -a batdiff 'git diff --name-only --diff-filter=d | xargs bat --diff'
 abbr -a r 'ranger'
 
