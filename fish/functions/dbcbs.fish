@@ -1,9 +1,13 @@
-function dbsms
+function dbcbs
     if test (count $argv) -gt 0
         set COMPANY_ID $argv[1]
         echo "🔑 Company: $COMPANY_ID"
     else
         read -P "🔑 Company: " COMPANY_ID
+        if test -z "$COMPANY_ID"
+            echo "Skipped"
+            return
+        end
     end
 
     print_header "Customer"
