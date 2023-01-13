@@ -57,7 +57,7 @@ map('n', '<leader>o', [[:GBrowse<CR>]])
 
 --nvim-tree.lua
 map('n', '<leader>xx', [[:NeoTreeFloatToggle<CR>]], { silent = true })
-map('n', '<leader>xf', [[:Neotree reveal<CR>]], { silent = true })
+map('n', '<leader>xf', [[:Neotree reveal=true position=float<CR>]], { silent = true })
 
 --bufferline.nvim
 map('n', '<C-w>l', [[:BufferLineCloseRight<CR>]], { silent = false })
