@@ -98,7 +98,7 @@ opt.foldexpr = 'nvim_treesitter#foldexpr()'
 opt.foldlevel = 6
 
 -- Do not load netrw on nvim startup
-g.loaded_netrwPlugin = 1
+-- g.loaded_netrwPlugin = 1
 
 g.no_buffers_menu = 1
 
