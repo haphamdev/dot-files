@@ -118,6 +118,8 @@ require('packer').startup(function(use)
       require("auto-save").setup {}
     end,
   }
+  use 'terrastruct/d2-vim'
+
   -- Add custom plugins to packer from ~/.config/nvim/lua/custom/plugins.lua
   local has_plugins, plugins = pcall(require, 'custom.plugins')
   if has_plugins then
@@ -361,7 +363,7 @@ require('mason').setup()
 
 -- Enable the following language servers
 -- Feel free to add/remove any LSPs that you want here. They will automatically be installed
-local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'sumneko_lua', 'gopls', 'intelephense' }
+local servers = { 'clangd', 'rust_analyzer', 'pyright', 'tsserver', 'lua_ls', 'gopls', 'intelephense' }
 
 -- Ensure the servers above are installed
 require('mason-lspconfig').setup {
@@ -389,7 +391,7 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
-require('lspconfig').sumneko_lua.setup {
+require('lspconfig').lua_ls.setup {
   on_attach = on_attach,
   capabilities = capabilities,
   settings = {
@@ -758,3 +760,14 @@ sethl(0, "ActiveWindow", { bg = "NONE", ctermbg = "NONE" })
 sethl(0, "InactiveWindow", { bg = "NONE", ctermbg = "NONE" })
 sethl(0, "TelescopeNormal", { bg = "#1d1f21", ctermbg = "NONE"})
 vim.opt.winhl = { Normal = 'ActiveWindow', NormalNC = 'InactiveWindow' }
+
+--D2 treesitter
+local parser_config = require("nvim-treesitter.parsers").get_parser_configs()
+parser_config.d2 = {
+  install_info = {
+    url = 'https://github.com/pleshevskiy/tree-sitter-d2',
+    revision = 'main',
+    files = { 'src/parser.c', 'src/scanner.cc' },
+  },
+  filetype = 'd2',
+}
