@@ -11,14 +11,15 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         return 1
     end
 
-    set result "$HOME/projects/$result"
+    set path "$HOME/projects/$result"
 
     switch "$argv[1]"
         case code c
-            code $result
+            code $path
         case e o v vim nvim
-            nvim $result
+            nvim $path
         case '*'
-            cd $result
+            cd $path
+            tmux rename-window $result
         end
 end
