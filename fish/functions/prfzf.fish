@@ -6,21 +6,25 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         'admin-panel-service' \
         'chargebee-cli' \
         'chargebee-service' \
+        'dot-files' \
         'company-data-operations-service' \
         'invoice-service' \
+        'personio' \
         'subscription-data-monitoring-service' \
         'subscription-management-service' \
         'subscription-service'
 
     set project_aliases \
-        'aps' \
-        'cb-cli' \
-        'cbs' \
-        'cdos' \
-        'inv' \
-        'subs-monitor' \
-        'sms' \
-        'ss'
+        'APS' \
+        'CB-CLI' \
+        'CBS' \
+        '.' \
+        'CDOS' \
+        'INV' \
+        'Monolith' \
+        'Subs Monitor' \
+        'SMS' \
+        'FAS'
 
     if test (count $argv) -gt 1
         ls $HOME/projects | tr " " "\n" | fzf --filter $argv[2] | read result   
