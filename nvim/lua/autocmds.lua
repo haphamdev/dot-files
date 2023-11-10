@@ -46,18 +46,6 @@ local augroups = {
             cmd = [[setlocal filetype=cmake]]
         }
     },
-    MogelbrodVimJsonPath = { -- mogelbrod/vim-jsonpath
-        {
-            events = 'FileType',
-            filter = 'json',
-            cmd = [[noremap <buffer> <silent> <leader>jc :call jsonpath#echo()<CR>]]
-        },
-        {
-            events = 'FileType',
-            filter = 'json',
-            cmd = [[noremap <buffer> <silent> <leader>jg :call jsonpath#goto()<CR>]]
-        }
-    },
 }
 
 local createAutocommands = function(groups)
