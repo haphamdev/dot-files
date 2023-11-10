@@ -6,4 +6,5 @@ return {
     { 'axieax/urlview.nvim', opts = {}, lazy = false },
     { 'sitiom/nvim-numbertoggle', lazy = false },
     { 'pocco81/auto-save.nvim', lazy = false },
+    { 'christoomey/vim-system-copy', lazy = false },
 }
