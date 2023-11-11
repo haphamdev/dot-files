@@ -7,4 +7,5 @@ return {
     { 'sitiom/nvim-numbertoggle', lazy = false },
     { 'pocco81/auto-save.nvim', lazy = false },
     { 'christoomey/vim-system-copy', lazy = false },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
 }
