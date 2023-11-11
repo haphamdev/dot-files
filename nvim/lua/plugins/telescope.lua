@@ -27,7 +27,7 @@ return {
         keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]o to [R]eferences' })
         keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]o to [R]eferences' })
         keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { desc = '[G]o to [I]mplementations' })
-        keymap.set('n', '<leader>ds', require('telescope.builtin').document_symbols, { desc = 'Show [D]ocument [S]ymbols' })
+        keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, { desc = 'Show [D]ocument [S]ymbols' })
         keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
         keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
         keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
