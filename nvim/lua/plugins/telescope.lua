@@ -4,12 +4,13 @@ return {
     dependencies = { 'nvim-lua/plenary.nvim' },
     config = function()
         require('telescope').setup()
+        local keymap = vim.keymap
 
         -- See `:help telescope.builtin`
-        vim.keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles,
+        keymap.set('n', '<leader>?', require('telescope.builtin').oldfiles,
             { desc = '[?] Find recently opened files' })
-        vim.keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
-        vim.keymap.set(
+        keymap.set('n', '<leader>b', require('telescope.builtin').buffers, { desc = '[ ] Find existing buffers' })
+        keymap.set(
             'n',
             '<leader>/',
             function()
@@ -22,10 +23,15 @@ return {
             { desc = '[/] Fuzzily search in current buffer]' }
         )
 
-        vim.keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
-        vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
-        vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
-        vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
-        vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
+        keymap.set('n', 'gd', require('telescope.builtin').lsp_definitions, { desc = '[G]o to [D]efinitions' })
+        keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]o to [R]eferences' })
+        keymap.set('n', 'gr', require('telescope.builtin').lsp_references, { desc = '[G]o to [R]eferences' })
+        keymap.set('n', 'gi', require('telescope.builtin').lsp_implementations, { desc = '[G]o to [I]mplementations' })
+        keymap.set('n', '<leader>ds', require('telescope.builtin').document_symbols, { desc = 'Show [D]ocument [S]ymbols' })
+        keymap.set('n', '<leader>sf', require('telescope.builtin').find_files, { desc = '[S]earch [F]iles' })
+        keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc = '[S]earch [H]elp' })
+        keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
+        keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
+        keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
     end
 }
