@@ -1,7 +1,6 @@
 #!/usr/bin/env python3
 
 import random
-import os
 
 dict = {}
 dict["Moving the needle"] = [100, "Make change in something so that the effect is measurable"]
