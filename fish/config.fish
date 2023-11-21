@@ -82,6 +82,7 @@ abbr -a ev 'nvim ~/projects/dot-files/nvim/init.vim'
 abbr -a etm 'nvim ~/projects/dot-files/tmux/tmux.conf'
 abbr -a eal 'nvim ~/projects/dot-files/alacritty.yml'
 abbr -a tm 'tmux attach || tmux'
+abbr -a psql /opt/homebrew/opt/libpq/bin/psql
 
 abbr -a pre 'pr e'
 abbr -a prc 'pr c'
