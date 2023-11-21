@@ -1,11 +1,12 @@
 return {
-    { 'lewis6991/gitsigns.nvim', lazy = false, config = function() require('gitsigns').setup() end },
+    { 'lewis6991/gitsigns.nvim', event = { 'BufReadPre', 'BufNewFile' }, opts = {} },
     { 'windwp/nvim-autopairs', event = "InsertEnter", opts = {} },
-    { 'NvChad/nvim-colorizer.lua', opts = {}, lazy = false },
-    { 'djoshea/vim-autoread', opts = {}, lazy = false, config = function() end },
-    { 'axieax/urlview.nvim', opts = {}, lazy = false },
-    { 'sitiom/nvim-numbertoggle', lazy = false },
-    { 'pocco81/auto-save.nvim', lazy = false },
-    { 'christoomey/vim-system-copy', lazy = false },
-    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {} }
+    { 'NvChad/nvim-colorizer.lua', opts = {}, event = { 'BufEnter', 'BufWrite' } },
+    { 'djoshea/vim-autoread', opts = {}, event = { 'BufEnter', 'BufWrite' }, config = function() end },
+    { 'axieax/urlview.nvim', opts = {}, event = 'BufEnter' },
+    { 'sitiom/nvim-numbertoggle', event = 'BufEnter' },
+    { 'pocco81/auto-save.nvim', event = { 'BufReadPre', 'BufNewFile' } },
+    { 'christoomey/vim-system-copy', event = 'BufEnter' },
+    { "lukas-reineke/indent-blankline.nvim", main = "ibl", opts = {}, event = { 'BufReadPre', 'BufNewFile' } },
+    { "terrastruct/d2-vim", ft = 'd2'}
 }
