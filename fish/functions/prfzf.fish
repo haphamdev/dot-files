@@ -12,7 +12,8 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         'personio' \
         'subscription-data-monitoring-service' \
         'subscription-management-service' \
-        'subscription-service'
+        'subscription-service' \
+        'subscription-service-client-library'
 
     set project_aliases \
         'APS' \
@@ -24,7 +25,8 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         'Monolith' \
         'Subs Monitor' \
         'SMS' \
-        'FAS'
+        'FAS' \
+        'FAS client lib'
 
     if test (count $argv) -gt 1
         ls $HOME/projects | tr " " "\n" | fzf --filter $argv[2] | read result   
