@@ -6,7 +6,7 @@ opt.fileencoding = "utf-8"
 opt.fileencodings = "utf-8"
 
 -- Font
-opt.guifont = "DejaVuSansMono_Nerd_Font:h11"
+opt.guifont = "DejaVuSansM_Nerd_Font:h11"
 
 -- Enable hidden buffer
 opt.hidden = true

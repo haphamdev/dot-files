@@ -51,5 +51,7 @@ map('v', '>', '>gv')
 map('v', 'J', [[:m '>+1<CR>gv=gv]])
 map('v', 'K', [[:m '<-2<CR>gv=gv]])
 
-map('n', '<leader>rl', [[:luafile $MYVIMRC<CR>]])
+-- x to delete a character without saving it in the " register 
+map('n', 'x', '"_x', { silent = true })
 
+map('n', '<leader>rl', [[:luafile $MYVIMRC<CR>]])
