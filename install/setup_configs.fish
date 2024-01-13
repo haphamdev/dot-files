@@ -109,9 +109,9 @@ end
 # Alacritty
 # ============================================================================
 function link_alacritty
-    set sfile_alacritty_config $dir_dot_files/alacritty.yml
+    set sfile_alacritty_config $dir_dot_files/alacritty.toml
     set ddir_alacritty_config $dir_config/alacritty
-    set dfile_alacritty_config $ddir_alacritty_config/alacritty.yml
+    set dfile_alacritty_config $ddir_alacritty_config/alacritty.toml
 
     if symlink_not_exist $dfile_alacritty_config
         echo "Linking Alacritty config..."
