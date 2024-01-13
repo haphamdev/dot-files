@@ -26,3 +26,10 @@ program = "/opt/homebrew/bin/fish"
 decorations = "none"
 opacity = 0.95
 startup_mode = "Maximized"
+option_as_alt = "Both"
+
+[cursor]
+style = { shape = "Block", blinking = "Always" }
+
+[mouse]
+hide_when_typing = true
