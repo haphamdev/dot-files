@@ -30,6 +30,3 @@ option_as_alt = "Both"
 
 [cursor]
 style = { shape = "Block", blinking = "Always" }
-
-[mouse]
-hide_when_typing = true
