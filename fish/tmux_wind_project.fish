@@ -12,7 +12,8 @@ set projects \
     'subscription-data-monitoring-service' \
     'subscription-management-service' \
     'subscription-service' \
-    'subscription-service-client-library'
+    'subscription-service-client-library' \
+    'subscription-service-webhook'
 
 set project_aliases \
     'APS' \
@@ -25,7 +26,8 @@ set project_aliases \
     'Subs Monitor' \
     'SMS' \
     'FAS' \
-    'FAS client lib'
+    'FAS client lib' \
+    'SS webhook'
 
 ls $HOME/projects | tr " " "\n" | fzf --border --height=95% --reverse --header='Please choose a project:' | read result
 
