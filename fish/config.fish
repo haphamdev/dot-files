@@ -13,6 +13,8 @@ set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
+set -x DOCKER_HOST 'unix://~/.colima/default/docker.sock'
+set -x TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE '/var/run/docker.sock'
 
 set -x NVM_DIR "$HOME/.nvm"
 
@@ -26,6 +28,9 @@ set -x DELTA_NAVIGATE 1 # use n/N to navigate file by file in delta
 set -x AWS_VAULT_KEYCHAIN_NAME "login"
 set -x AWS_VAULT_KEYCHAIN_NAME "12h"
 
+# pnpm
+set -gx PNPM_HOME "/Users/hapham/Library/pnpm"
+set -gx PATH "$PNPM_HOME" $PATH
 
 # fish_vi_key_bindings
 
@@ -111,3 +116,4 @@ set -x GOPATH $HOME/go
 fish_add_path $GOPATH/bin
 
 zoxide init fish --cmd j | source
+
