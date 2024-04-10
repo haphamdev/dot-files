@@ -13,7 +13,7 @@ set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
-set -x DOCKER_HOST 'unix://~/.colima/default/docker.sock'
+set -x DOCKER_HOST 'unix:///Users/hapham/.colima/default/docker.sock'
 set -x TESTCONTAINERS_DOCKER_SOCKET_OVERRIDE '/var/run/docker.sock'
 
 set -x NVM_DIR "$HOME/.nvm"
