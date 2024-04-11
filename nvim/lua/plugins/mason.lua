@@ -53,8 +53,4 @@ return {
       })
     end,
   },
-  { "christoomey/vim-system-copy" },
-  { "axieax/urlview.nvim" },
-  { "norcalli/nvim-colorizer.lua" },
-  { "windwp/nvim-ts-autotag", event = "InsertEnter" },
 }
