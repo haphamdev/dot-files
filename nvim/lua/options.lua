@@ -28,3 +28,5 @@ opt.mouse = "ni"
 -- Show whitespace characters
 opt.list = true
 opt.listchars:append "space:⋅"
+
+opt.clipboard = ""
