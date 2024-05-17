@@ -8,3 +8,4 @@ map L $
 
 set number relativenumber
 set ignorecase
+set so=5
