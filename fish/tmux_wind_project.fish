@@ -19,7 +19,7 @@ set project_aliases \
     'APS' \
     'CB-CLI' \
     'CBS' \
-    '.' \
+    'dot' \
     'CDOS' \
     'INV' \
     'Monolith' \

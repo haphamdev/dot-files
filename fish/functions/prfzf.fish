@@ -19,7 +19,7 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         'APS' \
         'CB-CLI' \
         'CBS' \
-        '.' \
+        'dot' \
         'CDOS' \
         'INV' \
         'Monolith' \
