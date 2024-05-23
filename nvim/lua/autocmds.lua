@@ -46,6 +46,13 @@ local augroups = {
       cmd = [[setlocal filetype=cmake]],
     },
   },
+  Intro = { -- disable line number for the intro buffer of AstroNvim
+    {
+      events = "FileType",
+      filter = "alpha",
+      cmd = [[setlocal nonumber norelativenumber]],
+    },
+  },
 }
 
 local createAutocommands = function(groups)
