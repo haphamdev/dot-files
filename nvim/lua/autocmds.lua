@@ -53,6 +53,13 @@ local augroups = {
       cmd = [[setlocal nonumber norelativenumber]],
     },
   },
+  MarkDown = { -- disable line number for the intro buffer of AstroNvim
+    {
+      events = "FileType",
+      filter = "markdown",
+      cmd = [[setlocal wrap]],
+    },
+  },
 }
 
 local createAutocommands = function(groups)
