@@ -14,4 +14,5 @@ return {
     end,
   },
   { "m4xshen/autoclose.nvim" },
+  { "zdcthomas/yop.nvim" },
 }
