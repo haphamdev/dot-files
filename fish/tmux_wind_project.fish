@@ -31,7 +31,15 @@ set project_aliases \
     'FAS client lib' \
     'SS webhook'
 
-ls $target_dirs | tr " " "\n" | grep -v ":" | fzf --border --height=95% --reverse --header='Please choose a project:' | read result
+set proj (ls $HOME/projects)
+set practice_proj (ls $HOME/projects/practice)
+
+# appending "practice/" to the names of projects in 'practice' directory
+for p in $practice_proj;
+    set -a proj "practice/$p"
+end
+
+echo $proj | tr " " "\n" | grep -v ":" | fzf --border --height=95% --reverse --header='Please choose a project:' | read result
 
 if test -z $result
     tmux display-message "Aborted or project not found!"
@@ -44,5 +52,6 @@ tmux neww -c "$HOME/projects/$result"
 if set -l index (contains -i -- $result $projects)
     tmux rename-window $project_aliases[$index]
 else 
-    tmux rename-window $result
+    # using 'path basename' to get the last dir name
+    tmux rename-window (path basename $result)
 end
