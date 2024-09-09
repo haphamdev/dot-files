@@ -29,9 +29,9 @@ function prfzf -d "Go to project in $HOME/projects using fzf search"
         'FAS client lib'
 
     if test (count $argv) -gt 1
-        ls $HOME/projects | tr " " "\n" | fzf --filter $argv[2] | read result   
+        ls $HOME/projects $HOME/projects/practice | tr " " "\n" | fzf --filter $argv[2] | read result   
     else
-        ls $HOME/projects | tr " " "\n" | fzf --border --height=50% | read result
+        ls $HOME/projects $HOME/projects/practice | tr " " "\n" | fzf --border --height=50% | read result
     end
 
     if test -z $result

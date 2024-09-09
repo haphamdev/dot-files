@@ -1,5 +1,7 @@
 # Select a project in $HOME/projects using fuzzy search and open a new Tmux window
 
+set target_dirs $HOME/projects $HOME/projects/practice
+
 # The list of project names and their short-form aliases
 set projects \
     'admin-panel-service' \
@@ -29,7 +31,7 @@ set project_aliases \
     'FAS client lib' \
     'SS webhook'
 
-ls $HOME/projects | tr " " "\n" | fzf --border --height=95% --reverse --header='Please choose a project:' | read result
+ls $target_dirs | tr " " "\n" | grep -v ":" | fzf --border --height=95% --reverse --header='Please choose a project:' | read result
 
 if test -z $result
     tmux display-message "Aborted or project not found!"
