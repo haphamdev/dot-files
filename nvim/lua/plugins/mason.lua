@@ -26,6 +26,7 @@ return {
         "html",
         "dockerls",
         "cssls",
+        "csharp_ls",
       })
     end,
   },
@@ -52,5 +53,30 @@ return {
         -- add more arguments for adding more debuggers
       })
     end,
+    keys = {
+      { "<F5>", function() require("dap").continue() end, desc = "Start debug session" },
+      { "<F10>", function() require("dap").step_over() end, desc = "Step over" },
+      { "<F11>", function() require("dap").step_into() end, desc = "Step into" },
+      { "<F12>", function() require("dap").step_out() end, desc = "Step out" },
+      { "<leader>dD", function() require("dap").disconnect() end, desc = "Stop debug session" },
+    },
+    --[[
+    --
+    vim.keymap.set({'n', 'v'}, '<Leader>dh', function()
+      require('dap.ui.widgets').hover()
+    end)
+    vim.keymap.set({'n', 'v'}, '<Leader>dp', function()
+      require('dap.ui.widgets').preview()
+    end)
+    vim.keymap.set('n', '<Leader>df', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.frames)
+    end)
+    vim.keymap.set('n', '<Leader>ds', function()
+      local widgets = require('dap.ui.widgets')
+      widgets.centered_float(widgets.scopes)
+    end)
+
+    --]]
   },
 }
