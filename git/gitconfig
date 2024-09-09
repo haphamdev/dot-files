@@ -8,6 +8,7 @@
 	gpgsign = true
 [push]
 	default = current
+	autoSetupRemote = true
 
 [core]
     pager = delta
