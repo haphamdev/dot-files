@@ -79,3 +79,4 @@ vim.keymap.set("n", "<Leader>ds", function()
   local widgets = require "dap.ui.widgets"
   widgets.centered_float(widgets.scopes)
 end)
+map("n", "<leader>e", [[:Neotree toggle float reveal<CR>]])

@@ -49,3 +49,5 @@ map("v", "K", [[:m '<-2<CR>gv=gv]])
 map("n", "x", '"_x', { silent = true })
 
 map("n", "<leader>rl", [[:luafile $MYVIMRC<CR>]])
+
+map("n", "<leader>e", [[:Neotree toggle float ]])
