@@ -14,7 +14,7 @@ return {
         "pyright",
         "bashls",
         "gradle_ls",
-        "tsserver",
+        "ts_ls",
         "intelephense",
         "sqls",
         "vimls",
