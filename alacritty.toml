@@ -24,7 +24,7 @@ program = "/opt/homebrew/bin/fish"
 
 [window]
 decorations = "none"
-opacity = 0.95
+opacity = 0.85
 startup_mode = "Maximized"
 option_as_alt = "Both"
 
