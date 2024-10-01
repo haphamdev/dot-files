@@ -9,6 +9,7 @@ set -x PATH $PATH /usr/local/go/bin
 set -x PATH $PATH (go env GOPATH)/bin
 set -x PATH $PATH '/Users/hapham/Library/Application Support/edgedb/bin'
 set -x PATH $PATH '/usr/hapham/.skdman/bin'
+set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
@@ -37,10 +38,10 @@ abbr -a x 'exit'
 abbr -a ef 'nvim ~/projects/dot-files/fish/config.fish'
 abbr -a effn 'nvim ~/.config/fish/functions/'
 abbr -a ea 'nvim ~/.aws'
-abbr -a ls exa
-abbr -a ll exa -l
-abbr -a lt exa --tree -l --level=3
-abbr -a ltg exa --tree -l --git-ignore --level=3
+abbr -a ls eza
+abbr -a ll eza -l
+abbr -a lt eza --tree -l --level=3
+abbr -a ltg eza --tree -l --git-ignore --level=3
 
 # Git abbreviations
 abbr -a gf 'git fetch -p'
