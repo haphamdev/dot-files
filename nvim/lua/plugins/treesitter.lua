@@ -47,6 +47,7 @@ return {
       "typescript",
       "xml",
       "yaml",
+      "http",
     })
   end,
 }
