@@ -15,4 +15,6 @@ return {
   },
   { "m4xshen/autoclose.nvim" },
   { "zdcthomas/yop.nvim" },
+  { "mrjones2014/smart-splits.nvim", opt = {} },
+  { "rest-nvim/rest.nvim" },
 }
