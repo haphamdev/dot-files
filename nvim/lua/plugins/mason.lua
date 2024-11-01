@@ -20,6 +20,7 @@ return {
         "dockerls",
         "cssls",
         "csharp_ls",
+        "lua_ls"
       })
     end,
   },

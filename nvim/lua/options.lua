@@ -23,7 +23,7 @@ opt.cmdheight = 2
 opt.colorcolumn = "120"
 
 -- Enable mouse for normal and insert mode
-opt.mouse = "ni"
+opt.mouse = ""
 
 -- Show whitespace characters
 opt.list = true
