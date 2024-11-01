@@ -37,5 +37,4 @@ require('tab-format').apply_to_config(config)
 require("keymappings").apply_to_config(config)
 require("plugins").apply_to_config(config)
 
-
 return config
