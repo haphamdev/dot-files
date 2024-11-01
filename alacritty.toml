@@ -9,6 +9,7 @@ family = "DejaVuSansM Nerd Font"
 style = "Bold"
 
 [font.bold_italic]
+family = "DejaVuSansM Nerd Font"
 style = "Bold Oblique"
 
 [font.italic]
