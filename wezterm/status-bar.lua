@@ -3,7 +3,7 @@ local colors = require("colors")
 local utils = require("utils")
 local module = {}
 
-module.apply_to_config = function(config)
+function module.apply_to_config(config)
   config.window_frame = {
     font = require("wezterm").font({ family = "DejaVuSansM Nerd Font" }),
     font_size = 14,

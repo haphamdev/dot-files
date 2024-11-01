@@ -14,7 +14,7 @@ local function getTabTitle(tab_info)
   return tab_info.active_pane.title
 end
 
-module.apply_to_config = function(config)
+function module.apply_to_config(config)
   wezterm.on("format-tab-title", function(tab, tabs, panes, config, hover, max_width)
     local activeTabBackground = colors.primaryBackground
     local inactiveTabBackground = colors.secondaryBackground
