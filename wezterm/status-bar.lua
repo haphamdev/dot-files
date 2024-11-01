@@ -97,9 +97,9 @@ module.apply_to_config = function(config)
     local success, gitStat, stderr = wezterm.run_child_process({ "git", "-C", cwd, "diff", "--shortstat" })
 
     if success then
-      local _, _, changeCountString = string.find(gitStat, "(%d+) files changed")
-      local _, _, insertionCountString = string.find(gitStat, "(%d+) insertions")
-      local _, _, deletionCountString = string.find(gitStat, "(%d+) deletions")
+      local _, _, changeCountString = string.find(gitStat, "(%d+) files? changed")
+      local _, _, insertionCountString = string.find(gitStat, "(%d+) insertions?")
+      local _, _, deletionCountString = string.find(gitStat, "(%d+) deletions?")
 
       return true, changeCountString, insertionCountString, deletionCountString
     else
@@ -123,16 +123,15 @@ module.apply_to_config = function(config)
         local getStatSuccess, changes, insertions, deletions = getGitDiffStats(cwd.file_path)
         local statLine = ""
         if getStatSuccess then
-          statLine = wezterm.nerdfonts.fa_exclamation_circle
-              .. " "
-              .. changes
-              .. "  " ..wezterm.nerdfonts.fa_plus_circle
-              .. " "
-              .. insertions
-              .. "  " .. wezterm.nerdfonts.fa_minus_circle
-              .. " "
-              .. deletions
-              .. "  "
+          if changes then
+            statLine = statLine .. wezterm.nerdfonts.fa_exclamation_circle .. " " .. changes .. "  "
+          end
+          if insertions then
+            statLine = statLine .. wezterm.nerdfonts.fa_plus_circle .. " " .. insertions .. "  "
+          end
+          if deletions then
+            statLine = statLine .. wezterm.nerdfonts.fa_minus_circle .. " " .. deletions .. "  "
+          end
         end
 
         return utils.formatSegment({
