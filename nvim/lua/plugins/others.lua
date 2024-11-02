@@ -22,7 +22,12 @@ return {
     config = true,
   },
   { "VonHeikemen/fine-cmdline.nvim", dependencies = "MunifTanjim/nui.nvim" },
-  { "xiyaowong/transparent.nvim" },
+  {
+    "xiyaowong/transparent.nvim",
+    opts = {
+      exclude_groups = { "CursorLine", "CursorLineNr" },
+    },
+  },
   {
     "stevearc/conform.nvim",
     enabled = false,
