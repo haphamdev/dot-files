@@ -8,6 +8,11 @@ return {
         sidebars = "transparent",
         floats = "transparent",
       },
+      on_highlights = function(hl, _)
+        hl.WinSeparator = {
+          fg = "#555555",
+        }
+      end,
     },
   },
   {
@@ -25,15 +30,22 @@ return {
     event = { "WinLeave" },
   },
   {
-    "folke/tokyonight.nvim",
-    lazy = false,
-    priority = 1000,
-    opts = {
-      on_highlights = function(hl, c)
-        hl.WinSeparator = {
-          fg = "#555555",
-        }
-      end,
+    "nvim-neo-tree/neo-tree.nvim",
+    keys = {
+      {
+        "<leader>e",
+        "<cmd>Neotree toggle float reveal<cr>",
+        desc = "Reveal current file in Neotree float window",
+      },
     },
+  },
+  {
+    "okuuva/auto-save.nvim",
+    version = "^1.0.0", -- see https://devhints.io/semver, alternatively use '*' to use the latest tagged release
+    cmd = "ASToggle", -- optional for lazy loading on command
+    event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
+    config = function() -- Somehow, LazyNvim does not invoke setup for this plugin. I need this 'config' to run setup
+      require("auto-save").setup()
+    end,
   },
 }

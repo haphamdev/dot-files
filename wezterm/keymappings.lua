@@ -7,7 +7,7 @@ function module.apply_to_config(config)
 	config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 3000 }
 
 	config.keys = {
-		{ key = "f", mods = "LEADER",      action = act.SendKey({ key = "f", mods = "CTRL" }) },
+		{ key = "f", mods = "LEADER", action = act.SendKey({ key = "f", mods = "CTRL" }) },
 		{ key = "f", mods = "LEADER|CTRL", action = act.SendKey({ key = "f", mods = "CTRL" }) },
 		{
 			key = "h",
@@ -26,16 +26,16 @@ function module.apply_to_config(config)
 		{ key = "D", mods = "LEADER", action = act.ShowDebugOverlay },
 
 		-- Switch panes
-		{ key = "h", mods = "CTRL",   action = act.ActivatePaneDirection("Left") },
-		{ key = "j", mods = "CTRL",   action = act.ActivatePaneDirection("Down") },
-		{ key = "k", mods = "CTRL",   action = act.ActivatePaneDirection("Up") },
-		{ key = "l", mods = "CTRL",   action = act.ActivatePaneDirection("Right") },
+		{ key = "h", mods = "CTRL", action = act.ActivatePaneDirection("Left") },
+		{ key = "j", mods = "CTRL", action = act.ActivatePaneDirection("Down") },
+		{ key = "k", mods = "CTRL", action = act.ActivatePaneDirection("Up") },
+		{ key = "l", mods = "CTRL", action = act.ActivatePaneDirection("Right") },
 
 		-- Resize panes
-		{ key = "h", mods = "OPT",    action = act.AdjustPaneSize({ "Left", 1 }) },
-		{ key = "j", mods = "OPT",    action = act.AdjustPaneSize({ "Down", 1 }) },
-		{ key = "k", mods = "OPT",    action = act.AdjustPaneSize({ "Up", 1 }) },
-		{ key = "l", mods = "OPT",    action = act.AdjustPaneSize({ "Right", 1 }) },
+		{ key = "h", mods = "OPT", action = act.AdjustPaneSize({ "Left", 1 }) },
+		{ key = "j", mods = "OPT", action = act.AdjustPaneSize({ "Down", 1 }) },
+		{ key = "k", mods = "OPT", action = act.AdjustPaneSize({ "Up", 1 }) },
+		{ key = "l", mods = "OPT", action = act.AdjustPaneSize({ "Right", 1 }) },
 
 		-- Activate command palette
 		{ key = ":", mods = "LEADER", action = act.ActivateCommandPalette },
@@ -48,20 +48,6 @@ function module.apply_to_config(config)
 
 		-- Manipulating tabs
 		{ key = "c", mods = "LEADER", action = act.SpawnTab("CurrentPaneDomain") },
-
-		-- Rename current tab
-		{
-			key = "t",
-			mods = "LEADER",
-			action = act.PromptInputLine({
-				description = "Enter the tab title",
-				action = wezterm.action_callback(function(window, _, line)
-					if line then
-						window:active_tab():set_title(line)
-					end
-				end),
-			}),
-		},
 
 		--Activate other key tables
 		{
@@ -156,14 +142,29 @@ function module.apply_to_config(config)
 
 		-- Copy mode
 		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+
+		-- Open dot-file tab
+		{
+			key = ".",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(win, pane)
+				for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
+					if tab_info.tab:get_title() == "dot-files" then
+						win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
+					else
+						wezterm.log_error("⚠️No dot-files tab available")
+					end
+				end
+			end),
+		},
 	}
 
 	config.key_tables = {
 		repeated = {
-			{ key = "h",      action = act.AdjustPaneSize({ "Left", 1 }) },
-			{ key = "j",      action = act.AdjustPaneSize({ "Down", 1 }) },
-			{ key = "k",      action = act.AdjustPaneSize({ "Up", 1 }) },
-			{ key = "l",      action = act.AdjustPaneSize({ "Right", 1 }) },
+			{ key = "h", action = act.AdjustPaneSize({ "Left", 1 }) },
+			{ key = "j", action = act.AdjustPaneSize({ "Down", 1 }) },
+			{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
+			{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
 			{ key = "Escape", action = act.PopKeyTable },
 		},
 		one_hit = {
