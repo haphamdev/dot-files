@@ -153,7 +153,6 @@ function module.apply_to_config(config)
 			.. " Workspace: "
 			.. wezterm.mux.get_active_workspace():upper()
 			.. " "
-			.. wezterm.nerdfonts.fae_slash
 
 		return utils.formatSegment({
 			text = workspaceName,
