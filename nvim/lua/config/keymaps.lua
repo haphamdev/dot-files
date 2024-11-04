@@ -11,8 +11,8 @@ end
 
 map("i", "jj", "<Esc>", { silent = true, desc = "Exit Insert mode" })
 
-map({ "v", "n" }, "H", "0", { silent = true, desc = "Move to beginning of line" })
-map({ "v", "n" }, "L", "$", { silent = true, desc = "Move to end of line" })
+map({ "v", "n", "o" }, "H", "^", { silent = true, desc = "Move to beginning of line" })
+map({ "v", "n", "o" }, "L", "$", { silent = true, desc = "Move to end of line" })
 
 -- <leader> v/h for vertical/horizontal split
 map("n", "<leader>v", ":<C-u>split<CR>")
