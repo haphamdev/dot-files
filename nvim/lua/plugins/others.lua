@@ -48,4 +48,5 @@ return {
       require("auto-save").setup()
     end,
   },
+  { "rest-nvim/rest.nvim" },
 }
