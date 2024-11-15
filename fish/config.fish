@@ -116,5 +116,3 @@ set -x GOPATH $HOME/go
 fish_add_path $GOPATH/bin
 
 zoxide init fish --cmd j | source
-
-load_nvm >/dev/stderr
