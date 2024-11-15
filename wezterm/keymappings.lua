@@ -189,6 +189,7 @@ function module.apply_to_config(config)
 			{ key = "Escape", action = act.PopKeyTable },
 		},
 		one_hit = {
+			-- rename tab
 			{
 				key = "r",
 				action = act.PromptInputLine({
@@ -196,6 +197,19 @@ function module.apply_to_config(config)
 					action = wezterm.action_callback(function(window, _, line)
 						if line then
 							window:active_tab():set_title(line)
+						end
+					end),
+				}),
+			},
+
+			-- rename workspace
+			{
+				key = "R",
+				action = act.PromptInputLine({
+					description = "Enter new workspace name:",
+					action = wezterm.action_callback(function(w, p, line)
+						if line then
+							wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
 						end
 					end),
 				}),
