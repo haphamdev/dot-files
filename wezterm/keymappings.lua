@@ -207,7 +207,7 @@ function module.apply_to_config(config)
 				key = "R",
 				action = act.PromptInputLine({
 					description = "Enter new workspace name:",
-					action = wezterm.action_callback(function(w, p, line)
+					action = wezterm.action_callback(function(_, _, line)
 						if line then
 							wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
 						end
