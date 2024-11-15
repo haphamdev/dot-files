@@ -147,15 +147,36 @@ function module.apply_to_config(config)
 		{
 			key = ".",
 			mods = "LEADER",
-			action = wezterm.action_callback(function(win, pane)
-				for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
-					if tab_info.tab:get_title() == "dot-files" then
-						win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
-					else
-						wezterm.log_error("⚠️No dot-files tab available")
+			action = act.Multiple({
+				act.SwitchToWorkspace({ name = "home" }),
+				wezterm.action_callback(function(win, pane)
+					for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
+						if tab_info.tab:get_title() == "dot-files" then
+							win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
+						else
+							wezterm.log_error("⚠️No dot-files tab available")
+						end
 					end
-				end
-			end),
+				end),
+			}),
+		},
+
+		-- Open notes tab
+		{
+			key = "n",
+			mods = "LEADER",
+			action = act.Multiple({
+				act.SwitchToWorkspace({ name = "home" }),
+				wezterm.action_callback(function(win, pane)
+					for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
+						if tab_info.tab:get_title() == "notes" then
+							win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
+						else
+							wezterm.log_error("⚠️No dot-files tab available")
+						end
+					end
+				end),
+			}),
 		},
 	}
 
