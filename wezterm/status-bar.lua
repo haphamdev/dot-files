@@ -36,39 +36,6 @@ function module.apply_to_config(config)
 		})
 	end
 
-	local function getBatteryInfo()
-		local batteryInfo = ""
-
-		for _, b in ipairs(wezterm.battery_info()) do
-			batteryInfo = batteryInfo
-				.. string.format(" %.0f%%", b.state_of_charge * 100)
-				.. " "
-				.. wezterm.nerdfonts.md_lightning_bolt
-		end
-
-		local batterInfoFormat = utils.formatSegment({
-			text = wezterm.pad_left(batteryInfo, 6),
-			bg = colors.secondaryBackground,
-			fg = colors.secondary,
-		})
-
-		return batterInfoFormat
-	end
-
-	local function getHostname(pane)
-		local cwd = pane:get_current_working_dir()
-		local hostname = ""
-		if cwd then
-			hostname = cwd.host or wezterm.hostname()
-		end
-		return utils.formatSegment({
-			text = wezterm.pad_right(wezterm.nerdfonts.dev_apple .. " " .. hostname, 6):upper(),
-			bg = colors.alternativeBackground,
-			fg = colors.alternative,
-			left = colors.alternativeBackground,
-		})
-	end
-
 	local function getCwd(pane)
 		local cwd = pane:get_current_working_dir()
 		local is_project = false
@@ -92,7 +59,7 @@ function module.apply_to_config(config)
 	end
 
 	local function getGitDiffStats(cwd)
-		local success, gitStat, stderr = wezterm.run_child_process({ "git", "-C", cwd, "diff", "--shortstat" })
+		local success, gitStat, _ = wezterm.run_child_process({ "git", "-C", cwd, "diff", "--shortstat" })
 
 		if success then
 			local _, _, changeCountString = string.find(gitStat, "(%d+) files? changed")
@@ -110,7 +77,7 @@ function module.apply_to_config(config)
 		local cwd = pane:get_current_working_dir()
 		if cwd and cwd.file_path then
 			local cmd = { "git", "--git-dir", cwd.file_path .. "/.git", "branch", "--show-current" }
-			local success, branch, stderr = wezterm.run_child_process(cmd)
+			local success, branch, _ = wezterm.run_child_process(cmd)
 			branch = string.gsub(branch, "\n", "")
 
 			if success then
@@ -150,11 +117,12 @@ function module.apply_to_config(config)
 		local workspaceName = " "
 			-- .. wezterm.nerdfonts.cod_workspace_trusted
 			.. wezterm.nerdfonts.cod_verified_filled
-			.. " Workspace: "
+			.. " "
 			.. wezterm.mux.get_active_workspace():upper()
 			.. " "
 
 		return utils.formatSegment({
+			left = colors.secondaryBackground,
 			text = workspaceName,
 		})
 	end
@@ -163,11 +131,10 @@ function module.apply_to_config(config)
 		local rightStatusFormatItem = {}
 		utils.mergeTable(rightStatusFormatItem, getGitInfo(pane))
 		utils.mergeTable(rightStatusFormatItem, getCwd(pane))
-		utils.mergeTable(rightStatusFormatItem, getBatteryInfo())
 		utils.mergeTable(rightStatusFormatItem, getKeyLayerStatus(window))
 
 		local leftStatusFormatItem = {}
-		utils.mergeTable(leftStatusFormatItem, getHostname(pane))
+		-- utils.mergeTable(leftStatusFormatItem, getHostname(pane))
 		utils.mergeTable(leftStatusFormatItem, getActiveWorkspace())
 
 		window:set_right_status(wezterm.format(rightStatusFormatItem))
