@@ -187,6 +187,34 @@ function module.apply_to_config(config)
 			{ key = "k", action = act.AdjustPaneSize({ "Up", 1 }) },
 			{ key = "l", action = act.AdjustPaneSize({ "Right", 1 }) },
 			{ key = "Escape", action = act.PopKeyTable },
+
+			-- increase opacity
+			{
+				key = "+",
+				action = wezterm.action_callback(function(w, p)
+					local config_overrides = {}
+					local current_config = w:effective_config()
+					local current_opacity = current_config.window_background_opacity
+					if current_opacity <= 0.9 then
+						config_overrides.window_background_opacity = current_opacity + 0.1
+					end
+					w:set_config_overrides(config_overrides)
+				end),
+			},
+
+			-- decrease opacity
+			{
+				key = "-",
+				action = wezterm.action_callback(function(w, p)
+					local config_overrides = {}
+					local current_config = w:effective_config()
+					local current_opacity = current_config.window_background_opacity
+					if current_opacity >= 0.1 then
+						config_overrides.window_background_opacity = current_opacity - 0.1
+					end
+					w:set_config_overrides(config_overrides)
+				end),
+			},
 		},
 		one_hit = {
 			-- rename tab
