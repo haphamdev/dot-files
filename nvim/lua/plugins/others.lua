@@ -7,5 +7,14 @@ return {
   },
   { "rest-nvim/rest.nvim" },
   { "nvim-treesitter/playground" },
-  { dir = "/Users/hapham/projects/practice/neopm", opts = { first = "first value" } },
+  { "zdcthomas/yop.nvim" },
+  {
+    "haphamdev/copier.nvim",
+    dependencies = {
+      "zdcthomas/yop.nvim",
+    },
+    config = function()
+      require("copier").setup()
+    end,
+  },
 }
