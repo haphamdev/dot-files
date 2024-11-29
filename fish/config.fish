@@ -11,6 +11,7 @@ set -x PATH $PATH '/Users/hapham/Library/Application Support/edgedb/bin'
 set -x PATH $PATH '/usr/hapham/.skdman/bin'
 set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x PATH $PATH '/Users/hapham/.bun/bin'
+set -x PATH $PATH /opt/homebrew/opt/mysql-client@8.4/bin
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
