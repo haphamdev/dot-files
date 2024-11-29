@@ -41,7 +41,7 @@ function module.apply_to_config(config)
 		{ key = ":", mods = "LEADER", action = act.ActivateCommandPalette },
 
 		-- Zoom in a pane
-		{ key = "z", mods = "LEADER", action = act.TogglePaneZoomState },
+		{ key = "Enter", mods = "LEADER", action = act.TogglePaneZoomState },
 
 		-- Rotate panes
 		{ key = "]", mods = "LEADER", action = act.RotatePanes("Clockwise") },
@@ -177,6 +177,17 @@ function module.apply_to_config(config)
 					end
 				end),
 			}),
+		},
+		{
+			key = "p",
+			mods = "LEADER",
+			action = wezterm.action_callback(function(w, p)
+				local cwd = p:get_current_working_dir()
+				if cwd and cwd.file_path then
+				else
+					wezterm.log_info("Cannot get current working dir")
+				end
+			end),
 		},
 	}
 
