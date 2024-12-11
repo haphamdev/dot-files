@@ -9,7 +9,7 @@ end
 
 -- Settings
 config.automatically_reload_config = false
-config.color_scheme = "Afterglow"
+config.color_scheme = "Decaf (base16)"
 
 config.font = wezterm.font_with_fallback({
 	{ family = "DejaVuSansM Nerd Font", scale = 1.1 },
