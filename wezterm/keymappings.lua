@@ -149,14 +149,8 @@ function module.apply_to_config(config)
 			mods = "LEADER",
 			action = act.Multiple({
 				act.SwitchToWorkspace({ name = "home" }),
-				wezterm.action_callback(function(win, pane)
-					for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
-						if tab_info.tab:get_title() == "dot-files" then
-							win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
-						else
-							wezterm.log_error("⚠️No dot-files tab available")
-						end
-					end
+				wezterm.action_callback(function(w, p)
+					w:perform_action(act.ActivateTab(0), p)
 				end),
 			}),
 		},
@@ -167,26 +161,31 @@ function module.apply_to_config(config)
 			mods = "LEADER",
 			action = act.Multiple({
 				act.SwitchToWorkspace({ name = "home" }),
-				wezterm.action_callback(function(win, pane)
-					for index, tab_info in pairs(win:mux_window():tabs_with_info()) do
-						if tab_info.tab:get_title() == "notes" then
-							win:perform_action(act.ActivateTab(tonumber(index) - 1), pane)
-						else
-							wezterm.log_error("⚠️No dot-files tab available")
-						end
-					end
+				wezterm.action_callback(function(w, p)
+					w:perform_action(act.ActivateTab(1), p)
 				end),
 			}),
 		},
 		{
-			key = "p",
+			key = "y",
+			mods = "LEADER",
+			action = act.QuickSelectArgs({
+				label = "Open URL",
+				patterns = {
+					"[%w._~:/?#@!$&*+-]+%.[%w._~:/?#@!$&*%%+-=]+",
+				},
+				action = wezterm.action_callback(function(win, pane)
+					local url = win:get_selection_text_for_pane(pane)
+					wezterm.log_info("Opening " .. url)
+					wezterm.open_with(url)
+				end),
+			}),
+		},
+		{
+			key = "l",
 			mods = "LEADER",
 			action = wezterm.action_callback(function(w, p)
-				local cwd = p:get_current_working_dir()
-				if cwd and cwd.file_path then
-				else
-					wezterm.log_info("Cannot get current working dir")
-				end
+				require("test-script")
 			end),
 		},
 	}
