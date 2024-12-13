@@ -76,11 +76,12 @@ function module.apply_to_config(config)
 		local max_length = 30
 		local cwd = pane:get_current_working_dir()
 		if cwd and cwd.file_path then
-			local cmd = { "git", "--git-dir", cwd.file_path .. "/.git", "branch", "--show-current" }
-			local success, branch, _ = wezterm.run_child_process(cmd)
-			branch = string.gsub(branch, "\n", "")
+			local gitDir = require("get-git-dir").getGitDir(cwd.file_path) .. "/.git"
+			local cmd = { "git", "--git-dir", gitDir, "branch", "--show-current" }
+			local success, branch, error = wezterm.run_child_process(cmd)
 
 			if success then
+				branch = string.gsub(branch, "\n", "")
 				if #branch > max_length then
 					branch = wezterm.truncate_right(branch, max_length - 3) .. "..."
 				end
