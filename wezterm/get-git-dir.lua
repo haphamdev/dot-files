@@ -12,6 +12,10 @@ end
 local module = {}
 
 function module.getGitDir(path)
+	if not path or #path < 1 then
+		return path
+	end
+
 	local count = 0
 	local error = false
 	while path ~= "/" and not exists(path .. "/.git") do
