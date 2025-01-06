@@ -5,7 +5,7 @@ return {
   event = { "InsertLeave", "TextChanged" }, -- optional for lazy loading on trigger events
   config = function() -- Somehow, LazyNvim does not invoke setup for this plugin. I need this 'config' to run setup
     require("auto-save").setup({
-      debounce_delay = 4000,
+      debounce_delay = 1000,
     })
   end,
 }
