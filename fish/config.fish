@@ -117,3 +117,8 @@ set -x GOPATH $HOME/go
 fish_add_path $GOPATH/bin
 
 zoxide init fish --cmd j | source
+
+
+# Set color for fish command to make it highlighted
+set fish_color_command yellow --bold
+set fish_color_param yellow
