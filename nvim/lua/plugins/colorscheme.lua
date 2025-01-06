@@ -13,8 +13,18 @@ return {
         floats = "transparent",
       },
       on_highlights = function(hl, _)
-        hl.WinSeparator = {
-          fg = "#555555",
+        hl.LineNr = { fg = "#3b4261" }
+        hl.LineNrAbove = { fg = "#5D6899" }
+        hl.LineNrBelow = { fg = "#5D6899" }
+        hl.WinSeparator = { fg = "#5D6899" }
+        hl.LspInlayHint = {
+          -- bg = "#24283c",
+          fg = "#7882B3",
+          italic = true,
+        }
+        hl.DiagnosticUnnecessary = {
+          -- fg = "#626BA6",
+          undercurl = true,
         }
       end,
     },
