@@ -1,0 +1,26 @@
+theme = FishTank
+command = /opt/homebrew/bin/fish --login --interactive
+background-opacity = 0.95
+unfocused-split-opacity = 0.5
+background-blur-radius = 20
+macos-titlebar-style = hidden
+
+# Keybindings
+keybind = clear
+keybind = ctrl+h=goto_split:left
+keybind = ctrl+j=goto_split:bottom
+keybind = ctrl+k=goto_split:top
+keybind = ctrl+l=goto_split:right
+keybind = ctrl+f>h=new_split:right
+keybind = ctrl+f>v=new_split:down
+keybind = opt+j=resize_split:down,20
+keybind = opt+k=resize_split:up,20
+keybind = opt+h=resize_split:left,20
+keybind = opt+l=resize_split:right,20
+keybind = ctrl+f>t=new_tab
+keybind = ctrl+f>r=reload_config
+keybind = ctrl+f>enter=toggle_split_zoom
+keybind = super+q=quit
+keybind = super+v=paste_from_clipboard
+keybind = super+c=copy_to_clipboard
+

@@ -20,8 +20,8 @@ style = "Oblique"
 family = "DejaVuSansM Nerd Font"
 style = "Regular"
 
-[shell]
-program = "/opt/homebrew/bin/fish"
+[terminal]
+shell = "/opt/homebrew/bin/fish"
 
 [window]
 decorations = "none"
