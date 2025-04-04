@@ -1,8 +1,6 @@
 # name: Zish
 
 function fish_prompt
-    printf ' \n'
-    printf ' \n'
     set_color -b 414540
     set_color -o blue
     printf '%s' (whoami)
@@ -13,6 +11,6 @@ function fish_prompt
 
     set_color normal
     set_color yellow
-    printf ' \n'
+    printf '\n> '
     set_color normal
 end

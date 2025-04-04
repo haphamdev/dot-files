@@ -118,7 +118,15 @@ fish_add_path $GOPATH/bin
 
 zoxide init fish --cmd j | source
 
-
 # Set color for fish command to make it highlighted
 set fish_color_command yellow --bold
 set fish_color_param yellow
+
+function add_newlines --on-event fish_postexec
+    if test "$argv[1]" != clear
+        echo ""
+        echo ""
+        echo ""
+        echo ""
+    end
+end
