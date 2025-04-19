@@ -76,35 +76,38 @@ function module.apply_to_config(config)
 		local max_length = 30
 		local cwd = pane:get_current_working_dir()
 		if cwd and cwd.file_path then
-			local gitDir = require("get-git-dir").getGitDir(cwd.file_path) .. "/.git"
-			local cmd = { "git", "--git-dir", gitDir, "branch", "--show-current" }
-			local success, branch, error = wezterm.run_child_process(cmd)
+			local gitRepoRoot = require("get-git-dir").getGitDir(cwd.file_path)
+			if gitRepoRoot then
+				local gitDir = gitRepoRoot .. "/.git"
+				local cmd = { "git", "--git-dir", gitDir, "branch", "--show-current" }
+				local success, branch, error = wezterm.run_child_process(cmd)
 
-			if success then
-				branch = string.gsub(branch, "\n", "")
-				if #branch > max_length then
-					branch = wezterm.truncate_right(branch, max_length - 3) .. "..."
+				if success then
+					branch = string.gsub(branch, "\n", "")
+					if #branch > max_length then
+						branch = wezterm.truncate_right(branch, max_length - 3) .. "..."
+					end
+
+					local getStatSuccess, changes, insertions, deletions = getGitDiffStats(cwd.file_path)
+					local statLine = ""
+					if getStatSuccess then
+						if changes then
+							statLine = statLine .. wezterm.nerdfonts.fa_exclamation_circle .. " " .. changes .. "  "
+						end
+						if insertions then
+							statLine = statLine .. wezterm.nerdfonts.fa_plus_circle .. " " .. insertions .. "  "
+						end
+						if deletions then
+							statLine = statLine .. wezterm.nerdfonts.fa_minus_circle .. " " .. deletions .. "  "
+						end
+					end
+
+					return utils.formatSegment({
+						text = statLine .. branch .. " " .. wezterm.nerdfonts.oct_git_branch,
+						bg = colors.secondaryBackground,
+						fg = colors.secondary,
+					})
 				end
-
-				local getStatSuccess, changes, insertions, deletions = getGitDiffStats(cwd.file_path)
-				local statLine = ""
-				if getStatSuccess then
-					if changes then
-						statLine = statLine .. wezterm.nerdfonts.fa_exclamation_circle .. " " .. changes .. "  "
-					end
-					if insertions then
-						statLine = statLine .. wezterm.nerdfonts.fa_plus_circle .. " " .. insertions .. "  "
-					end
-					if deletions then
-						statLine = statLine .. wezterm.nerdfonts.fa_minus_circle .. " " .. deletions .. "  "
-					end
-				end
-
-				return utils.formatSegment({
-					text = statLine .. branch .. " " .. wezterm.nerdfonts.oct_git_branch,
-					bg = colors.secondaryBackground,
-					fg = colors.secondary,
-				})
 			end
 		end
 		return utils.formatSegment({

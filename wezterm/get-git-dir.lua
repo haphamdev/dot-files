@@ -18,7 +18,7 @@ function module.getGitDir(path)
 
 	local count = 0
 	local error = false
-	while path ~= "/" and not exists(path .. "/.git") do
+	while path and path ~= "/" and not exists(path .. "/.git") do
 		path = path:match("(.*)/")
 		count = count + 1
 
