@@ -93,9 +93,6 @@ abbr -a psql /opt/homebrew/opt/libpq/bin/psql
 abbr -a pre 'pr e'
 abbr -a prc 'pr c'
 abbr -a pr 'pr cd'
-abbr -a fpe 'prfzf e'
-abbr -a fpc 'prfzf c'
-abbr -a fp 'prfzf cd'
 
 abbr -a glc './gradlew.local'
 abbr -a grd './gradlew'
