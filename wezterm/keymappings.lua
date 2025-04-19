@@ -142,6 +142,7 @@ function module.apply_to_config(config)
 
 		-- Copy mode
 		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+		{ key = "o", mods = "LEADER", action = act.ActivateLastTab },
 
 		-- Open dot-file tab
 		{
