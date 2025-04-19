@@ -11,7 +11,7 @@
 	autoSetupRemote = true
 
 [core]
-    pager = delta
+  pager = delta
 	autocrlf = input
 	editor = /opt/homebrew/bin/nvim
 
