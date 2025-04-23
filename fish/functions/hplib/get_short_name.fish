@@ -3,14 +3,14 @@ function get_short_name
 
     # Map of repo-name:short-name
     set -l mappings \
-        'repeat-shopping-cart:rpt-shopping-cart' \
-        'repeat-payment:rpt-payment' \
-        'repeat-tournament-entry-scores:rpt-tes-scores' \
-        'repeat-rewards:rpt-rewards' \
-        'xygaming_symfony:rpt-symfony' \
-        'repeat-mobile-aapp:rpt-mobile-app' \
-        'repeat-twitch-api:rpt-twitch-api' \
-        'repeat-orders:rpt-orders'
+        'repeat-shopping-cart:shopping-cart' \
+        'repeat-payment:payment' \
+        'repeat-tournament-entry-scores:tes-scores' \
+        'repeat-rewards:rewards' \
+        'xygaming_symfony:symfony' \
+        'repeat-mobile-aapp:mobile-app' \
+        'repeat-twitch-api:twitch-api' \
+        'repeat-orders:orders'
 
     for pair in $mappings
         set -l key (string split ':' $pair)[1]
