@@ -1,5 +1,5 @@
 function gco
-    git rev-parse --is-inside-work-tree 2> /dev/null 1>&2
+    git rev-parse --is-inside-work-tree 2>/dev/null 1>&2
     set -l git_error $status
     if test $git_error -ne 0
         echo 'Not in git repository'
@@ -10,7 +10,7 @@ function gco
     if test -n "$has_change"
         read -P "Stash current change (y/n)? " stash_change
 
-        if test $stash_change = 'y'
+        if test $stash_change = y
             git stash
         end
     end
@@ -21,8 +21,8 @@ function gco
         git for-each-ref --format='%(refname:short)' | fzf --height=40% --border | sed -E 's|origin/||' | read branch_name
     end
 
-    if test -z "$branch_name"
-        echo "Aborted or branch not found!"
+    if test $status -ne 0
+        echo "Cancelled or no branch was selected"
         return 1
     end
 

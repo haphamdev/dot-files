@@ -1,5 +1,5 @@
 #!/usr/local/bin/fish
-set -a fish_function_path $HOME/projects/dot-files/fish/functions/hplib
+set -a fish_function_path /Users/hapham/projects/personal/dot-files/fish/functions/hplib
 
 eval (/opt/homebrew/bin/brew shellenv)
 set -x JAVA_HOME (/usr/libexec/java_home -v 17.0.2)
