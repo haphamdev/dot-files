@@ -53,7 +53,13 @@ local workspaces = {
 		cwd = "/Users/hapham/projects/repeat",
 		tabs = {
 			{ name = "database", cwd = "/Users/hapham/projects/repeat" },
-			{ name = "repeat-payment", cwd = "/Users/hapham/projects/repeat/repeat-payment" },
+			{ name = "payment", cwd = "/Users/hapham/projects/repeat/repeat-payment" },
+			{ name = "shopping-cart", cwd = "/Users/hapham/projects/repeat/repeat-shopping-cart" },
+			{ name = "orders", cwd = "/Users/hapham/projects/repeat/repeat-orders" },
+			{ name = "symfony", cwd = "/Users/hapham/projects/repeat/xygaming_symfony" },
+			{ name = "rewards", cwd = "/Users/hapham/projects/repeat/repeat-rewards" },
+			{ name = "kafka-msg", cwd = "/Users/hapham/projects/repeat/kafka-message-types" },
+			{ name = "mobile-app", cwd = "/Users/hapham/projects/repeat/repeat-mobile-app" },
 		},
 	},
 }
