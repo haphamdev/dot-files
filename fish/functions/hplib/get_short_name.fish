@@ -8,9 +8,10 @@ function get_short_name
         'repeat-tournament-entry-scores:tes-scores' \
         'repeat-rewards:rewards' \
         'xygaming_symfony:symfony' \
-        'repeat-mobile-aapp:mobile-app' \
+        'repeat-mobile-app:mobile-app' \
         'repeat-twitch-api:twitch-api' \
-        'repeat-orders:orders'
+        'repeat-orders:orders' \
+        'repeat-game-statistics-api:stats-api'
 
     for pair in $mappings
         set -l key (string split ':' $pair)[1]

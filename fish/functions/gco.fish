@@ -10,6 +10,11 @@ function gco
     if test -n "$has_change"
         read -P "Stash current change (y/n)? " stash_change
 
+        if test $status -ne 0
+            echo Cancelled
+            return 1
+        end
+
         if test $stash_change = y
             git stash
         end
