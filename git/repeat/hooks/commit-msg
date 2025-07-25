@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# Get the commit message from the file passed as the first argument
+commit_msg_file="$1"
+commit_msg=$(cat "$commit_msg_file")
+
+if [[ "$commit_msg" == Merge\ branch* ]]; then
+  echo "Skipping commit-msg hook for merge commit."
+  exit 0
+fi
+
+if ! [[ "$commit_msg" =~ ^RPT-[0-9]+:\ .+ ]]; then
+  echo "Error: Commit message '$commit_msg' does not match the required format."
+  echo "Commit messages must be prefixed with 'RPT-xxxx: '"
+  echo "Example: 'RPT-1234: Filter user by status'"
+  exit 1
+fi
+
+exit 0
