@@ -11,7 +11,8 @@ function get_short_name
         'repeat-mobile-app:mobile-app' \
         'repeat-twitch-api:twitch-api' \
         'repeat-orders:orders' \
-        'repeat-game-statistics-api:stats-api'
+        'repeat-game-statistics-api:stats-api' \
+        'repeat-system-tests:system-tests'
 
     for pair in $mappings
         set -l key (string split ':' $pair)[1]
