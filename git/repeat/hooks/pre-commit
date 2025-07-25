@@ -1,0 +1,23 @@
+#!/bin/sh
+
+# Get the current branch name
+branch_name=$(git symbolic-ref --short -q HEAD)
+
+# Check if we could retrieve the branch name
+if [ -z "$branch_name" ]; then
+  echo "Error: Could not determine the current branch name."
+  exit 1
+fi
+
+if ! [[ "$branch_name" =~ ^(feature|bugfix|hotfix)/RPT-[0-9]+- ]]; then
+  echo "Error: Branch name '$branch_name' does not match the required format."
+  echo "Branch name must use one of the following patterns:"
+  echo "- feature/RPT-xxxx-more-description (example: feature/RPT-1234-find-user-by-name)" 
+  echo "- bugfix/RPT-xxxx-more-description (example: bugfix/RPT-56789-fix-user-loading-bug)"
+  echo "- hotfix/RPT-xxxx-more-description (example: hotfix/RPT-2345-fix-login-page-crash"
+  
+  exit 1
+fi
+
+exit 0
+

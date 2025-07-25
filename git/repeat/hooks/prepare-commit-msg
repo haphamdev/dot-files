@@ -1,0 +1,29 @@
+#!/bin/sh
+#
+# git prepare-commit-msg hook for automatically prepending an issue key
+# from the start of the current branch name to commit messages.
+
+# check if commit is merge commit or a commit ammend
+if [ $2 = "merge" ] || [ $2 = "commit" ]; then
+  exit
+fi
+
+ISSUE_NUMBER=$(git symbolic-ref --short -q HEAD | grep -Eo 'RPT-[0-9]+')
+if [ $? -ne 0 ]; then
+  echo "No issue key found"
+  # no issue key in branch, use the default message
+  exit
+fi
+
+# check if the commit message already starts with the issue number
+FIRST_LINE=$(head -n1 "$1")
+echo "$FIRST_LINE" | grep -q "^$ISSUE_NUMBER[: ]"
+if [ $? -eq 0 ]; then
+  # already prefixed
+  exit
+fi
+
+# issue key matched from branch prefix, prepend to commit message
+TEMP=$(mktemp /tmp/commitmsg-XXXXX)
+(echo "$ISSUE_NUMBER: $(cat $1)") >$TEMP
+cat $TEMP >$1
