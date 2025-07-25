@@ -12,6 +12,7 @@ set -x PATH $PATH '/usr/hapham/.skdman/bin'
 set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x PATH $PATH '/Users/hapham/.bun/bin'
 set -x PATH $PATH /opt/homebrew/opt/mysql-client@8.4/bin
+set -x PATH $PATH /Users/hapham/mongosh/bin
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
 set -x GPG_TTY `tty`
@@ -120,10 +121,32 @@ set fish_color_command yellow --bold
 set fish_color_param yellow
 
 function add_newlines --on-event fish_postexec
-    if test "$argv[1]" != clear
-        echo ""
-        echo ""
-        echo ""
-        echo ""
+    set -l last_command_status $status
+    if test "$argv[1]" = clear
+        # Do nothing
+        return
     end
+
+    echo
+    echo
+
+    # Check if the last command failed
+    if test $last_command_status -ne 0
+        set_color red
+        echo "🔥 Execution time: $__execution_time. Exit code: $last_command_status"
+    else
+        set_color green
+        echo "✅ Execution time: $__execution_time"
+    end
+    set_color brblack
+    set -l width (tput cols)
+    printf '%*s\n' $width '' | tr ' ' _
+
+    echo
+    echo
+    set_color normal
+end
+
+function pre_execution --on-event fish_preexec
+    set -g __execution_time (date "+%Y-%m-%d %H:%M:%S")
 end
