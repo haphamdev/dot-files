@@ -107,7 +107,7 @@ bind -M insert \cp history-search-backward
 bind -M insert \cn history-search-forward
 
 # In vi mode, jj to escape insert mode
-bind -M insert -m default jj backward-char force-repaint
+# bind -M insert -m default jj backward-char force-repaint
 
 fish_add_path /usr/local/opt/ruby/bin
 fish_add_path /usr/local/go/bin
