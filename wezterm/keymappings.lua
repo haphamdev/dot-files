@@ -146,6 +146,21 @@ function module.apply_to_config(config)
 
 		-- Open dot-file tab
 		{
+			key = "j",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({ name = "home" }),
+		},
+		{
+			key = "k",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({ name = "repeat" }),
+		},
+		{
+			key = "l",
+			mods = "LEADER",
+			action = act.SwitchToWorkspace({ name = "acconto" }),
+		},
+		{
 			key = ".",
 			mods = "LEADER",
 			action = act.Multiple({
