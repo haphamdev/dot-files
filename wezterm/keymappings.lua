@@ -197,13 +197,9 @@ function module.apply_to_config(config)
 				end),
 			}),
 		},
-		{
-			key = "l",
-			mods = "LEADER",
-			action = wezterm.action_callback(function(w, p)
-				require("test-script")
-			end),
-		},
+
+		-- Claude Code: Shift-Enter for new line
+		{ key = "Enter", mods = "SHIFT", action = wezterm.action({ SendString = "\x1b\r" }) },
 	}
 
 	config.key_tables = {
@@ -266,6 +262,23 @@ function module.apply_to_config(config)
 							wezterm.mux.rename_workspace(wezterm.mux.get_active_workspace(), line)
 						end
 					end),
+				}),
+			},
+
+			-- Split the pane horizontally.
+			-- New pane will be 1/3 of the screen width
+			{
+				key = "h",
+				action = wezterm.action.SplitPane({
+					direction = "Left",
+					size = { Percent = 33 },
+				}),
+			},
+			{
+				key = "l",
+				action = wezterm.action.SplitPane({
+					direction = "Right",
+					size = { Percent = 33 },
 				}),
 			},
 		},
