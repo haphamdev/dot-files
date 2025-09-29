@@ -8,7 +8,7 @@ function gco
 
     set -l has_change (git status --porcelain)
     if test -n "$has_change"
-        read -P "Stash current change (y/n)? " stash_change
+        read -P "Stash current change ('y' for Yes, otherwise, No)? " stash_change
 
         if test $status -ne 0
             echo Cancelled
