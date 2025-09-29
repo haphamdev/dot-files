@@ -6,7 +6,6 @@ return {
     event = { "WinLeave" },
   },
   { "rest-nvim/rest.nvim" },
-  { "nvim-treesitter/playground" },
   { "zdcthomas/yop.nvim" },
   {
     "haphamdev/copier.nvim",
