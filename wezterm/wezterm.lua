@@ -60,12 +60,15 @@ local workspaces = {
 			{ name = "kafka-msg", cwd = "/Users/hapham/projects/repeat/kafka-message-types" },
 			{ name = "mobile-app", cwd = "/Users/hapham/projects/repeat/repeat-mobile-app" },
 			{ name = "setup", cwd = "/Users/hapham/projects/repeat/services-docker" },
+			{ name = "system-test", cwd = "/Users/hapham/projects/repeat/repeat-system-tests" },
 		},
 	},
 	acconto = {
 		cwd = "/Users/hapham/projects/personal/acconto.ai",
 		tabs = {
-			{ name = "acconto", cwd = "/Users/hapham/projects/personal/acconto.ai" },
+			{ name = "root", cwd = "/Users/hapham/projects/personal/acconto.ai" },
+			{ name = "server", cwd = "/Users/hapham/projects/personal/acconto.ai/server" },
+			{ name = "react", cwd = "/Users/hapham/projects/personal/acconto.ai/React" },
 		},
 	},
 }
