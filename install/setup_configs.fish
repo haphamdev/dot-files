@@ -2,7 +2,7 @@
 
 mkdir -p $HOME/.config
 
-set dir_dot_files $HOME/projects/dot-files
+set dir_dot_files $HOME/projects/personal/dot-files
 set dir_config $HOME/.config
 
 # ============================================================================
@@ -43,7 +43,6 @@ function link_fish_config
     set -l sfile_fish_config $sdir_fish_config/config.fish
     set -l dfile_fish_config $ddir_fish_config/config.fish
 
-
     if symlink_not_exist $dfile_fish_config
         echo "Linking fish config..."
         mkdir $ddir_fish_config
@@ -57,7 +56,6 @@ end
 function link_fish_functions
     set -l sdir_fish_functions $sdir_fish_config/functions
     set -l ddir_fish_functions $ddir_fish_config/functions
-
 
     if symlink_not_exist $ddir_fish_functions
         echo "Linking fish functions..."
@@ -195,7 +193,6 @@ function link_gitconfig
         echo "Git config is linked already. Skip"
     end
 end
-
 
 link_fish_config
 link_fish_functions

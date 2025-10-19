@@ -30,5 +30,4 @@ else
 fi
 
 cd $HOME/projects/dot-files
-./install/install_tools.sh
 ./install/setup_configs.fish
