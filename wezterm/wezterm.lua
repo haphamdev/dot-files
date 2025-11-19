@@ -26,6 +26,7 @@ config.scrollback_lines = 5000
 config.default_workspace = "home"
 config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 config.status_update_interval = 2000
+config.default_cursor_style = "BlinkingBar"
 
 config.inactive_pane_hsb = {
 	saturation = 0.7,
