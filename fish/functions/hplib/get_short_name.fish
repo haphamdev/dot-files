@@ -5,13 +5,14 @@ function get_short_name
     set -l mappings \
         'repeat-shopping-cart:shopping-cart' \
         'repeat-payment:payment' \
-        'repeat-tournament-entry-scores:tes-scores' \
+        'repeat-tournament-entry-scores:te-scores' \
         'repeat-rewards:rewards' \
-        'xygaming_symfony:symfony' \
+        'repeat-web:web' \
         'repeat-mobile-app:mobile-app' \
         'repeat-twitch-api:twitch-api' \
         'repeat-orders:orders' \
         'repeat-game-statistics-api:stats-api' \
+        'repeat-notifications:notifications' \
         'repeat-system-tests:system-tests'
 
     for pair in $mappings
