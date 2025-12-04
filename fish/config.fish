@@ -2,7 +2,6 @@
 set -a fish_function_path /Users/hapham/projects/personal/dot-files/fish/functions/hplib
 
 eval (/opt/homebrew/bin/brew shellenv)
-set -x JAVA_HOME (/usr/libexec/java_home -v 17.0.2)
 set -x PATH $JAVA_HOME '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' $PATH
 set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH $PATH /usr/local/go/bin
@@ -11,11 +10,13 @@ set -x PATH $PATH '/Users/hapham/Library/Application Support/edgedb/bin'
 set -x PATH $PATH '/usr/hapham/.skdman/bin'
 set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x PATH $PATH '/Users/hapham/.bun/bin'
-set -x PATH $PATH /opt/homebrew/opt/mysql-client@8.4/bin
+set -x PATH $PATH /opt/homebrew/opt/mysql-client/bin
 set -x PATH $PATH /Users/hapham/mongosh/bin
+set -x PATH $PATH /Applications/WezTerm.app/Contents/MacOS
+set -x PATH $PATH $HOME/.local/bin
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
-set -x GPG_TTY `tty`
+set -x GPG_TTY (tty)
 set -x MANPAGER "sh -c 'col -bx | bat -l man -p'"
 
 set -x NVM_DIR "$HOME/.nvm"
