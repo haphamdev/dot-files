@@ -56,7 +56,7 @@ local workspaces = {
 			{ name = "db", cwd = "/Users/hapham/projects/repeat" },
 			{ name = "payment", cwd = "/Users/hapham/projects/repeat/repeat-payment" },
 			{ name = "challenge", cwd = "/Users/hapham/projects/repeat/challenge" },
-			{ name = "symfony", cwd = "/Users/hapham/projects/repeat/xygaming_symfony" },
+			{ name = "web", cwd = "/Users/hapham/projects/repeat/repeat-web" },
 			{ name = "rewards", cwd = "/Users/hapham/projects/repeat/repeat-rewards" },
 			{ name = "kafka-msg", cwd = "/Users/hapham/projects/repeat/kafka-message-types" },
 			{ name = "mobile-app", cwd = "/Users/hapham/projects/repeat/repeat-mobile-app" },

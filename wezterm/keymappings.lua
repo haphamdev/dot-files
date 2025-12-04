@@ -141,7 +141,7 @@ function module.apply_to_config(config)
 		},
 
 		-- Copy mode
-		{ key = "[", mods = "LEADER", action = act.ActivateCopyMode },
+		{ key = "p", mods = "LEADER", action = act.ActivateCopyMode },
 		{ key = "o", mods = "LEADER", action = act.ActivateLastTab },
 
 		-- Open dot-file tab
@@ -188,7 +188,7 @@ function module.apply_to_config(config)
 			action = act.QuickSelectArgs({
 				label = "Open URL",
 				patterns = {
-					"[%w._~:/?#@!$&*+-]+%.[%w._~:/?#@!$&*%%+-=]+",
+					"https?://\\S+",
 				},
 				action = wezterm.action_callback(function(win, pane)
 					local url = win:get_selection_text_for_pane(pane)
