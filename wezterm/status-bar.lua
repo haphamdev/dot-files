@@ -6,7 +6,7 @@ local module = {}
 function module.apply_to_config(config)
 	config.window_frame = {
 		font = require("wezterm").font({ family = "DejaVuSansM Nerd Font" }),
-		font_size = 14,
+		font_size = 12,
 		active_titlebar_bg = colors.statusBarBackground,
 	}
 

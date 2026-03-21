@@ -14,9 +14,16 @@ config.automatically_reload_config = false
 config.color_scheme = "Decaf (base16)"
 
 config.font = wezterm.font_with_fallback({
-	{ family = "DejaVuSansM Nerd Font", scale = 1.1 },
-	{ family = "JetBrains Mono", scale = 1.1 },
+	-- { family = "Monaspace Argon NF", scale = 1 },
+	-- { family = "ComicShannsMono Nerd Font", scale = 1.1 },
+	-- { family = "DejaVuSansM Nerd Font", scale = 1 },
+	{ family = "FiraCode Nerd Font Mono", scale = 1 },
+	-- { family = "MesloLGL Nerd Font Mono", scale = 1 },
+	-- { family = "IntoneMono Nerd Font", scale = 1.1 },
+	-- { family = "Hasklug Nerd Font Mono", scale = 1.1 },
+	{ family = "JetBrainsMonoNL Nerd Font", scale = 1 },
 })
+config.font_size = 14
 
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 5
@@ -27,6 +34,7 @@ config.default_workspace = "home"
 config.default_prog = { "/opt/homebrew/bin/fish", "-l" }
 config.status_update_interval = 2000
 config.default_cursor_style = "BlinkingBar"
+-- config.show_close_tab_button_in_tabs = false
 
 config.inactive_pane_hsb = {
 	saturation = 0.7,
@@ -67,8 +75,7 @@ local workspaces = {
 	acconto = {
 		cwd = "/Users/hapham/projects/personal/acconto.ai",
 		tabs = {
-			{ name = "root", cwd = "/Users/hapham/projects/personal/acconto.ai" },
-			{ name = "server", cwd = "/Users/hapham/projects/personal/acconto.ai/server" },
+			{ name = "server", cwd = "/Users/hapham/projects/personal/acconto.ai/server-nestjs" },
 			{ name = "react", cwd = "/Users/hapham/projects/personal/acconto.ai/React" },
 		},
 	},
