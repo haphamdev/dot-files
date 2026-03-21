@@ -38,7 +38,7 @@ set -x AWS_VAULT_KEYCHAIN_NAME 12h
 set -gx PNPM_HOME /Users/hapham/Library/pnpm
 set -gx PATH "$PNPM_HOME" $PATH
 
-# fish_vi_key_bindings
+fish_vi_key_bindings
 
 abbr -a rl 'source ~/.config/fish/config.fish'
 abbr -a x exit
@@ -144,7 +144,7 @@ function add_newlines --on-event fish_postexec
     end
     set_color brblack
     set -l width (tput cols)
-    printf '%*s\n' $width '' | tr ' ' _
+    printf '%*s\n' $width '' | tr ' ' -
 
     echo
     echo
