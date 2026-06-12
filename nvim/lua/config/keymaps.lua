@@ -22,7 +22,7 @@ map("n", "<leader>h", ":<C-u>vsplit<CR>")
 map("i", "<C-u>", "<esc>mqg~iw`qa")
 
 -- <leader>fp to copy the path of current file to clipboard
-map("n", "<leader>fp", [[:let @* = expand('%')<CR>]])
+map("n", "<leader>fp", [[:let @* = expand('%:.')<CR>]])
 
 -- x to delete a character without saving it in the " register
 map("n", "x", '"_x', { silent = true })
