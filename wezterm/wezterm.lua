@@ -23,7 +23,7 @@ config.font = wezterm.font_with_fallback({
 	-- { family = "Hasklug Nerd Font Mono", scale = 1.1 },
 	{ family = "JetBrainsMonoNL Nerd Font", scale = 1 },
 })
-config.font_size = 14
+config.font_size = 13
 
 config.window_background_opacity = 0.95
 config.macos_window_background_blur = 5

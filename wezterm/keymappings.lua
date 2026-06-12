@@ -4,7 +4,7 @@ local act = wezterm.action
 local module = {}
 
 function module.apply_to_config(config)
-	config.leader = { key = "f", mods = "CTRL", timeout_milliseconds = 3000 }
+	config.leader = { key = "F19", mods = "NONE", timeout_milliseconds = 1000 }
 
 	config.keys = {
 		{ key = "f", mods = "LEADER", action = act.SendKey({ key = "f", mods = "CTRL" }) },
