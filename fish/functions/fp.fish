@@ -32,7 +32,8 @@ function fp
         for i in (seq (count $menu))
             if test "$menu[$i]" = "$selected"
                 cd "$paths[$i]"
-                wezterm cli set-tab-title (get_short_name (basename $selected))
+                set current_tab_id (herdr tab list | jq -r '.result.tabs[] | select(.focused) | .tab_id')
+                herdr tab rename $current_tab_id (get_short_name (basename $selected)) >/dev/null
                 return
             end
         end

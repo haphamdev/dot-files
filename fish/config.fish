@@ -154,3 +154,8 @@ end
 function pre_execution --on-event fish_preexec
     set -g __execution_time (date "+%Y-%m-%d %H:%M:%S")
 end
+
+if status is-interactive
+    # stuff that should only run in an interactive shell
+    tv init fish | source
+end
