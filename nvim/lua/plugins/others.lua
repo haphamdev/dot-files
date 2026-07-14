@@ -1,5 +1,4 @@
 return {
-  { "mrjones2014/smart-splits.nvim" },
   {
     "nvim-zh/colorful-winsep.nvim",
     config = true,
