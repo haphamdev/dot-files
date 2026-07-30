@@ -2022,7 +2022,7 @@ working-directory =
 # 
 # Key tables are available since Ghostty 1.3.0.
 keybind = alt+backspace=text:\x1b\x7f
-keybind = shift+enter=text:\n
+keybind = shift+enter=text:\x1b\r
 
 # Remap modifier keys within Ghostty. This allows you to swap or reassign
 # modifier keys at the application level without affecting system-wide
