@@ -142,11 +142,6 @@ function add_newlines --on-event fish_postexec
         set_color green
         echo "✅ Execution time: $__execution_time"
     end
-    set_color brblack
-    set -l width (tput cols)
-    printf '%*s\n' $width '' | tr ' ' -
-
-    echo
     echo
     set_color normal
 end
