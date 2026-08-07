@@ -14,8 +14,7 @@ set -x PATH $PATH /opt/homebrew/opt/mysql-client/bin
 set -x PATH $PATH /Users/hapham/mongosh/bin
 set -x PATH $PATH /Applications/WezTerm.app/Contents/MacOS
 set -x PATH $PATH $HOME/.local/bin
-set -x PATH $PATH /opt/homebrew/opt/php@8.4/bin
-set -x PATH $PATH /opt/homebrew/opt/php@8.4/sbin
+set -x PATH $PATH $HOME/.config/composer/vendor/bin
 
 set -x LC_AL en_US.UTF-8
 set -x LANG en_US.UTF-8
