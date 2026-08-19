@@ -4,7 +4,6 @@ return {
     config = true,
     event = { "WinLeave" },
   },
-  { "rest-nvim/rest.nvim" },
   { "zdcthomas/yop.nvim" },
   {
     "haphamdev/copier.nvim",
