@@ -2,17 +2,11 @@
 set -a fish_function_path /Users/hapham/projects/personal/dot-files/fish/functions/hplib
 
 eval (/opt/homebrew/bin/brew shellenv)
-set -x PATH $JAVA_HOME '/Users/hapham/.config/kotlin-language-server/server/build/install/server/bin' $PATH
 set -x PATH $PATH $HOME/.cargo/bin
-set -x PATH $PATH /usr/local/go/bin
-set -x PATH $PATH (go env GOPATH)/bin
-set -x PATH $PATH '/Users/hapham/Library/Application Support/edgedb/bin'
-set -x PATH $PATH '/usr/hapham/.skdman/bin'
 set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x PATH $PATH '/Users/hapham/.bun/bin'
 set -x PATH $PATH /opt/homebrew/opt/mysql-client/bin
 set -x PATH $PATH /Users/hapham/mongosh/bin
-set -x PATH $PATH /Applications/WezTerm.app/Contents/MacOS
 set -x PATH $PATH $HOME/.local/bin
 set -x PATH $PATH $HOME/.config/composer/vendor/bin
 
@@ -153,3 +147,5 @@ if status is-interactive
     # stuff that should only run in an interactive shell
     tv init fish | source
 end
+
+load_nvm >/dev/stderr
