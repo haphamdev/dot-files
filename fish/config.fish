@@ -6,6 +6,7 @@ set -x PATH $PATH $HOME/.cargo/bin
 set -x PATH '/Users/hapham/.asdf/installs/python/3.11.6/bin' $PATH
 set -x PATH $PATH '/Users/hapham/.bun/bin'
 set -x PATH $PATH /opt/homebrew/opt/mysql-client/bin
+set -x PATH $PATH /opt/homebrew/opt/libpq/bin
 set -x PATH $PATH /Users/hapham/mongosh/bin
 set -x PATH $PATH $HOME/.local/bin
 set -x PATH $PATH $HOME/.config/composer/vendor/bin
