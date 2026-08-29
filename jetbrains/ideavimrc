@@ -9,3 +9,6 @@ map L $
 set number relativenumber
 set ignorecase
 set so=5
+
+nmap s <Action>(flash.search)
+xmap s <Action>(flash.search)
